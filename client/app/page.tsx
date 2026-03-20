@@ -1,7 +1,11 @@
-import React from "react";
+import IRIS from "./Landing/IRIS";
 
 const page = () => {
-  return <div>page</div>;
+  return (
+    <>
+      <IRIS />
+    </>
+  );
 };
 
 export default page;
