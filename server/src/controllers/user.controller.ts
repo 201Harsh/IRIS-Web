@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import UserModel from "../models/user-model.js";
 import { CreateUserService } from "../services/user.service.js";
 import {
+  clearRefreshCookie,
   generateTokens,
   setRefreshCookie,
   verifySecureData,
@@ -206,7 +207,39 @@ export const GetUser = async (req: Request, res: Response) => {
 
     return res.status(200).json({
       message: "User fetched successfully",
-      user,
+      user: {
+        name: user.name,
+        email: user.email,
+        tier: user.tier,
+        verified: user.verified,
+        hwids: user.hwids,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      },
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const LogoutUser = async (req: Request, res: Response) => {
+  try {
+    const userId = (req.user as any).id;
+
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    clearRefreshCookie(res);
+
+    return res.status(200).json({
+      message: "User logged out successfully",
     });
   } catch (error: any) {
     return res.status(500).json({

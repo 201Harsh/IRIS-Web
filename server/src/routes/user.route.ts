@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   GetUser,
   LoginUser,
+  LogoutUser,
   registerUser,
   VerifyEmail,
 } from "../controllers/user.controller.js";
@@ -62,5 +63,7 @@ userRouter.post(
 );
 
 userRouter.get("/me", AuthMiddleware, GetUser);
+
+userRouter.post("/logout", AuthMiddleware, LogoutUser);
 
 export default userRouter;
