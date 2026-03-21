@@ -42,7 +42,6 @@ const UserSchema: Schema = new Schema(
       type: Boolean,
       default: false,
     },
-    // verifyToken is used for the email link, NOT a JWT!
     verifyToken: {
       type: String,
       select: false,
@@ -51,7 +50,6 @@ const UserSchema: Schema = new Schema(
       type: Date,
       select: false,
     },
-    // Removed 'unique: true' so multiple users can log in from the same cybercafe/shared PC
     hwids: [
       {
         type: String,
@@ -59,7 +57,6 @@ const UserSchema: Schema = new Schema(
         trim: true,
       },
     ],
-    // The master killswitch for all active sessions
     tokenVersion: {
       type: Number,
       default: 1,
