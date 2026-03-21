@@ -1,9 +1,11 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IUser extends Document {
+  name: string;
   email: string;
   password: string;
   tier: "FREE" | "PRO";
+  verified: boolean;
   hwids: string[];
   tokenVersion: number;
   createdAt: Date;
@@ -12,6 +14,10 @@ export interface IUser extends Document {
 
 const UserSchema: Schema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -22,11 +28,17 @@ const UserSchema: Schema = new Schema(
     password: {
       type: String,
       required: true,
+      select: false,
+      minlength: 6,
     },
     tier: {
       type: String,
       enum: ["FREE", "PRO"],
       default: "FREE",
+    },
+    verified: {
+      type: Boolean,
+      default: false,
     },
     // This array  the Motherboard/CPU IDs. Max length will be 5.
     hwids: [
@@ -49,4 +61,6 @@ const UserSchema: Schema = new Schema(
   },
 );
 
-export const User = mongoose.model<IUser>("User", UserSchema);
+const UserModel = mongoose.model<IUser>("User", UserSchema);
+
+export default UserModel;
