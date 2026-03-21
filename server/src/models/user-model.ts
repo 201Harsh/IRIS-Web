@@ -6,8 +6,8 @@ export interface IUser extends Document {
   password: string;
   tier: "FREE" | "PRO";
   verified: boolean;
-  verifyToken?: string;
-  verifyTokenExpiry?: Date;
+  verifyToken?: string | null;
+  verifyTokenExpiry?: Date | null;
   hwids: string[];
   tokenVersion: number;
   createdAt: Date;

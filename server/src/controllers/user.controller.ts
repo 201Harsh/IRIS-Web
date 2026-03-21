@@ -81,6 +81,51 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
+export const VerifyEmail = async (req: Request, res: Response) => {
+  try {
+    const { token } = req.body;
+
+    if (!token || typeof token !== "string") {
+      return res
+        .status(400)
+        .json({ message: "Verification token is required." });
+    }
+
+    const user = await UserModel.findOne({
+      verifyToken: token,
+      verifyTokenExpiry: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res.status(400).json({
+        message:
+          "Invalid or expired verification token. Please register again.",
+      });
+    }
+
+    user.verified = true;
+
+    user.verifyToken = null;
+    user.verifyTokenExpiry = null;
+
+    const tokens = generateTokens(user._id, user.tokenVersion);
+    setRefreshCookie(res, tokens.refreshToken);
+
+    await user.save();
+
+    return res.status(200).json({
+      message: "Email verified successfully. You are now logged in.",
+      user,
+      accessToken: tokens.accessToken,
+    });
+  } catch (error: any) {
+    console.error("Verify Error:", error);
+    return res.status(500).json({
+      message: "Internal Server Error during verification.",
+    });
+  }
+};
+
 export const LoginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
@@ -104,6 +149,12 @@ export const LoginUser = async (req: Request, res: Response) => {
       });
     }
 
+    if (!user.verified) {
+      return res.status(401).json({
+        message: "Verify your email to login!",
+      });
+    }
+
     const isPasswordValid = await verifySecureData(password, user.password);
 
     if (!isPasswordValid) {
@@ -120,7 +171,12 @@ export const LoginUser = async (req: Request, res: Response) => {
 
     return res.status(200).json({
       message: "User logged in successfully",
-      user,
+      user: {
+        name: user.name,
+        email: user.email,
+        tier: user.tier,
+        verified: user.verified,
+      },
       token,
     });
   } catch (error: any) {

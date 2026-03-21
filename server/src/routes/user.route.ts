@@ -3,6 +3,7 @@ import {
   GetUser,
   LoginUser,
   registerUser,
+  VerifyEmail,
 } from "../controllers/user.controller.js";
 import { body } from "express-validator";
 import ValidateData from "../middlewares/validate-middleware.js";
@@ -27,6 +28,19 @@ userRouter.post(
   ],
   ValidateData,
   registerUser,
+);
+
+userRouter.post(
+  "/verify",
+  [
+    body("token")
+      .notEmpty()
+      .withMessage("Verification token is required")
+      .isString()
+      .withMessage("Verification token must be a string"),
+  ],
+  ValidateData,
+  VerifyEmail,
 );
 
 userRouter.post(
