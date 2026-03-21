@@ -1,9 +1,13 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IUser extends Document {
+  name: string;
   email: string;
   password: string;
   tier: "FREE" | "PRO";
+  verified: boolean;
+  verifyToken?: string; // Added for secure email clicks
+  verifyTokenExpiry?: Date; // Added so links expire
   hwids: string[];
   tokenVersion: number;
   createdAt: Date;
@@ -12,6 +16,10 @@ export interface IUser extends Document {
 
 const UserSchema: Schema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -22,23 +30,36 @@ const UserSchema: Schema = new Schema(
     password: {
       type: String,
       required: true,
+      select: false,
+      minlength: 6,
     },
     tier: {
       type: String,
       enum: ["FREE", "PRO"],
       default: "FREE",
     },
-    // This array  the Motherboard/CPU IDs. Max length will be 5.
+    verified: {
+      type: Boolean,
+      default: false,
+    },
+    // verifyToken is used for the email link, NOT a JWT!
+    verifyToken: {
+      type: String,
+      select: false,
+    },
+    verifyTokenExpiry: {
+      type: Date,
+      select: false,
+    },
+    // Removed 'unique: true' so multiple users can log in from the same cybercafe/shared PC
     hwids: [
       {
         type: String,
-        required: true,
-        unique: true,
         lowercase: true,
         trim: true,
       },
     ],
-    // If user clicks 'Logout All', we increment this number. All old tokens die instantly.
+    // The master killswitch for all active sessions
     tokenVersion: {
       type: Number,
       default: 1,
@@ -49,4 +70,6 @@ const UserSchema: Schema = new Schema(
   },
 );
 
-export const User = mongoose.model<IUser>("User", UserSchema);
+const UserModel = mongoose.model<IUser>("User", UserSchema);
+
+export default UserModel;
