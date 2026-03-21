@@ -72,7 +72,12 @@ export const registerUser = async (req: Request, res: Response) => {
 
     return res.status(201).json({
       message: "User registered successfully",
-      user,
+      user: {
+        name: user.name,
+        email: user.email,
+        tier: user.tier,
+        verified: user.verified,
+      },
     });
   } catch (error: any) {
     return res.status(500).json({
@@ -115,11 +120,15 @@ export const VerifyEmail = async (req: Request, res: Response) => {
 
     return res.status(200).json({
       message: "Email verified successfully. You are now logged in.",
-      user,
+      user: {
+        name: user.name,
+        email: user.email,
+        tier: user.tier,
+        verified: user.verified,
+      },
       accessToken: tokens.accessToken,
     });
   } catch (error: any) {
-    console.error("Verify Error:", error);
     return res.status(500).json({
       message: "Internal Server Error during verification.",
     });
@@ -165,9 +174,6 @@ export const LoginUser = async (req: Request, res: Response) => {
 
     const token = generateTokens(user._id, user.tokenVersion);
     setRefreshCookie(res, token.refreshToken);
-
-    user.tokenVersion += 1;
-    await user.save();
 
     return res.status(200).json({
       message: "User logged in successfully",
