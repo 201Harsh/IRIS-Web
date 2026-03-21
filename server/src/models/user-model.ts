@@ -6,6 +6,8 @@ export interface IUser extends Document {
   password: string;
   tier: "FREE" | "PRO";
   verified: boolean;
+  verifyToken?: string; // Added for secure email clicks
+  verifyTokenExpiry?: Date; // Added so links expire
   hwids: string[];
   tokenVersion: number;
   createdAt: Date;
@@ -40,17 +42,24 @@ const UserSchema: Schema = new Schema(
       type: Boolean,
       default: false,
     },
-    // This array  the Motherboard/CPU IDs. Max length will be 5.
+    // verifyToken is used for the email link, NOT a JWT!
+    verifyToken: {
+      type: String,
+      select: false,
+    },
+    verifyTokenExpiry: {
+      type: Date,
+      select: false,
+    },
+    // Removed 'unique: true' so multiple users can log in from the same cybercafe/shared PC
     hwids: [
       {
         type: String,
-        required: true,
-        unique: true,
         lowercase: true,
         trim: true,
       },
     ],
-    // If user clicks 'Logout All', we increment this number. All old tokens die instantly.
+    // The master killswitch for all active sessions
     tokenVersion: {
       type: Number,
       default: 1,
