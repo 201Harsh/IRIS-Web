@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   GetUser,
   LoginUser,
+  LogoutAllusers,
   LogoutUser,
   registerUser,
   VerifyEmail,
@@ -65,5 +66,7 @@ userRouter.post(
 userRouter.get("/me", AuthMiddleware, GetUser);
 
 userRouter.post("/logout", AuthMiddleware, LogoutUser);
+
+userRouter.post("/logout-all", AuthMiddleware, LogoutAllusers);
 
 export default userRouter;

@@ -247,3 +247,32 @@ export const LogoutUser = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const LogoutAllusers = async (req: Request, res: Response) => {
+  try {
+    const userId = (req.user as any).id;
+
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    user.tokenVersion += 1;
+    user.hwids = [];
+
+    await user.save();
+
+    clearRefreshCookie(res);
+
+    return res.status(200).json({
+      message: "Security Alert: All devices have been logged out.",
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
