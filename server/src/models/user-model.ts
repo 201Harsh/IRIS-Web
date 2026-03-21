@@ -6,8 +6,8 @@ export interface IUser extends Document {
   password: string;
   tier: "FREE" | "PRO";
   verified: boolean;
-  verifyToken?: string; // Added for secure email clicks
-  verifyTokenExpiry?: Date; // Added so links expire
+  verifyToken?: string;
+  verifyTokenExpiry?: Date;
   hwids: string[];
   tokenVersion: number;
   createdAt: Date;

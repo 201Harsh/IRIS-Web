@@ -19,6 +19,32 @@ export const registerUser = async (req: Request, res: Response) => {
       });
     }
 
+    const ValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (!ValidEmail.test(email)) {
+      return res.status(406).json({
+        message: "Invalid Email Address!",
+      });
+    }
+
+    const AllowedEmails: Array<any> = [
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "live.com",
+      "icloud.com",
+      "mail.com",
+      "protonmail.com",
+    ];
+
+    if (!AllowedEmails.includes(email.split("@")[1])) {
+      return res.status(406).json({
+        message:
+          "Only standard email providers (Gmail, Outlook, etc.) are allowed.",
+      });
+    }
+
     const ifUser = await UserModel.findOne({ email });
 
     if (ifUser) {
@@ -43,9 +69,9 @@ export const registerUser = async (req: Request, res: Response) => {
       message: "User registered successfully",
       user,
     });
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).json({
-      message: "Internal Server Error",
+      message: error.message,
     });
   }
 };
