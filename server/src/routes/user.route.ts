@@ -1,7 +1,12 @@
 import { Router } from "express";
-import { LoginUser, registerUser } from "../controllers/user.controller.js";
+import {
+  GetUser,
+  LoginUser,
+  registerUser,
+} from "../controllers/user.controller.js";
 import { body } from "express-validator";
 import ValidateData from "../middlewares/validate-middleware.js";
+import { AuthMiddleware } from "../middlewares/auth-middleware.js";
 
 const userRouter = Router();
 
@@ -41,5 +46,7 @@ userRouter.post(
   ValidateData,
   LoginUser,
 );
+
+userRouter.get("/me", AuthMiddleware, GetUser);
 
 export default userRouter;
