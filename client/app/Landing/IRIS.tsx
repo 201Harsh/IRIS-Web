@@ -47,7 +47,7 @@ const IRIS = () => {
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
       <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.1)_0%,_transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_50%)]" />
 
         <h1
           ref={heroTextRef}
@@ -59,7 +59,7 @@ const IRIS = () => {
           <span className="text-xs uppercase tracking-[0.3em] text-[#10b981]">
             Scroll to override
           </span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-[#10b981] to-transparent animate-pulse" />
+          <div className="w-px h-12 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
         </div>
       </div>
 
@@ -132,7 +132,7 @@ const IRIS = () => {
           </div>
         </section>
 
-        <section className="min-h-[50vh] flex flex-col justify-center items-center px-6 border-b border-[#10b981]/20 bg-gradient-to-b from-transparent to-[#10b981]/10">
+        <section className="min-h-[50vh] flex flex-col justify-center items-center px-6 border-b border-[#10b981]/20 bg-linear-to-b from-transparent to-[#10b981]/10">
           <h2 className="text-3xl md:text-5xl font-black mb-8">
             Ready to override?
           </h2>
