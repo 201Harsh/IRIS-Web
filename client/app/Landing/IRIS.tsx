@@ -10,128 +10,131 @@ gsap.registerPlugin(ScrollTrigger);
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
-  const layer1Ref = useRef<HTMLDivElement>(null);
-  const layer2Ref = useRef<HTMLDivElement>(null);
-  const layer3Ref = useRef<HTMLDivElement>(null);
+  const layer1Ref = useRef<HTMLDivElement>(null); // Grid Layer
+  const layer2Ref = useRef<HTMLDivElement>(null); // Circle 1
+  const layer3Ref = useRef<HTMLDivElement>(null); // Circle 2
   const section2Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // Mouse Move Parallax
+      // Parallax Logic
       const handleMouseMove = (e: MouseEvent) => {
         const { clientX, clientY } = e;
-        const xPos = (clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-        const yPos = (clientY / window.innerHeight - 0.5) * 2; // -1 to 1
+        const xPos = (clientX / window.innerWidth - 0.5) * 2;
+        const yPos = (clientY / window.innerHeight - 0.5) * 2;
 
         gsap.to(layer1Ref.current, {
-          x: xPos * -20,
-          y: yPos * -20,
-          ease: "power2.out",
-          duration: 1,
+          x: xPos * -15,
+          y: yPos * -15,
+          duration: 1.5,
+          ease: "sine.out",
         });
         gsap.to(layer2Ref.current, {
-          x: xPos * 40,
-          y: yPos * 40,
-          ease: "power2.out",
-          duration: 1,
-        });
-        gsap.to(layer3Ref.current, {
-          x: xPos * -60,
-          y: yPos * -60,
-          ease: "power2.out",
-          duration: 1,
-        });
-        gsap.to(textRef.current, {
           x: xPos * 30,
           y: yPos * 30,
-          ease: "power2.out",
+          duration: 1.5,
+          ease: "sine.out",
+        });
+        gsap.to(layer3Ref.current, {
+          x: xPos * -50,
+          y: yPos * -50,
+          duration: 1.5,
+          ease: "sine.out",
+        });
+        gsap.to(textRef.current, {
+          x: xPos * 20,
+          y: yPos * 20,
           duration: 1,
+          ease: "power2.out",
         });
       };
 
       window.addEventListener("mousemove", handleMouseMove);
 
-      // Scroll Animations
+      // Scroll Fade IRIS
       gsap.to(textRef.current, {
-        y: 200,
+        scale: 0.8,
         opacity: 0,
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: ".hero",
           start: "top top",
           end: "bottom top",
           scrub: true,
         },
       });
 
-      gsap.from(section2Ref.current, {
-        opacity: 0,
-        y: 100,
-        scrollTrigger: {
-          trigger: section2Ref.current,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: true,
-        },
-      });
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
+      return () => window.removeEventListener("mousemove", handleMouseMove);
     },
     { scope: containerRef },
   );
 
   return (
     <div
-      className="bg-black min-h-[200vh] text-white overflow-hidden relative"
+      className="bg-[#050505] min-h-[300vh] text-white selection:bg-[#10b981] selection:text-black"
       ref={containerRef}
     >
       <Header />
 
       {/* Hero Section */}
-      <div className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-        {/* Parallax Layers */}
+      <div className="hero relative w-full h-screen flex justify-center items-center overflow-hidden">
+        {/* NEON GRID LAYER */}
         <div
           ref={layer1Ref}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-900/30 via-black to-black opacity-60 pointer-events-none"
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+          }}
         />
 
+        {/* GLOW CIRCLES */}
         <div
           ref={layer2Ref}
-          className="absolute w-[60vw] h-[60vw] rounded-full border border-white/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute w-[70vw] h-[70vw] rounded-full border border-[#10b981]/10 pointer-events-none blur-sm"
         />
-
         <div
           ref={layer3Ref}
-          className="absolute w-[40vw] h-[40vw] rounded-full border border-white/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute w-[40vw] h-[40vw] rounded-full border border-[#10b981]/30 pointer-events-none shadow-[0_0_100px_rgba(16,185,129,0.1)]"
         />
 
-        <div className="z-10 text-center pointer-events-none flex flex-col items-center">
+        <div className="z-10 text-center flex flex-col items-center">
           <h1
             ref={textRef}
-            className="text-[12vw] font-black tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40"
+            className="text-[18vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_30px_rgba(16,185,129,0.4)]"
           >
             IRIS
           </h1>
-          <p className="mt-6 text-xl text-white/50 tracking-widest uppercase animate-pulse">
-            Scroll to explore
+          <div className="mt-4 px-6 py-1 bg-[#10b981] text-black text-[10px] font-black uppercase tracking-[0.5em]">
+            Vital Studio's Artificial Intelligence
+          </div>
+          <p className="mt-10 text-[10px] text-[#10b981] font-mono tracking-widest uppercase animate-pulse">
+            [ System Override Ready ]
           </p>
         </div>
       </div>
 
-      {/* Content Section */}
+      {/* Feature Section (Placeholder for your schematics) */}
       <div
         ref={section2Ref}
-        className="h-screen w-full flex flex-col items-center justify-center border-t border-white/10 px-8 text-center"
+        className="min-h-screen w-full flex flex-col items-center justify-center relative p-20"
       >
-        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-          Discover the Unknown
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#10b981]/50 to-transparent" />
+
+        <h2 className="text-6xl font-black mb-10 text-center uppercase tracking-tighter">
+          Neural <span className="text-[#10b981]">Core</span>
         </h2>
-        <p className="max-w-2xl text-xl text-gray-400">
-          This section appears as you scroll down, and the header reacts to your
-          scroll direction. Scroll up to see the header re-appear, or scroll
-          down to hide it.
+        <p className="max-w-xl text-center text-gray-500 font-mono text-sm leading-relaxed">
+          Integrating deep-level kernel hooks with Vital Studio's architecture.
+          IRIS is not a chatbot; it is a system-level extension of your digital
+          reality.
         </p>
+
+        {/* Here is where you would put the Transparent Schematic Image we talked about */}
+        <div className="mt-20 w-[60%] aspect-video border border-[#10b981]/20 bg-[#10b981]/5 flex items-center justify-center">
+          <span className="text-[#10b981] font-mono animate-pulse">
+            Waiting for Schematic Asset...
+          </span>
+        </div>
       </div>
     </div>
   );

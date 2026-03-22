@@ -10,22 +10,19 @@ const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const showAnim = gsap.from(headerRef.current, {
-      yPercent: -100,
-      paused: true,
-      duration: 0.3,
-      ease: "power2.out"
-    }).progress(1);
+    const showAnim = gsap
+      .from(headerRef.current, {
+        yPercent: -100,
+        paused: true,
+        duration: 0.4,
+        ease: "power3.out",
+      })
+      .progress(1);
 
     ScrollTrigger.create({
       start: "top top",
-      end: "max",
       onUpdate: (self) => {
-        if (self.direction === -1) {
-          showAnim.play();
-        } else {
-          showAnim.reverse();
-        }
+        self.direction === -1 ? showAnim.play() : showAnim.reverse();
       },
     });
   });
@@ -33,14 +30,44 @@ const Header = () => {
   return (
     <div
       ref={headerRef}
-      className="fixed top-0 left-0 w-full p-6 flex justify-between items-center bg-black/50 backdrop-blur-md z-50 text-white"
+      className="fixed top-0 left-0 w-full p-6 flex justify-between items-center bg-black/80 backdrop-blur-xl z-[100] border-b border-[#10b981]/20 text-white"
     >
-      <div className="text-xl font-bold tracking-widest">IRIS</div>
-      <nav className="flex gap-6 text-sm uppercase tracking-wider">
-        <a href="#about" className="hover:text-gray-400 transition-colors">About</a>
-        <a href="#work" className="hover:text-gray-400 transition-colors">Work</a>
-        <a href="#contact" className="hover:text-gray-400 transition-colors">Contact</a>
+      <div className="flex items-center gap-2 group cursor-pointer">
+        <div className="w-8 h-8 rounded-full border-2 border-[#10b981] group-hover:shadow-[0_0_15px_#10b981] transition-all duration-300 flex items-center justify-center">
+          <div className="w-2 h-2 bg-[#10b981] rounded-full animate-pulse" />
+        </div>
+        <span className="text-2xl font-black tracking-tighter text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+          IRIS
+        </span>
+      </div>
+
+      <nav className="hidden md:flex gap-10 text-xs font-bold uppercase tracking-[0.2em]">
+        <a
+          href="#about"
+          className="hover:text-[#10b981] transition-all duration-300 relative group"
+        >
+          About
+          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+        </a>
+        <a
+          href="#work"
+          className="hover:text-[#10b981] transition-all duration-300 relative group"
+        >
+          Systems
+          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+        </a>
+        <a
+          href="#contact"
+          className="hover:text-[#10b981] transition-all duration-300 relative group"
+        >
+          Terminal
+          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+        </a>
       </nav>
+
+      <div className="px-4 py-2 border border-[#10b981]/50 text-[#10b981] text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-[#10b981] hover:text-black transition-all cursor-pointer">
+        Connect to Core
+      </div>
     </div>
   );
 };
