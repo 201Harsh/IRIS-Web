@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,12 +32,17 @@ const Header = () => {
   return (
     <div
       ref={headerRef}
-      className="fixed top-5 left-1/4 w-1/2 p-6 flex justify-between items-center bg-black/80 backdrop-blur-xl z-100 border-b border-[#10b981]/20 text-white"
+      className="fixed top-5 left-1/4 w-1/2 p-6 flex justify-between items-center bg-black/30 backdrop-blur-sm z-100 border-b border-[#10b981]/20 text-white"
     >
       <div className="flex items-center gap-2 group cursor-pointer">
-        <div className="w-8 h-8 rounded-full border-2 border-[#10b981] group-hover:shadow-[0_0_15px_#10b981] transition-all duration-300 flex items-center justify-center">
-          <div className="w-2 h-2 bg-[#10b981] rounded-full animate-pulse" />
-        </div>
+        <Image
+          src="/img/logo.png"
+          alt="Logo"
+          width={50}
+          height={50}
+          className="rounded-full"
+          unoptimized
+        />
         <span className="text-2xl font-black tracking-tighter text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
           IRIS
         </span>
