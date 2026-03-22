@@ -1,9 +1,9 @@
 "use client";
-import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +14,6 @@ const IRIS = () => {
 
   useGSAP(
     () => {
-      // 1. Hero Text Parallax/Fade on Scroll
       gsap.to(heroTextRef.current, {
         scale: 0.8,
         opacity: 0,
@@ -23,11 +22,10 @@ const IRIS = () => {
           trigger: ".hero-section",
           start: "top top",
           end: "bottom top",
-          scrub: 1, // Smooth scrubbing
+          scrub: 1,
         },
       });
 
-      // 2. Footer Giant Text Fill Animation
       gsap.fromTo(
         footerTextRef.current,
         { backgroundImage: "linear-gradient(90deg, #10b981 0%, #044a33 0%)" },
@@ -48,12 +46,7 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-
-      {/* =========================================
-          SECTION 1: HERO (STICKY)
-      ========================================= */}
       <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
-        {/* Subtle background glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.1)_0%,_transparent_50%)]" />
 
         <h1
@@ -70,11 +63,7 @@ const IRIS = () => {
         </div>
       </div>
 
-      {/* =========================================
-          MAIN CONTENT WRAPPER (SLIDES OVER HERO)
-      ========================================= */}
       <div className="relative z-10 bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
-        {/* SECTION 2: THE REVEAL */}
         <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 border-b border-white/5">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-center">
             Beyond an Assistant.
@@ -88,7 +77,6 @@ const IRIS = () => {
           </p>
         </section>
 
-        {/* SECTION 3: AUTOMATION SCHEMATICS */}
         <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 bg-black/50 border-b border-white/5">
           <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
@@ -101,7 +89,6 @@ const IRIS = () => {
                 you monitor the execution.
               </p>
             </div>
-            {/* Placeholder for the Transparent Schematic Image */}
             <div className="aspect-square border border-[#10b981]/20 rounded-xl flex items-center justify-center bg-[#10b981]/5 relative overflow-hidden">
               <span className="text-[#10b981] font-mono opacity-50">
                 [ SCHEMATIC ASSET DROPZONE ]
@@ -110,13 +97,11 @@ const IRIS = () => {
           </div>
         </section>
 
-        {/* SECTION 4: CAPABILITIES */}
         <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 border-b border-white/5">
           <h2 className="text-4xl font-bold mb-16 text-center">
             System Capabilities
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl">
-            {/* Card 1 */}
             <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
               <h4 className="text-xl font-bold mb-2 text-[#10b981]">
                 Deep Search
@@ -126,7 +111,6 @@ const IRIS = () => {
                 metrics.
               </p>
             </div>
-            {/* Card 2 */}
             <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
               <h4 className="text-xl font-bold mb-2 text-[#10b981]">
                 App Control
@@ -136,7 +120,6 @@ const IRIS = () => {
                 bridging.
               </p>
             </div>
-            {/* Card 3 */}
             <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
               <h4 className="text-xl font-bold mb-2 text-[#10b981]">
                 Contextual Memory
@@ -149,7 +132,6 @@ const IRIS = () => {
           </div>
         </section>
 
-        {/* SECTION 5: CTA */}
         <section className="min-h-[50vh] flex flex-col justify-center items-center px-6 border-b border-[#10b981]/20 bg-gradient-to-b from-transparent to-[#10b981]/10">
           <h2 className="text-3xl md:text-5xl font-black mb-8">
             Ready to override?
@@ -158,22 +140,17 @@ const IRIS = () => {
             Initialize Core
           </button>
         </section>
-
-        {/* =========================================
-            SECTION 6: THE GIANT FOOTER
-        ========================================= */}
         <footer className="footer-section bg-black pt-20 pb-10 px-6 md:px-20 overflow-hidden">
-          {/* Giant Outlined Text */}
           <div className="w-full flex justify-center mb-16 select-none">
             <h1
               ref={footerTextRef}
               className="text-[20vw] font-black leading-none tracking-tighter bg-clip-text text-transparent"
               style={{
-                WebkitTextStroke: "2px rgba(255, 255, 255, 0.15)", // The outline
+                WebkitTextStroke: "2px rgba(255, 255, 255, 0.15)",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 backgroundImage:
-                  "linear-gradient(90deg, #10b981 0%, #044a33 0%)", // Starts empty, filled by GSAP
+                  "linear-gradient(90deg, #10b981 0%, #044a33 0%)",
                 backgroundRepeat: "no-repeat",
               }}
             >
@@ -181,12 +158,9 @@ const IRIS = () => {
             </h1>
           </div>
 
-          {/* Footer Links Grid */}
           <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
-            {/* Col 1: Brand */}
             <div>
               <div className="w-12 h-12 border-2 border-[#10b981] rounded flex items-center justify-center mb-6">
-                {/* Replace with your final logo SVG */}
                 <div className="w-4 h-4 bg-[#10b981]" />
               </div>
               <div className="flex gap-4">
@@ -196,7 +170,6 @@ const IRIS = () => {
               </div>
             </div>
 
-            {/* Col 2: About */}
             <div className="flex flex-col gap-3">
               <h5 className="text-white font-bold mb-2">ABOUT</h5>
               <a
@@ -225,7 +198,6 @@ const IRIS = () => {
               </a>
             </div>
 
-            {/* Col 3: Company */}
             <div className="flex flex-col gap-3">
               <h5 className="text-white font-bold mb-2">COMPANY</h5>
               <a
@@ -248,7 +220,6 @@ const IRIS = () => {
               </a>
             </div>
 
-            {/* Col 4: Contact */}
             <div className="flex flex-col gap-3">
               <h5 className="text-white font-bold mb-2">CONTACT</h5>
               <p className="text-gray-400">Online: 11am - 8pm</p>
