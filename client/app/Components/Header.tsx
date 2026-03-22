@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <div
       ref={headerRef}
-      className="fixed top-0 left-0 w-full p-6 flex justify-between items-center bg-black/80 backdrop-blur-xl z-[100] border-b border-[#10b981]/20 text-white"
+      className="fixed top-0 left-0 w-full p-6 flex justify-between items-center bg-black/80 backdrop-blur-xl z-100 border-b border-[#10b981]/20 text-white"
     >
       <div className="flex items-center gap-2 group cursor-pointer">
         <div className="w-8 h-8 rounded-full border-2 border-[#10b981] group-hover:shadow-[0_0_15px_#10b981] transition-all duration-300 flex items-center justify-center">
@@ -47,21 +47,21 @@ const Header = () => {
           className="hover:text-[#10b981] transition-all duration-300 relative group"
         >
           About
-          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#10b981] group-hover:w-full transition-all duration-300" />
         </a>
         <a
           href="#work"
           className="hover:text-[#10b981] transition-all duration-300 relative group"
         >
           Systems
-          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#10b981] group-hover:w-full transition-all duration-300" />
         </a>
         <a
           href="#contact"
           className="hover:text-[#10b981] transition-all duration-300 relative group"
         >
           Terminal
-          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#10b981] group-hover:w-full transition-all duration-300" />
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#10b981] group-hover:w-full transition-all duration-300" />
         </a>
       </nav>
 

@@ -10,14 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
-  const layer1Ref = useRef<HTMLDivElement>(null); // Grid Layer
-  const layer2Ref = useRef<HTMLDivElement>(null); // Circle 1
-  const layer3Ref = useRef<HTMLDivElement>(null); // Circle 2
+  const layer1Ref = useRef<HTMLDivElement>(null);
+  const layer2Ref = useRef<HTMLDivElement>(null);
+  const layer3Ref = useRef<HTMLDivElement>(null);
   const section2Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // Parallax Logic
       const handleMouseMove = (e: MouseEvent) => {
         const { clientX, clientY } = e;
         const xPos = (clientX / window.innerWidth - 0.5) * 2;
@@ -51,7 +50,6 @@ const IRIS = () => {
 
       window.addEventListener("mousemove", handleMouseMove);
 
-      // Scroll Fade IRIS
       gsap.to(textRef.current, {
         scale: 0.8,
         opacity: 0,
@@ -75,9 +73,7 @@ const IRIS = () => {
     >
       <Header />
 
-      {/* Hero Section */}
       <div className="hero relative w-full h-screen flex justify-center items-center overflow-hidden">
-        {/* NEON GRID LAYER */}
         <div
           ref={layer1Ref}
           className="absolute inset-0 opacity-20 pointer-events-none"
@@ -87,7 +83,6 @@ const IRIS = () => {
           }}
         />
 
-        {/* GLOW CIRCLES */}
         <div
           ref={layer2Ref}
           className="absolute w-[70vw] h-[70vw] rounded-full border border-[#10b981]/10 pointer-events-none blur-sm"
@@ -113,12 +108,11 @@ const IRIS = () => {
         </div>
       </div>
 
-      {/* Feature Section (Placeholder for your schematics) */}
       <div
         ref={section2Ref}
         className="min-h-screen w-full flex flex-col items-center justify-center relative p-20"
       >
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#10b981]/50 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent" />
 
         <h2 className="text-6xl font-black mb-10 text-center uppercase tracking-tighter">
           Neural <span className="text-[#10b981]">Core</span>
@@ -129,7 +123,6 @@ const IRIS = () => {
           reality.
         </p>
 
-        {/* Here is where you would put the Transparent Schematic Image we talked about */}
         <div className="mt-20 w-[60%] aspect-video border border-[#10b981]/20 bg-[#10b981]/5 flex items-center justify-center">
           <span className="text-[#10b981] font-mono animate-pulse">
             Waiting for Schematic Asset...
