@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
 import { useRef } from "react";
 import Footer from "../Components/Footer";
+import LightPillar from "../utils/LightPillar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,20 +49,20 @@ const IRIS = () => {
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
       <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_50%)]" />
-
-        <h1
-          ref={heroTextRef}
-          className="text-[15vw] md:text-[18vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.3)] select-none"
-        >
-          IRIS
-        </h1>
-        <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-50">
-          <span className="text-xs uppercase tracking-[0.3em] text-[#10b981]">
-            Scroll to override
-          </span>
-          <div className="w-px h-12 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
-        </div>
+        <LightPillar
+          topColor="#022c1e"
+          bottomColor="#34d399"
+          intensity={1}
+          rotationSpeed={0.3}
+          glowAmount={0.002}
+          pillarWidth={3}
+          pillarHeight={0.4}
+          noiseIntensity={0.5}
+          pillarRotation={25}
+          interactive={false}
+          mixBlendMode="screen"
+          quality="high"
+        />
       </div>
 
       <div className="relative z-10 bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
