@@ -6,7 +6,7 @@ export interface BentoCardProps {
   title?: string;
   description?: string;
   label?: string;
-  bgImage?: string; // Added to accept your assets
+  bgImage?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -30,7 +30,6 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "16, 185, 129";
 const MOBILE_BREAKPOINT = 768;
 
-// IRIS Feature Data with Mapped Background Assets
 const cardData: BentoCardProps[] = [
   {
     color: "#050505",
@@ -584,29 +583,24 @@ const MagicBento: React.FC<BentoProps> = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
-  // Extracted card content to avoid duplication between Particle/Standard cards
   const renderCardContent = (card: BentoCardProps) => (
     <>
-      {/* Background Image Layer */}
       {card.bgImage && (
         <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit] pointer-events-none">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110 opacity-30 mix-blend-screen"
             style={{ backgroundImage: `url(${card.bgImage})` }}
           />
-          {/* Gradient Overlay for Text Readability */}
           <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-[#050505]/5 to-[#050505]/10" />
         </div>
       )}
 
-      {/* Header Layer */}
       <div className="card__header flex justify-between gap-3 relative z-10 text-white">
         <span className="card__label text-xs tracking-[0.2em] uppercase font-bold text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
           {card.label}
         </span>
       </div>
 
-      {/* Content Layer pushed to bottom */}
       <div className="card__content flex flex-col relative z-10 text-white mt-auto pt-10">
         <h3
           className={`card__title font-bold text-2xl tracking-tight m-0 mb-3 ${textAutoHide ? "text-clamp-1" : ""}`}
