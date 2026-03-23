@@ -127,7 +127,7 @@ const IRIS = () => {
           id="systems"
           className="min-h-screen w-full px-6 md:px-20 py-32 border-b border-white/5 flex flex-col justify-center bg-[#050505] relative overflow-hidden"
         >
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#10b981]/5 rounded-full blur-[120px] pointer-events-none opacity-50" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-200 bg-[#10b981]/5 rounded-full blur-[120px] pointer-events-none opacity-50" />
 
           <div className="w-full max-w-7xl mx-auto flex flex-col gap-16 relative z-10">
             <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 px-4 relative z-10">

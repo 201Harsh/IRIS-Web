@@ -26,10 +26,9 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = "16, 185, 129"; // Neon Emerald Default
+const DEFAULT_GLOW_COLOR = "16, 185, 129";
 const MOBILE_BREAKPOINT = 768;
 
-// IRIS AI FEATURE ARRAY
 const cardData: BentoCardProps[] = [
   {
     color: "#050505",
