@@ -5,6 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
 import { useRef } from "react";
 import Footer from "../Components/Footer";
+import LightPillar from "../utils/LightPillar";
+import MagneticButton from "../utils/MagneticButton";
+import { Command, Download, FileCode2, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,20 +50,74 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-      <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_50%)]" />
+      <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-[#050505]">
+        <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
+          <LightPillar
+            topColor="#022c1e"
+            bottomColor="#34d399"
+            intensity={1}
+            rotationSpeed={0.3}
+            glowAmount={0.002}
+            pillarWidth={3}
+            pillarHeight={0.4}
+            noiseIntensity={0.5}
+            pillarRotation={25}
+            interactive={false}
+            mixBlendMode="screen"
+            quality="high"
+          />
+        </div>
 
-        <h1
-          ref={heroTextRef}
-          className="text-[15vw] md:text-[18vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.3)] select-none"
-        >
-          IRIS
-        </h1>
-        <div className="absolute bottom-10 flex flex-col items-center gap-2 opacity-50">
-          <span className="text-xs uppercase tracking-[0.3em] text-[#10b981]">
-            Scroll to override
+        <div className="absolute inset-0 z-5 opacity-70 pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping absolute"></span>
+            <span className="w-2 h-2 rounded-full bg-[#10b981] relative"></span>
+            <span className="text-[10px] md:text-xs font-mono text-[#10b981] tracking-[0.2em] uppercase font-bold">
+              Unit Alpha // Deployment Ready
+            </span>
+          </div>
+
+          <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.2)] select-none">
+            IRIS
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
+            Beyond a standard language model. A deep-system neural extension
+            engineered by{" "}
+            <span className="text-white font-bold">Vital Studio's</span> for
+            kernel-level OS automation and zero-trust execution.
+          </p>
+
+          <div className="mt-12 flex flex-col sm:flex-row gap-6 w-full sm:w-auto relative z-20">
+            <MagneticButton
+              title="Download IRIS"
+              subtitle="Get the App"
+              iconLeft={<Command className="w-6 h-6" />}
+              iconRight={
+                <Download className="w-5 h-5 text-current group-hover:text-[#10b981]" />
+              }
+              className="bg-emerald-500/20 border border-emerald-500/20 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)]"
+            />
+
+            <MagneticButton
+              title="Get Started"
+              subtitle="Join the Beta"
+              iconLeft={<FileCode2 className="w-6 h-6 text-[#10b981]" />}
+              iconRight={
+                <ArrowRight className="w-5 h-5 text-current group-hover:text-[#10b981]" />
+              }
+              className="bg-transparent border border-white/20 text-white hover:bg-white/5 backdrop-blur-sm shadow-none"
+            />
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60 pointer-events-none">
+          <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
+            Scroll to Explore
           </span>
-          <div className="w-px h-12 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
+          <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
         </div>
       </div>
 
