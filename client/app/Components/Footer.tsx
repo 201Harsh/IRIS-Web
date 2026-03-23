@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaDiscord,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 const Footer = ({
@@ -14,10 +15,8 @@ const Footer = ({
 }) => {
   return (
     <footer className="footer-section bg-[#050505] pt-24 pb-6 px-6 md:px-20 border-t border-white/5 overflow-hidden relative">
-      {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent" />
 
-      {/* GIANT GSAP TEXT */}
       <div className="w-full flex justify-center mb-20 select-none relative z-10">
         <h1
           ref={footerTextRef}
@@ -34,9 +33,7 @@ const Footer = ({
         </h1>
       </div>
 
-      {/* FOOTER GRID */}
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 text-sm relative z-10">
-        {/* Col 1: Brand & Socials */}
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 border border-[#10b981]/30 bg-[#10b981]/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.1)]">
@@ -77,7 +74,6 @@ const Footer = ({
           </div>
         </div>
 
-        {/* Col 2: About */}
         <div className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2 flex items-center gap-2">
             <TerminalSquare size={16} className="text-[#10b981]" /> ABOUT
@@ -100,12 +96,11 @@ const Footer = ({
           )}
         </div>
 
-        {/* Col 3: Company */}
         <div className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2 flex items-center gap-2">
             <Activity size={16} className="text-[#10b981]" /> COMPANY
           </h5>
-          {["Hire From Us", "Pricing", "Feedback"].map((link) => (
+          {["Join Us", "Pricing", "Feedback"].map((link) => (
             <a
               key={link}
               href="#"
@@ -124,15 +119,14 @@ const Footer = ({
             className="group flex items-center text-gray-400 hover:text-white transition-colors w-max"
           >
             <span className="text-[#10b981] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2">
-              <FaDiscord size={16} />
+              <FaWhatsapp size={16} />
             </span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">
-              Discord Server
+              Whatsapp Group
             </span>
           </a>
         </div>
 
-        {/* Col 4: Contact & Status */}
         <div className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2">
             SYSTEM STATUS
