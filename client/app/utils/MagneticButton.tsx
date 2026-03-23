@@ -18,7 +18,7 @@ export default function MagneticButton({
   iconLeft,
   iconRight,
   className = "",
-  strength = 0.2,
+  strength = 0.25,
   ...props
 }: MagneticButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);

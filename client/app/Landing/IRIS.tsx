@@ -113,10 +113,9 @@ const IRIS = () => {
           </div>
         </div>
 
-        {/* SCROLL INDICATOR */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60 pointer-events-none">
-          <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
-            Scroll to Override
+          <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
+            Scroll to Explore
           </span>
           <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
         </div>
