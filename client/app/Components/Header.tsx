@@ -101,7 +101,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[101] md:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-101 md:hidden"
             />
 
             {/* Sidebar */}
@@ -110,7 +110,7 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#050505] border-l border-[#10b981]/20 z-[102] flex flex-col p-8 shadow-[-20px_0_50px_rgba(0,0,0,0.8)] md:hidden"
+              className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#050505] border-l border-[#10b981]/20 z-102 flex flex-col p-8 shadow-[-20px_0_50px_rgba(0,0,0,0.8)] md:hidden"
             >
               <div className="flex justify-between items-center mb-16">
                 <div className="flex items-center gap-3">
