@@ -74,8 +74,8 @@ const IRIS = () => {
           <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)]">
             <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping absolute"></span>
             <span className="w-2 h-2 rounded-full bg-[#10b981] relative"></span>
-            <span className="text-[10px] md:text-xs font-mono text-[#10b981] tracking-[0.2em] uppercase font-bold">
-              Unit Alpha // Deployment Ready
+            <span className="text-[10px] md:text-xs font-mono text-[#ffffff] tracking-[0.2em] uppercase font-bold">
+              Beta Release // Q1 2026
             </span>
           </div>
 
