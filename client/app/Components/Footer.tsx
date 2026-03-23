@@ -165,11 +165,16 @@ const Footer = ({
         </div>
       </div>
 
-      {/* Bottom Copyright Bar */}
       <div className="w-full max-w-7xl mx-auto mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 relative z-10">
         <p>© {new Date().getFullYear()} Vital Studio's. All rights reserved.</p>
         <p className="tracking-widest uppercase">
-          OS_OVERRIDE_UNIT_ALPHA // v9.3
+          Made with ❤️ by{" "}
+          <a
+            href="https://www.instagram.com/201harshs/"
+            className="text-[#10b981] hover:text-emerald-400 transition-colors"
+          >
+            201Harsh
+          </a>
         </p>
       </div>
     </footer>
