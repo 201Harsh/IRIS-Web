@@ -19,8 +19,8 @@ const Header = () => {
         yPercent: -150,
         opacity: 0,
         paused: true,
-        duration: 0.5,
-        ease: "back.out(1.7)",
+        duration: 0.3,
+        ease: "back.out(1.2)",
       })
       .progress(1);
 

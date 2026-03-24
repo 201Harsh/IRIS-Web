@@ -123,6 +123,26 @@ const IRIS = () => {
       </div>
 
       <div className="relative z-10 bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
+        <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 bg-black/50 border-b border-white/5">
+          <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h3 className="text-3xl font-bold mb-4 text-[#10b981]">
+                Phantom Coder Engine
+              </h3>
+              <p className="text-gray-400 font-mono">
+                Initiate automated keystrokes and API hooks. IRIS takes control
+                when commanded, drafting architecture and deploying code while
+                you monitor the execution.
+              </p>
+            </div>
+            <div className="aspect-square border border-[#10b981]/20 rounded-xl flex items-center justify-center bg-[#10b981]/5 relative overflow-hidden">
+              <span className="text-[#10b981] font-mono opacity-50">
+                [ SCHEMATIC ASSET DROPZONE ]
+              </span>
+            </div>
+          </div>
+        </section>
+
         <section
           id="systems"
           className="min-h-screen w-full px-6 md:px-20 py-32 border-b border-white/5 flex flex-col justify-center bg-[#050505] relative overflow-hidden"
