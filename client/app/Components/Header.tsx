@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,31 +50,33 @@ const Header = () => {
         ref={headerRef}
         className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-[#050505]/10 backdrop-blur-md z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
       >
-        <div className="flex items-center gap-2 cursor-pointer group">
-          <Image
-            src="/img/logo.png"
-            alt="Logo"
-            width={30}
-            height={30}
-            className="rounded-full group-hover:scale-105 transition-transform"
-            unoptimized
-          />
-          <span className="text-lg sm:text-xl font-black tracking-tighter text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
-            IRIS
-          </span>
-        </div>
+        <Link href="/">
+          <div className="flex items-center gap-2 cursor-pointer group">
+            <Image
+              src="/img/logo.png"
+              alt="Logo"
+              width={30}
+              height={30}
+              className="rounded-full group-hover:scale-105 transition-transform"
+              unoptimized
+            />
+            <span className="text-lg sm:text-xl font-black tracking-tighter text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+              IRIS
+            </span>
+          </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6 text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em]">
           {["About", "Systems", "Terminal"].map((item) => (
-            <a
+            <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`/${item.toLowerCase()}`}
               className="hover:text-[#10b981] transition-all duration-300 relative group"
             >
               {item}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#10b981] group-hover:w-full transition-all duration-300" />
-            </a>
+            </Link>
           ))}
         </nav>
 
