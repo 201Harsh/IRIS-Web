@@ -3,9 +3,10 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef } from "react";
+import { useRef, useState, Suspense, lazy } from "react";
 import Footer from "../Components/Footer";
-import LightPillar from "../utils/LightPillar";
+import LoadingCore from "../lib/LoadingCore";
+const LightPillar = lazy(() => import("../utils/LightPillar"));
 import MagneticButton from "../utils/MagneticButton";
 import { Command, Download, FileCode2, ArrowRight } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
@@ -35,6 +36,8 @@ const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const footerTextRef = useRef<HTMLHeadingElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const actualTechLogos = [
     {
@@ -125,6 +128,13 @@ const IRIS = () => {
           },
         },
       );
+
+      ScrollTrigger.create({
+        trigger: contentRef.current,
+        start: "top top",
+        onEnter: () => setIsHeroVisible(false),
+        onLeaveBack: () => setIsHeroVisible(true),
+      });
     },
     { scope: containerRef },
   );
@@ -137,20 +147,24 @@ const IRIS = () => {
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
         <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
-          <LightPillar
-            topColor="#022c1e"
-            bottomColor="#34d399"
-            intensity={1}
-            rotationSpeed={0.3}
-            glowAmount={0.002}
-            pillarWidth={3}
-            pillarHeight={0.4}
-            noiseIntensity={0.5}
-            pillarRotation={25}
-            interactive={false}
-            mixBlendMode="screen"
-            quality="high"
-          />
+          {isHeroVisible && (
+            <Suspense fallback={<LoadingCore />}>
+              <LightPillar
+                topColor="#022c1e"
+                bottomColor="#34d399"
+                intensity={1}
+                rotationSpeed={0.3}
+                glowAmount={0.002}
+                pillarWidth={3}
+                pillarHeight={0.4}
+                noiseIntensity={0.5}
+                pillarRotation={25}
+                interactive={false}
+                mixBlendMode="screen"
+                quality="high"
+              />
+            </Suspense>
+          )}
         </div>
 
         <div className="absolute inset-0 z-5 opacity-70 pointer-events-none" />
@@ -213,7 +227,10 @@ const IRIS = () => {
         </div>
       </div>
 
-      <div className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
+      <div
+        ref={contentRef}
+        className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
+      >
         <section className="min-h-screen bg-black flex flex-col items-center pt-32 relative overflow-hidden font-sans">
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
