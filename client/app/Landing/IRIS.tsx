@@ -282,7 +282,7 @@ const IRIS = () => {
           </div>
         </section>
 
-        <section className="w-full px-6 md:px-0 py-12 bg-[#050505] relative overflow-hidden flex flex-col items-center z-20">
+        <section className="w-full px-6 md:px-0 py-12 relative overflow-hidden flex flex-col items-center z-20">
           <p className="text-[#10b981] text-sm tracking-widest uppercase mb-8 font-semibold drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
             Built with a bleeding-edge modern stack
           </p>
@@ -300,7 +300,7 @@ const IRIS = () => {
 
         <section
           id="systems"
-          className="min-h-screen w-full px-6 md:px-20 py-32 border-b border-white/5 flex flex-col justify-center bg-[#050505] relative overflow-hidden"
+          className="min-h-screen w-full px-6 md:px-20 py-32 border-b border-white/5 flex flex-col justify-center relative overflow-hidden"
         >
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-200 bg-[#10b981]/5 rounded-full blur-[120px] pointer-events-none opacity-50" />
 
