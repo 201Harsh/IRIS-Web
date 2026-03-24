@@ -10,6 +10,25 @@ import MagneticButton from "../utils/MagneticButton";
 import { Command, Download, FileCode2, ArrowRight } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
+import LogoLoop from "../utils/LogoLoop";
+import {
+  SiHuggingface,
+  SiNotion,
+  SiElectron,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiGreensock,
+  SiFramer,
+  SiOllama,
+} from "react-icons/si";
+import { FaYahoo } from "react-icons/fa6";
+import { GiGemini } from "react-icons/gi";
+import { PiOpenAiLogo } from "react-icons/pi";
+import { RiGeminiFill } from "react-icons/ri";
+import { BsAnthropic } from "react-icons/bs";
+import { TbBrandSocketIo } from "react-icons/tb";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +36,68 @@ const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const footerTextRef = useRef<HTMLHeadingElement>(null);
+
+  const actualTechLogos = [
+    {
+      node: <RiGeminiFill className="text-4xl text-white cursor-pointer" />,
+      title: "Gemini",
+    },
+    {
+      node: <SiOllama className="text-4xl text-white cursor-pointer" />,
+      title: "Llama",
+    },
+    {
+      node: <BsAnthropic className="text-4xl text-white cursor-pointer" />,
+      title: "Anthropic",
+    },
+    {
+      node: <PiOpenAiLogo className="text-4xl text-white cursor-pointer" />,
+      title: "OpenAI",
+    },
+    {
+      node: <SiHuggingface className="text-4xl text-white cursor-pointer" />,
+      title: "Hugging Face",
+    },
+    {
+      node: (
+        <span className="text-2xl font-bold tracking-tighter text-white cursor-pointer">
+          Tavily
+        </span>
+      ),
+      title: "Tavily",
+    },
+    {
+      node: <SiReact className="text-4xl text-white cursor-pointer" />,
+      title: "React",
+    },
+    {
+      node: <SiNextdotjs className="text-4xl text-white cursor-pointer" />,
+      title: "Next.js",
+    },
+    {
+      node: <SiNodedotjs className="text-4xl text-white cursor-pointer" />,
+      title: "Node.js",
+    },
+    {
+      node: <SiExpress className="text-4xl text-white cursor-pointer" />,
+      title: "Express",
+    },
+    {
+      node: <TbBrandSocketIo className="text-4xl text-white cursor-pointer" />,
+      title: "WebSockets",
+    },
+    {
+      node: <SiGreensock className="text-4xl text-white cursor-pointer" />,
+      title: "GSAP",
+    },
+    {
+      node: <SiFramer className="text-4xl text-white" />,
+      title: "Framer Motion",
+    },
+    { node: <SiElectron className="text-4xl text-white" />, title: "Electron" },
+    { node: <SiNotion className="text-4xl text-white" />, title: "Notion" },
+    { node: <FaYahoo className="text-4xl text-white" />, title: "Yahoo" },
+  ];
 
   useGSAP(
     () => {
@@ -199,6 +280,22 @@ const IRIS = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="w-full px-6 md:px-0 py-12 bg-[#050505] relative overflow-hidden flex flex-col items-center z-20">
+          <p className="text-[#10b981] text-sm tracking-widest uppercase mb-8 font-semibold drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+            Built with a bleeding-edge modern stack
+          </p>
+          <LogoLoop
+            logos={actualTechLogos}
+            speed={100}
+            direction="left"
+            logoHeight={60}
+            gap={60}
+            hoverSpeed={0}
+            scaleOnHover={false}
+            ariaLabel="IRIS Technology Stack"
+          />
         </section>
 
         <section
