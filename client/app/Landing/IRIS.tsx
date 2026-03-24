@@ -37,6 +37,7 @@ const IRIS = () => {
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const footerTextRef = useRef<HTMLHeadingElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const actualTechLogos = [
@@ -134,6 +135,15 @@ const IRIS = () => {
         start: "top top",
         onEnter: () => setIsHeroVisible(false),
         onLeaveBack: () => setIsHeroVisible(true),
+      });
+
+      ScrollTrigger.create({
+        trigger: videoRef.current,
+        start: "top bottom",
+        onEnter: () => videoRef.current?.play(),
+        onEnterBack: () => videoRef.current?.play(),
+        onLeave: () => videoRef.current?.pause(),
+        onLeaveBack: () => videoRef.current?.pause(),
       });
     },
     { scope: containerRef },
@@ -394,24 +404,17 @@ const IRIS = () => {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 bg-black/50 border-b border-white/5">
-          <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h3 className="text-3xl font-bold mb-4 text-[#10b981]">
-                Phantom Coder Engine
-              </h3>
-              <p className="text-gray-400 font-mono">
-                Initiate automated keystrokes and API hooks. IRIS takes control
-                when commanded, drafting architecture and deploying code while
-                you monitor the execution.
-              </p>
-            </div>
-            <div className="aspect-square border border-[#10b981]/20 rounded-xl flex items-center justify-center bg-[#10b981]/5 relative overflow-hidden">
-              <span className="text-[#10b981] font-mono opacity-50">
-                [ SCHEMATIC ASSET DROPZONE ]
-              </span>
-            </div>
-          </div>
+        <section className="relative z-20">
+          <video
+            ref={videoRef}
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-auto rounded-2xl shadow-[0_0_50px_rgba(16,185,129,0.1)] border border-white/5"
+          >
+            <source src="/videos/Pre-load.mp4" type="video/mp4" />
+          </video>
         </section>
 
         <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 border-b border-white/5">
