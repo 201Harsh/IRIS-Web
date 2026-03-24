@@ -153,8 +153,8 @@ const IRIS = () => {
               alt="3D tech elements"
               width={1400}
               height={900}
-              className="w-full h-full object-contain mask-image-b relative z-20 drop-shadow-[0_0_50px_rgba(22,163,74,0.15)] transition-transform duration-1000 ease-out"
               priority
+              className="w-full h-full object-contain mask-image-b relative z-20 drop-shadow-[0_0_50px_rgba(22,163,74,0.15)] transition-transform duration-1000 ease-out"
             />
           </div>
 
