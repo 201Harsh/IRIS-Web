@@ -123,9 +123,8 @@ const IRIS = () => {
         </div>
       </div>
 
-      <div className="relative z-10 bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
+      <div className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
         <section className="min-h-screen bg-[#050505] flex flex-col items-center pt-32 relative overflow-hidden font-sans">
-          {/* Subtle Ambient Background Glows */}
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
 
@@ -143,6 +142,7 @@ const IRIS = () => {
               alt="Try IRIS AI"
               width={300}
               height={300}
+              priority
               className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
             />
           </div>
@@ -193,6 +193,7 @@ const IRIS = () => {
                   alt="Try IRIS AI"
                   width={300}
                   height={300}
+                  priority
                   className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
                 />
               </div>
