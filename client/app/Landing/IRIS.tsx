@@ -9,6 +9,7 @@ import LightPillar from "../utils/LightPillar";
 import MagneticButton from "../utils/MagneticButton";
 import { Command, Download, FileCode2, ArrowRight } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,6 +124,82 @@ const IRIS = () => {
       </div>
 
       <div className="relative z-10 bg-[#050505] shadow-[0_-20px_50px_rgba(0,0,0,0.8)] border-t border-white/5">
+        <section className="min-h-screen bg-[#050505] flex flex-col items-center pt-32 relative overflow-hidden font-sans">
+          {/* Subtle Ambient Background Glows */}
+          <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+          <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+
+          <div className="text-center z-20 px-4 flex flex-col items-center">
+            <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-linear-to-r from-emerald-400 via-emerald-500 to-green-600 bg-clip-text text-transparent mb-4 pb-2 select-none">
+              Meet IRIS AI
+            </h1>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight">
+              The Agentic Assistant Built for the Future
+            </h2>
+          </div>
+          <div className="absolute left-6 sm:left-44 top-52 sm:top-90 w-24 sm:w-64 h-auto pointer-events-none">
+            <Image
+              src="/img/iris-future.png"
+              alt="Try IRIS AI"
+              width={300}
+              height={300}
+              className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+            />
+          </div>
+
+          <div className="relative w-full max-w-6xl mt-20 flex justify-center z-10 group">
+            <Image
+              src="/img/graphic.webp"
+              alt="3D tech elements"
+              width={1400}
+              height={900}
+              className="w-full h-full object-contain mask-image-b relative z-20 drop-shadow-[0_0_50px_rgba(22,163,74,0.15)] transition-transform duration-1000 ease-out"
+              priority
+            />
+          </div>
+
+          <div className="w-full max-w-4xl mx-auto flex justify-center relative z-20 mt-12 mb-20">
+            <div className="flex gap-4 sm:gap-6 relative">
+              <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                  24/7
+                </span>
+                <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
+                  Autonomous
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
+                <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                  &lt;1s
+                </span>
+                <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
+                  Latency
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                  1M+
+                </span>
+                <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
+                  Context Window
+                </span>
+              </div>
+
+              <div className="absolute -right-12 sm:-right-96 -top-36 sm:-top-24 w-24 sm:w-64 h-auto pointer-events-none">
+                <Image
+                  src="/img/tryiris.png"
+                  alt="Try IRIS AI"
+                  width={300}
+                  height={300}
+                  className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section
           id="systems"
           className="min-h-screen w-full px-6 md:px-20 py-32 border-b border-white/5 flex flex-col justify-center bg-[#050505] relative overflow-hidden"

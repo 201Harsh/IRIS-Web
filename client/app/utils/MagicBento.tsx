@@ -6,6 +6,7 @@ export interface BentoCardProps {
   title?: string;
   description?: string;
   label?: string;
+  bgImage?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
 }
@@ -36,6 +37,7 @@ const cardData: BentoCardProps[] = [
     description:
       "Automated keystroke injection and real-time script generation.",
     label: "Execution",
+    bgImage: "/assets/Features/Macro.png",
   },
   {
     color: "#050505",
@@ -43,6 +45,7 @@ const cardData: BentoCardProps[] = [
     description:
       "Direct kernel-level integration bypassing standard system APIs.",
     label: "Integration",
+    bgImage: "/assets/Features/Screen.png",
   },
   {
     color: "#050505",
@@ -50,18 +53,21 @@ const cardData: BentoCardProps[] = [
     description:
       "Persistent context recall across multiple sessions and tasks.",
     label: "Cognitive",
+    bgImage: "/assets/Features/stocks.png",
   },
   {
     color: "#050505",
     title: "Zero-Trust Encryption",
     description: "Hardware ID validation with biometric handshake protocols.",
     label: "Security",
+    bgImage: "/assets/Features/security.png",
   },
   {
     color: "#050505",
     title: "Acoustic Array",
     description: "Sub-10ms voice intent interpretation and execution.",
     label: "Input",
+    bgImage: "/assets/Features/speak.png",
   },
   {
     color: "#050505",
@@ -69,6 +75,7 @@ const cardData: BentoCardProps[] = [
     description:
       "Absolute control over background tasks and resource allocation.",
     label: "Control",
+    bgImage: "/assets/Features/settings.png",
   },
 ];
 
@@ -576,6 +583,39 @@ const MagicBento: React.FC<BentoProps> = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
+  const renderCardContent = (card: BentoCardProps) => (
+    <>
+      {card.bgImage && (
+        <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit] pointer-events-none">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 ease-out group-hover:scale-110 opacity-30 mix-blend-screen"
+            style={{ backgroundImage: `url(${card.bgImage})` }}
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-[#050505]/5 to-[#050505]/10" />
+        </div>
+      )}
+
+      <div className="card__header flex justify-between gap-3 relative z-10 text-white">
+        <span className="card__label text-xs tracking-[0.2em] uppercase font-bold text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+          {card.label}
+        </span>
+      </div>
+
+      <div className="card__content flex flex-col relative z-10 text-white mt-auto pt-10">
+        <h3
+          className={`card__title font-bold text-2xl tracking-tight m-0 mb-3 ${textAutoHide ? "text-clamp-1" : ""}`}
+        >
+          {card.title}
+        </h3>
+        <p
+          className={`card__description text-sm leading-relaxed text-gray-400 ${textAutoHide ? "text-clamp-2" : ""}`}
+        >
+          {card.description}
+        </p>
+      </div>
+    </>
+  );
+
   return (
     <>
       <style>
@@ -710,7 +750,8 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-4">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[250px] w-full max-w-full p-6 rounded-[24px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(16,185,129,0.1)] ${
+            // Added 'group' to trigger hover events on child elements
+            const baseClassName = `group card flex flex-col justify-between relative aspect-[4/3] min-h-[250px] w-full max-w-full p-6 rounded-[24px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(16,185,129,0.1)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
@@ -737,23 +778,7 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-xs tracking-[0.2em] uppercase font-bold text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
-                      {card.label}
-                    </span>
-                  </div>
-                  <div className="card__content flex flex-col relative text-white">
-                    <h3
-                      className={`card__title font-bold text-2xl tracking-tight m-0 mb-3 ${textAutoHide ? "text-clamp-1" : ""}`}
-                    >
-                      {card.title}
-                    </h3>
-                    <p
-                      className={`card__description text-sm leading-relaxed text-gray-400 ${textAutoHide ? "text-clamp-2" : ""}`}
-                    >
-                      {card.description}
-                    </p>
-                  </div>
+                  {renderCardContent(card)}
                 </ParticleCard>
               );
             }
@@ -873,23 +898,7 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener("click", handleClick);
                 }}
               >
-                <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-xs tracking-[0.2em] uppercase font-bold text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
-                    {card.label}
-                  </span>
-                </div>
-                <div className="card__content flex flex-col relative text-white">
-                  <h3
-                    className={`card__title font-bold text-2xl tracking-tight m-0 mb-3 ${textAutoHide ? "text-clamp-1" : ""}`}
-                  >
-                    {card.title}
-                  </h3>
-                  <p
-                    className={`card__description text-sm leading-relaxed text-gray-400 ${textAutoHide ? "text-clamp-2" : ""}`}
-                  >
-                    {card.description}
-                  </p>
-                </div>
+                {renderCardContent(card)}
               </div>
             );
           })}
