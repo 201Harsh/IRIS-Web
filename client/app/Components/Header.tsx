@@ -47,7 +47,7 @@ const Header = () => {
     <>
       <div
         ref={headerRef}
-        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-[#050505]/80 backdrop-blur-md z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
+        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-[#050505]/10 backdrop-blur-md z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
       >
         <div className="flex items-center gap-2 cursor-pointer group">
           <Image
@@ -80,7 +80,7 @@ const Header = () => {
         {/* Desktop Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
           <div className="hidden md:block px-4 py-2 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-[9px] font-bold tracking-[0.3em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
-            Connect
+            Get Started
           </div>
           <button
             className="md:hidden text-[#10b981] p-1 rounded-full hover:bg-[#10b981]/10 transition-colors"

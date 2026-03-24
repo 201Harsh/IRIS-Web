@@ -29,6 +29,7 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
+import LiquidEther from "../utils/LiquidEther";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,6 +159,25 @@ const IRIS = () => {
                 interactive={false}
                 mixBlendMode="screen"
                 quality="high"
+              />
+
+              <LiquidEther
+                colors={["#064e3b", "#10b981", "#34d399"]}
+                mouseForce={50}
+                cursorSize={50}
+                isViscous={false}
+                viscous={0}
+                iterationsViscous={0}
+                iterationsPoisson={10}
+                BFECC={false}
+                resolution={0.25}
+                isBounce={true}
+                autoDemo
+                autoSpeed={0.7}
+                autoIntensity={2.5}
+                takeoverDuration={0.25}
+                autoResumeDelay={3000}
+                autoRampDuration={0.6}
               />
             </Suspense>
           )}
