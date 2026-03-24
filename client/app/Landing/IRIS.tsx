@@ -24,13 +24,14 @@ import {
   SiOllama,
 } from "react-icons/si";
 import { FaYahoo } from "react-icons/fa6";
-import { GiGemini } from "react-icons/gi";
 import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
+import SplitText from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -101,6 +102,19 @@ const IRIS = () => {
 
   useGSAP(
     () => {
+      let splitedText = SplitText.create(".animatedLetters h1", {
+        type: "chars",
+      });
+
+      gsap.from(splitedText.chars, {
+        y: 100,
+        delay: 0.5,
+        duration: 0.7,
+        opacity: 0,
+        ease: "power4.out",
+        stagger: 0.08,
+      });
+
       gsap.to(heroTextRef.current, {
         scale: 0.8,
         opacity: 0,
@@ -108,7 +122,7 @@ const IRIS = () => {
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "bottom top",
+          end: "100% top",
           scrub: 1,
         },
       });
@@ -161,10 +175,11 @@ const IRIS = () => {
               Beta Release // Q1 2026
             </span>
           </div>
-
-          <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.2)] select-none">
-            IRIS
-          </h1>
+          <div className="animatedLetters">
+            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.2)] select-none">
+              IRIS AI
+            </h1>
+          </div>
 
           <p className="mt-6 max-w-2xl text-base md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
             Beyond a standard language model. A deep-system neural extension
