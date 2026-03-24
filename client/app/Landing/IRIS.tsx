@@ -28,10 +28,8 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
-import SplitText from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);
 
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -102,19 +100,6 @@ const IRIS = () => {
 
   useGSAP(
     () => {
-      let splitedText = SplitText.create(".animatedLetters h1", {
-        type: "chars",
-      });
-
-      gsap.from(splitedText.chars, {
-        y: 100,
-        delay: 0.5,
-        duration: 0.7,
-        opacity: 0,
-        ease: "power4.out",
-        stagger: 0.08,
-      });
-
       gsap.to(heroTextRef.current, {
         scale: 0.8,
         opacity: 0,
@@ -147,7 +132,10 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-      <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
+      <div
+        ref={heroTextRef}
+        className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
+      >
         <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
           <LightPillar
             topColor="#022c1e"
@@ -175,8 +163,14 @@ const IRIS = () => {
               Beta Release // Q1 2026
             </span>
           </div>
-          <div className="animatedLetters">
-            <h1 className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none text-white drop-shadow-[0_0_40px_rgba(16,185,129,0.2)] select-none">
+          <div className="animatedLetters relative z-100 w-full flex justify-center flex-col items-center">
+            <h1
+              className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
+              style={{
+                filter:
+                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+              }}
+            >
               IRIS AI
             </h1>
           </div>
@@ -225,7 +219,13 @@ const IRIS = () => {
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
 
           <div className="text-center z-20 px-4 flex flex-col items-center">
-            <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-linear-to-r from-emerald-400 via-emerald-500 to-green-600 bg-clip-text text-transparent mb-4 pb-2 select-none">
+            <h1
+              className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/assets/Text/2.jpg')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow-2xl"
+              style={{
+                filter:
+                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+              }}
+            >
               Meet IRIS AI
             </h1>
             <h2 className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight">
@@ -240,6 +240,10 @@ const IRIS = () => {
               height={300}
               priority
               className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+              style={{
+                filter:
+                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+              }}
             />
           </div>
 
@@ -250,7 +254,11 @@ const IRIS = () => {
               width={1400}
               height={900}
               priority
-              className="w-full h-full object-contain mask-image-b relative z-20 drop-shadow-[0_0_50px_rgba(22,163,74,0.15)] transition-transform duration-1000 ease-out"
+              className="w-full h-full object-contain mask-image-b relative z-20 transition-transform duration-1000 ease-out"
+              style={{
+                filter:
+                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+              }}
             />
           </div>
 
@@ -291,6 +299,10 @@ const IRIS = () => {
                   height={300}
                   priority
                   className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                  style={{
+                    filter:
+                      "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+                  }}
                 />
               </div>
             </div>
