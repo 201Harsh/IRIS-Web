@@ -52,7 +52,7 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-      <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-[#050505]">
+      <div className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
           <LightPillar
             topColor="#022c1e"
@@ -124,7 +124,7 @@ const IRIS = () => {
       </div>
 
       <div className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
-        <section className="min-h-screen bg-[#050505] flex flex-col items-center pt-32 relative overflow-hidden font-sans">
+        <section className="min-h-screen bg-black flex flex-col items-center pt-32 relative overflow-hidden font-sans">
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
 
