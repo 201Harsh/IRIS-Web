@@ -44,6 +44,7 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
+import { GridScan } from "../utils/GridScan";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -266,6 +267,21 @@ const IRISAbout = () => {
         ref={heroRef}
         className="relative h-screen flex flex-col justify-center items-center overflow-hidden border-b border-white/10 perspective-1000 bg-black"
       >
+        <div className="absolute inset-0 z-0">
+          <GridScan
+            sensitivity={0.55}
+            lineThickness={1}
+            linesColor="#392e4e"
+            gridScale={0.1}
+            scanColor="#FF9FFC"
+            scanOpacity={0.4}
+            enablePost
+            bloomIntensity={0.6}
+            chromaticAberration={0.002}
+            noiseIntensity={0.01}
+          />
+        </div>
+
         <motion.div
           className="absolute z-0 w-200 h-200 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen"
           animate={{ x: mousePos.x * 30, y: mousePos.y * 30 }}
