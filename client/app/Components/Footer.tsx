@@ -1,36 +1,69 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import { ArrowUpRight, Cpu, Activity, TerminalSquare } from "lucide-react";
 import {
   FaXTwitter,
   FaInstagram,
   FaLinkedin,
-  FaDiscord,
   FaWhatsapp,
 } from "react-icons/fa6";
+import Image from "next/image";
 
 const Footer = ({
   footerTextRef,
 }: {
   footerTextRef: React.RefObject<HTMLHeadingElement | null>;
 }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
+
   return (
     <footer className="footer-section bg-[#050505] pt-24 pb-6 px-6 md:px-20 border-t border-white/5 overflow-hidden relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent" />
 
-      <div className="w-full flex justify-center mb-20 select-none relative z-10">
-        <h1
-          ref={footerTextRef}
-          className="text-[22vw] font-black leading-none tracking-tighter bg-clip-text text-transparent"
+      <div
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setMousePosition({ x: 50, y: 50 })}
+        className="w-full flex justify-center items-center select-none relative z-10 py-10 my-10 group"
+      >
+        {/* Massive green spotlight that smoothly tracks behind the logo. Completely separated from overflow-hidden so it blooms softly! */}
+        <div
+          className="absolute pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
           style={{
-            WebkitTextStroke: "2px rgba(255, 255, 255, 0.08)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            backgroundImage: "linear-gradient(90deg, #10b981 0%, #044a33 0%)",
-            backgroundRepeat: "no-repeat",
+            background: "#10b981",
+            filter: "blur(180px)",
+            width: "800px",
+            height: "800px",
+            borderRadius: "50%",
+            left: `calc(${mousePosition.x}% - 400px)`,
+            top: `calc(${mousePosition.y}% - 400px)`,
           }}
-        >
-          IRIS
-        </h1>
+        />
+
+        {/* Cropping wrapper designed specially to chop the empty top/bottom space off the original image, bypassing vertical insanity! */}
+        <div className="w-full overflow-hidden flex items-center justify-center relative pointer-events-none h-37.5 sm:h-50 md:h-62.5 lg:h-87.5">
+          <Image
+            src="/img/iris.png"
+            alt="IRIS AI"
+            width={3000}
+            height={800}
+            priority
+            unoptimized
+            className="w-[120%] max-w-none h-auto object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700 group-hover:scale-105"
+            style={{
+              filter: "drop-shadow(0px 0px 30px rgba(16, 185, 129, 0.5))",
+            }}
+          />
+        </div>
       </div>
 
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 text-sm relative z-10">

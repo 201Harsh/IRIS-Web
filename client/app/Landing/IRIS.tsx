@@ -116,20 +116,6 @@ const IRIS = () => {
         },
       });
 
-      gsap.fromTo(
-        footerTextRef.current,
-        { backgroundImage: "linear-gradient(90deg, #10b981 0%, #044a33 0%)" },
-        {
-          backgroundImage: "linear-gradient(90deg, #10b981 100%, #044a33 100%)",
-          scrollTrigger: {
-            trigger: ".footer-section",
-            start: "top 80%",
-            end: "bottom bottom",
-            scrub: 1,
-          },
-        },
-      );
-
       ScrollTrigger.create({
         trigger: contentRef.current,
         start: "top top",
