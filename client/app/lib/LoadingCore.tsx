@@ -47,7 +47,7 @@ const LoadingCore = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.15 }}
-        transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+        transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" } as any}
         className="absolute w-100 h-100 rounded-full bg-[#10b981] blur-[120px] mix-blend-screen pointer-events-none"
       />
 
@@ -65,7 +65,7 @@ const LoadingCore = () => {
         {/* Inner Scanning Ring */}
         <motion.div
           animate={{ rotate: -360 }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" } as any}
           className="absolute w-36 h-36 border-t-2 border-b-2 border-[#10b981] rounded-full opacity-70"
         />
 
@@ -84,7 +84,7 @@ const LoadingCore = () => {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.2 } as any}
         className="mt-16 flex flex-col items-center gap-3"
       >
         <div className="flex gap-2 items-center px-4 py-1.5 bg-[#10b981]/10 border border-[#10b981]/20 rounded-full backdrop-blur-md">
@@ -100,7 +100,7 @@ const LoadingCore = () => {
           <motion.div
             initial={{ x: "-100%" }}
             animate={{ x: "100%" }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" } as any}
             className="absolute top-0 bottom-0 left-0 w-1/2 bg-linear-to-r from-transparent via-[#10b981] to-transparent"
           />
         </div>

@@ -9,11 +9,7 @@ import {
 } from "react-icons/fa6";
 import Image from "next/image";
 
-const Footer = ({
-  footerTextRef,
-}: {
-  footerTextRef: React.RefObject<HTMLHeadingElement | null>;
-}) => {
+const Footer = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
 

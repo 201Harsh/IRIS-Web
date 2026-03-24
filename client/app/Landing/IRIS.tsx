@@ -36,7 +36,6 @@ gsap.registerPlugin(ScrollTrigger);
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
-  const footerTextRef = useRef<HTMLHeadingElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
@@ -308,7 +307,7 @@ const IRIS = () => {
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
                 <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
-                  &lt;1s
+                  &lt;3s
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
                   Latency
@@ -467,7 +466,7 @@ const IRIS = () => {
           </button>
         </section>
 
-        <Footer footerTextRef={footerTextRef} />
+        <Footer />
       </div>
     </div>
   );
