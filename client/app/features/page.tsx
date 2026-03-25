@@ -25,6 +25,7 @@ import {
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
+import Particles from "../utils/Particles";
 
 const storyData: StoryContent[] = [
   {
@@ -144,41 +145,6 @@ const storyData: StoryContent[] = [
 export default function FeaturesPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const BackgroundParticles = () => {
-    const particles = Array.from({ length: 30 }).map((_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      duration: Math.random() * 10 + 10,
-      delay: Math.random() * 5,
-      char: Math.random() > 0.5 ? "1" : "0",
-    }));
-
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        {particles.map((p) => (
-          <motion.div
-            key={p.id}
-            className="absolute text-[#10b981]/20 font-mono text-xs select-none"
-            style={{ left: `${p.x}%`, top: `${p.y}%` }}
-            animate={{
-              y: [0, -100],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              delay: p.delay,
-              ease: "linear",
-            }}
-          >
-            {p.char}
-          </motion.div>
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div
       ref={containerRef}
@@ -190,7 +156,19 @@ export default function FeaturesPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-[#10b981]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
         <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#050505] to-transparent z-10"></div>
 
-        <BackgroundParticles />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <Particles
+            particleColors={["#34d399"]}
+            particleCount={1000}
+            particleSpread={10}
+            speed={0.2}
+            particleBaseSize={100}
+            moveParticlesOnHover
+            alphaParticles={false}
+            disableRotation={false}
+            pixelRatio={1}
+          />
+        </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-20 text-center">
           <motion.div
@@ -236,7 +214,6 @@ export default function FeaturesPage() {
           </motion.div>
         </div>
 
-        {/* HUD FOOTER */}
         <div className="absolute bottom-0 w-full border-t border-white/10 bg-black/50 backdrop-blur-sm z-30">
           <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between text-[10px] md:text-xs font-mono text-gray-500 uppercase tracking-widest">
             <div className="flex items-center gap-4">

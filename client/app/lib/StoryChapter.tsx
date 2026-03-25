@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,7 +88,7 @@ export default function StoryChapter({ content }: StoryChapterProps) {
                   <span className="w-2 h-2 bg-[#10b981] rounded-full"></span>{" "}
                   CHAPTER {item.num}
                 </div>
-                <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 mt-40 text-white leading-tight">
                   {item.title}
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
@@ -144,7 +144,6 @@ const StoryVisual = ({ item }: { item: StoryContent }) => {
         SYS_CORE :: {item.visualSub}
       </div>
 
-      {/* Futuristic technical corners */}
       <div className="absolute top-10 left-10 w-8 h-8 border-t-2 border-l-2 border-[#10b981]/40"></div>
       <div className="absolute bottom-10 right-10 w-8 h-8 border-b-2 border-r-2 border-[#10b981]/40"></div>
     </motion.div>
