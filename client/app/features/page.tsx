@@ -248,7 +248,6 @@ export default function FeaturesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* TIER 1: FREE */}
             <ElectricBorder
               color="#333333"
               speed={0.5}
@@ -369,7 +368,6 @@ export default function FeaturesPage() {
               </div>
             </ElectricBorder>
 
-            {/* TIER 2: PRO */}
             <ElectricBorder
               color="#10b981"
               speed={2}
