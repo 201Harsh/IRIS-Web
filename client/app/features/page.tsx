@@ -1,145 +1,143 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Terminal,
   CheckCircle2,
   Zap,
   Star,
-  User,
   Mic,
   MousePointer2,
   Brain,
   HardDrive,
-  ScanFace,
   Database,
   Smartphone,
-  Workflow,
-  Layers,
   Code2,
   Shield,
   Globe,
-  Lock,
-  Cpu,
+  Fingerprint,
+  MessageCircle,
+  Search,
+  LayoutTemplate,
+  Braces,
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 
-// --- STORY DATA (Passed to your StoryChapter component) ---
 const storyData: StoryContent[] = [
   {
     num: "01",
-    title: "The Passive Flaw",
-    text: "Most AI apps today are passive text boxes. You type, wait, and get text back. They don't DO anything. We realized the world doesn't need another chatbot.",
-    icon: <User className="w-24 h-24 text-gray-500" />,
-    visualTitle: "PASSIVE AI",
-    visualSub: "The Chatbot Flaw",
+    title: "The OS Layer",
+    text: "IRIS doesn't just chat; it controls. It natively manages your file system, opens applications, and sorts your messy directories into categorized drop zones automatically.",
+    icon: <Database className="w-24 h-24 text-gray-400" />,
+    visualTitle: "SYSTEM CONTROL",
+    visualSub: "Native OS Access",
   },
   {
     num: "02",
     title: "Voice First",
-    text: "IRIS is designed for real-time conversation. Using custom WebSockets, your voice is streamed instantly to the engine without the painful lag of traditional APIs.",
+    text: "Typing is friction. By stripping out HTTP overhead and streaming audio binaries directly over WebSockets, IRIS achieves sub-second latency for real-time conversation.",
     icon: <Mic className="w-24 h-24 text-blue-400" />,
-    visualTitle: "VOICE FIRST",
-    visualSub: "Natural Input",
-  },
-  {
-    num: "03",
-    title: "Autonomous Execution",
-    text: "Instead of giving you a summary, IRIS acts. It takes your voice command, processes the intent, and directly controls your files, applications, mouse, and keyboard.",
-    icon: <MousePointer2 className="w-24 h-24 text-red-400" />,
-    visualTitle: "EXECUTION",
-    visualSub: "OS Level Control",
-  },
-  {
-    num: "04",
-    title: "The Cognitive Engine",
-    text: "To be fast and smart, IRIS uses a dual-brain architecture. Groq LPUs handle split-second logic and tool-chaining, while Gemini 1.5 manages massive context and complex reasoning.",
-    icon: <Brain className="w-24 h-24 text-purple-500" />,
-    visualTitle: "THE BRAIN",
-    visualSub: "Gemini + Groq",
-  },
-  {
-    num: "05",
-    title: "Local Intelligence",
-    text: "Not everything needs the cloud. IRIS hooks into Local LLMs via Ollama. It can process offline tasks, organize local files, and execute scripts with zero data leaving your machine.",
-    icon: <HardDrive className="w-24 h-24 text-orange-500" />,
-    visualTitle: "LOCAL AI",
-    visualSub: "Ollama Privacy",
-  },
-  {
-    num: "06",
-    title: "The Eyes (Face Rec)",
-    text: "IRIS doesn't just hear you; it sees you. Integrated with a local Face Recognition System, it verifies your identity before executing sensitive OS-level commands or unlocking secure vaults.",
-    icon: <ScanFace className="w-24 h-24 text-cyan-400" />,
-    visualTitle: "VISION",
-    visualSub: "Face Recognition",
-  },
-  {
-    num: "07",
-    title: "The Desktop OS",
-    text: "Built on Electron, IRIS escapes the browser sandbox. It has raw, unhindered access to your operating system to launch apps, search directories, and execute shell commands.",
-    icon: <Database className="w-24 h-24 text-pink-500" />,
-    visualTitle: "DESKTOP OS",
-    visualSub: "Electron Core",
-  },
-  {
-    num: "08",
-    title: "The Mobile Bridge",
-    text: "Your phone shouldn't be disconnected from your workflow. IRIS connects to Android via ADB, allowing it to read notifications, mirror your screen, and open mobile apps remotely.",
-    icon: <Smartphone className="w-24 h-24 text-green-400" />,
-    visualTitle: "MOBILE BRIDGE",
-    visualSub: "ADB Integration",
-  },
-  {
-    num: "09",
-    title: "Zero Latency",
-    text: "A real assistant shouldn't make you wait. By stripping out HTTP overhead and streaming audio binaries directly over WebSockets, the response time drops below human perception.",
-    icon: <Zap className="w-24 h-24 text-yellow-400" />,
     visualTitle: "ZERO LATENCY",
     visualSub: "WebSocket Audio",
   },
   {
+    num: "03",
+    title: "Biometric Vault",
+    text: "Security isn't just a password. IRIS uses Local Face Recognition to verify your physical presence before executing sensitive OS-level commands or unlocking the system vault.",
+    icon: <Fingerprint className="w-24 h-24 text-emerald-400" />,
+    visualTitle: "VISION SECURITY",
+    visualSub: "Multi-Face Encryption",
+  },
+  {
+    num: "04",
+    title: "The Mobile Bridge",
+    text: "Your PC and phone are now one. IRIS connects via ADB to read notifications, toggle hardware like Wi-Fi, and even swipe or tap specific coordinates on your mobile screen.",
+    icon: <Smartphone className="w-24 h-24 text-purple-400" />,
+    visualTitle: "ECOSYSTEM LINK",
+    visualSub: "Android Telemetry",
+  },
+  {
+    num: "05",
+    title: "Neural Communication",
+    text: "Dictate and dispatch. IRIS can instantly draft emails, send WhatsApp messages, or even schedule delayed cron-based texts without you ever touching the keyboard.",
+    icon: <MessageCircle className="w-24 h-24 text-green-400" />,
+    visualTitle: "AUTONOMOUS COMMS",
+    visualSub: "WhatsApp & Email",
+  },
+  {
+    num: "06",
+    title: "Deep Research Agent",
+    text: "Need a report? IRIS deploys an autonomous Llama 3 web crawler to scour the internet, synthesize data, and seamlessly sync the final research report directly to your Notion.",
+    icon: <Search className="w-24 h-24 text-orange-400" />,
+    visualTitle: "RAG ENGINE",
+    visualSub: "Llama 3 Web Crawl",
+  },
+  {
+    num: "07",
+    title: "UI Teleportation",
+    text: 'Command your workspace. Tell IRIS to "move code to the left and browser to the right." It physically resizes and stacks your application windows for ultimate flow state.',
+    icon: <LayoutTemplate className="w-24 h-24 text-cyan-400" />,
+    visualTitle: "WORKSPACE MGR",
+    visualSub: "Window Teleportation",
+  },
+  {
+    num: "08",
+    title: "The Live Forge",
+    text: "Describe a website, and watch it build. IRIS spawns a live window and generates fully animated React and GSAP components in real-time right before your eyes.",
+    icon: <Code2 className="w-24 h-24 text-pink-400" />,
+    visualTitle: "AGENTIC BUILDER",
+    visualSub: "Tailvy Integration",
+  },
+  {
+    num: "09",
+    title: "The Local Brain",
+    text: "Complete privacy. IRIS indexes your massive project folders into a local Vector Database, allowing you to semantically search and interact with your data completely offline.",
+    icon: <HardDrive className="w-24 h-24 text-yellow-400" />,
+    visualTitle: "VECTOR MEMORY",
+    visualSub: "Semantic Indexing",
+  },
+  {
     num: "10",
-    title: "Automation Chaining",
-    text: "IRIS thinks in steps. Tell it to 'Find my hardware specs, create a report, and save it to desktop.' The engine chains the OS read tool, the text generation tool, and the file write tool autonomously.",
-    icon: <Workflow className="w-24 h-24 text-[#10b981]" />,
-    visualTitle: "AUTOMATION",
-    visualSub: "Multi-Step Chains",
+    title: "Visual Hacking",
+    text: 'A viral party trick with real power. Command IRIS to "Hack Apple," and it injects custom JavaScript to visually mutate live websites with your own cinematic text and themes.',
+    icon: <Braces className="w-24 h-24 text-[#10b981]" />,
+    visualTitle: "DOM MUTATION",
+    visualSub: "Live CSS/JS Injection",
   },
   {
     num: "11",
-    title: "The Fluid Interface",
-    text: "While voice is primary, the visual feedback is crucial. Built with React, Tailwind, GSAP, and Framer Motion, the UI breathes and reacts to system states in real-time.",
-    icon: <Layers className="w-24 h-24 text-indigo-400" />,
-    visualTitle: "UI LAYER",
-    visualSub: "React + GSAP",
+    title: "Network Wormholes",
+    text: "Need to share localhost? IRIS can autonomously open a secure tunnel, exposing your local dev server to the public internet so clients can see your work instantly.",
+    icon: <Globe className="w-24 h-24 text-indigo-400" />,
+    visualTitle: "PORT EXPOSURE",
+    visualSub: "Localhost Tunnels",
   },
   {
     num: "12",
-    title: "The Architect",
-    text: "Engineered by Harsh Pandey. Built from the ground up to push the boundaries of frontend performance, AI infrastructure, and system-level automation.",
-    icon: <Code2 className="w-24 h-24 text-white" />,
-    visualTitle: "ARCHITECT",
-    visualSub: "Harsh Pandey",
+    title: "The Cognitive Core",
+    text: "Powered by a dual-brain architecture. Groq LPUs handle split-second tool chaining and logic, while Gemini 2.5 Flash manages massive context and complex reasoning.",
+    icon: <Brain className="w-24 h-24 text-white" />,
+    visualTitle: "DUAL INTELLIGENCE",
+    visualSub: "Gemini + Groq",
   },
   {
     num: "13",
-    title: "True Companion",
-    text: "This is Project Jarvis realized. Not a helper, but an autonomous companion that manages your digital life, secures your data, and executes your will.",
-    icon: <Shield className="w-24 h-24 text-red-500" />,
-    visualTitle: "COMPANION",
-    visualSub: "Digital Security",
+    title: "Absolute Automation",
+    text: "IRIS thinks in steps. It can execute complex JSON arrays of keyboard shortcuts, mouse movements, and UI clicks to automate your most repetitive daily tasks.",
+    icon: <MousePointer2 className="w-24 h-24 text-red-500" />,
+    visualTitle: "MACRO ENGINE",
+    visualSub: "Ghost Typing & Clicks",
   },
   {
     num: "14",
-    title: "The Next Era",
-    text: "The era of typing is ending. The era of execution has begun. Prepare to upgrade your operating system to true intelligence.",
-    icon: <Globe className="w-24 h-24 text-[#10b981]" />,
-    visualTitle: "THE ERA",
-    visualSub: "Future of OS",
+    title: "The Architect",
+    text: "Built from the ground up by Harsh Pandey to push the boundaries of what frontend performance, AI infrastructure, and system-level desktop automation can achieve together.",
+    icon: <Shield className="w-24 h-24 text-[#10b981]" />,
+    visualTitle: "PROJECT JARVIS",
+    visualSub: "The Next OS Standard",
   },
 ];
 
@@ -188,10 +186,9 @@ export default function FeaturesPage() {
     >
       <Header />
 
-      {/* --- NATIVE OS HERO SECTION --- */}
       <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden border-b border-white/10 bg-[#050505] perspective-1000">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-[#10b981]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#050505] to-transparent z-10"></div>
 
         <BackgroundParticles />
 
@@ -217,7 +214,7 @@ export default function FeaturesPage() {
               BEYOND <br />
               <span className="relative inline-block">
                 <span className="absolute -inset-1 bg-[#10b981]/20 blur-lg opacity-50 animate-pulse"></span>
-                <span className="relative text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-2xl">
+                <span className="relative text-transparent bg-clip-text bg-linear-to-b from-white via-gray-200 to-gray-600 drop-shadow-2xl">
                   PASSIVE CHAT
                 </span>
               </span>
@@ -257,10 +254,8 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* --- INTEGRATED STORY CHAPTERS --- */}
       <StoryChapter content={storyData} />
 
-      {/* --- DEPLOYMENT TIERS (FREE VS PAID) --- */}
       <section className="py-32 bg-[#050505] relative z-20 border-t border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.05),transparent_70%)] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -275,7 +270,6 @@ export default function FeaturesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* TIER 1: FREE */}
             <div className="bg-[#0a0a0a] rounded-[2.5rem] p-10 border border-white/10 relative overflow-hidden group hover:border-[#10b981]/30 transition-colors duration-500">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/10 blur-[50px] rounded-full"></div>
 
@@ -296,59 +290,89 @@ export default function FeaturesPage() {
                 <FeatureCategory
                   title="System & File Management"
                   tools={[
-                    "open_app / close_app",
-                    "read_directory / create_folder",
-                    "read_file / write_file",
-                    "smart_drop_zones",
+                    {
+                      name: "App & Process Control",
+                      desc: "Instantly open or force-close any installed desktop application.",
+                    },
+                    {
+                      name: "Deep File Operations",
+                      desc: "Create, read, write, move, and manage files across your OS.",
+                    },
+                    {
+                      name: "Smart Drop Zones",
+                      desc: "Visually sort and physically move files into categorized folders.",
+                    },
                   ]}
                 />
                 <FeatureCategory
-                  title="Vector Search & Local Knowledge"
-                  tools={[
-                    "index_Folder / smart_file_search",
-                    "read_gallery / analyze_direct_photo",
-                  ]}
+                  title="Vector Search & Knowledge"
                   badge="NEWLY FREE"
+                  tools={[
+                    {
+                      name: "Semantic Folder Indexing",
+                      desc: "Memorize projects into a local Vector DB for semantic search.",
+                    },
+                    {
+                      name: "Local Vision API",
+                      desc: "Scan your gallery and analyze photos locally without the cloud.",
+                    },
+                    {
+                      name: "Omni-Search",
+                      desc: "Ultra-fast, deep file search across your entire nested system.",
+                    },
+                  ]}
                 />
                 <FeatureCategory
                   title="Developer & Terminal Tools"
-                  tools={[
-                    "run_terminal / open_project",
-                    "activate_protocol",
-                    "build_file",
-                    "execute_sequence",
-                  ]}
                   badge="NEWLY FREE"
-                />
-                <FeatureCategory
-                  title="Desktop UI, Vision & Automation"
                   tools={[
-                    "teleport_windows / create_widget",
-                    "click_on_screen / scroll_screen",
-                    "press_shortcut / ghost_type",
+                    {
+                      name: "Protocol Execution",
+                      desc: "Run shell commands, open projects, and activate Coding Mode.",
+                    },
+                    {
+                      name: "Direct Disk Writing",
+                      desc: "Autonomously write and save code directly to your file system.",
+                    },
+                    {
+                      name: "JSON Sequences",
+                      desc: "Run complex automation flows using JSON-based instructions.",
+                    },
                   ]}
                 />
                 <FeatureCategory
-                  title="Memory & Information"
+                  title="Desktop UI & Vision"
                   tools={[
-                    "save_core_memory / retrieve_core_memory",
-                    "save_note / read_notes",
-                    "read_emails",
+                    {
+                      name: "Window Teleportation",
+                      desc: "Move, resize, and stack physical application windows via voice.",
+                    },
+                    {
+                      name: "Live Widgets",
+                      desc: "Spawn functional, floating HTML/CSS widgets on your screen.",
+                    },
+                    {
+                      name: "Ghost Typing",
+                      desc: "Simulate keyboard shortcuts, mouse clicks, and scroll events.",
+                    },
                   ]}
-                  badge="NEWLY FREE"
                 />
                 <FeatureCategory
-                  title="Web, Media & Financials"
+                  title="Web, Media & Comms"
                   tools={[
-                    "Google Search / open_map",
-                    "play_spotify_music",
-                    "get_stock_price",
-                    "hack_live_website",
+                    {
+                      name: "Market & Web Pulse",
+                      desc: "Real-time stock charts, live weather, and interactive maps.",
+                    },
+                    {
+                      name: "Visual Web Hacking",
+                      desc: "Mutate live websites with custom CSS/JS injections.",
+                    },
+                    {
+                      name: "Instant WhatsApp",
+                      desc: "Draft and send WhatsApp messages or files instantly.",
+                    },
                   ]}
-                />
-                <FeatureCategory
-                  title="Basic Protocol"
-                  tools={["lock_system_vault", "send_whatsapp", "draft_email"]}
                 />
               </div>
 
@@ -357,10 +381,9 @@ export default function FeaturesPage() {
               </button>
             </div>
 
-            {/* TIER 2: PRO */}
             <div className="bg-[#050505] rounded-[2.5rem] p-10 border border-[#10b981]/50 relative overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981]/20 blur-[80px] rounded-full"></div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10b981] to-emerald-300 shadow-[0_0_20px_#10b981]"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#10b981] to-emerald-300 shadow-[0_0_20px_#10b981]"></div>
 
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 text-[#10b981] font-mono text-xs tracking-widest uppercase mb-6 border border-[#10b981]/30">
                 <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{" "}
@@ -384,52 +407,86 @@ export default function FeaturesPage() {
 
               <div className="space-y-8">
                 <FeatureCategory
-                  title="Mobile Link (Hardware Ecosystem)"
-                  tools={[
-                    "get_mobile_notifications",
-                    "get_mobile_info",
-                    "push_file / pull_file",
-                    "open_mobile_app",
-                    "tap / swipe_mobile_screen",
-                  ]}
+                  title="Mobile Link (Hardware Bridge)"
                   pro
+                  tools={[
+                    {
+                      name: "Android Hardware Control",
+                      desc: "Toggle Wi-Fi, Bluetooth, Flashlight, and read battery telemetry.",
+                    },
+                    {
+                      name: "Mobile Screen Execution",
+                      desc: "Tap exact X/Y coordinates, swipe, and open apps on your phone.",
+                    },
+                    {
+                      name: "Device File Sync",
+                      desc: "Push and pull files instantly between your PC and mobile device.",
+                    },
+                    {
+                      name: "Notification Intercept",
+                      desc: "Read incoming messages and alerts directly from your phone.",
+                    },
+                  ]}
                 />
                 <FeatureCategory
                   title="Autonomous Research & RAG"
-                  tools={[
-                    "deep_research (Llama 3 Web Crawl)",
-                    "read_notion_reports",
-                    "ingest_codebase",
-                    "consult_oracle",
-                  ]}
                   pro
+                  tools={[
+                    {
+                      name: "Deep Web Crawler",
+                      desc: "Autonomous Llama 3 agents that research, synthesize, and sync to Notion.",
+                    },
+                    {
+                      name: "Codebase Oracle",
+                      desc: "Ingest massive local repositories and perform deep RAG queries.",
+                    },
+                  ]}
                 />
                 <FeatureCategory
-                  title="Premium Dev & Network Tools"
-                  tools={[
-                    "build_animated_website",
-                    "deploy_wormhole / close_wormhole",
-                    "execute_macro",
-                  ]}
+                  title="Premium Dev & Networks"
                   pro
+                  tools={[
+                    {
+                      name: "Live Web Forge",
+                      desc: "Generate fully animated React/GSAP websites in real-time.",
+                    },
+                    {
+                      name: "Network Wormholes",
+                      desc: "Expose local server ports to the public internet instantly.",
+                    },
+                    {
+                      name: "Macro Engine",
+                      desc: "Trigger complex, named automation routines via voice.",
+                    },
+                  ]}
                 />
                 <FeatureCategory
                   title="Advanced AI Gen & Actions"
-                  tools={[
-                    "generate_image (HuggingFace)",
-                    "send_email (Autonomous Dispatch)",
-                    "schedule_whatsapp (Cron-based)",
-                  ]}
                   pro
+                  tools={[
+                    {
+                      name: "Autonomous Dispatch",
+                      desc: "Actually send emails and schedule delayed WhatsApp messages.",
+                    },
+                    {
+                      name: "HuggingFace Gen",
+                      desc: "Generate high-quality cinematic or realistic images natively.",
+                    },
+                  ]}
                 />
                 <FeatureCategory
                   title="Pro Security & OS Features"
-                  tools={[
-                    "Multi-Face Biometric Encryption",
-                    "iris_snip_extract (OCR Tool)",
-                    "iris_ghost_coder (Inline IDE)",
-                  ]}
                   pro
+                  tools={[
+                    {
+                      name: "Biometric Encryption",
+                      desc: "Multi-face recognition to verify identity for OS-level commands.",
+                    },
+                    {
+                      name: "Ghost Coder & OCR",
+                      desc: "Inline IDE generation and instant screen OCR extraction tools.",
+                    },
+                  ]}
                 />
               </div>
 
@@ -446,7 +503,6 @@ export default function FeaturesPage() {
   );
 }
 
-// Small helper component for the tier lists
 const FeatureCategory = ({
   title,
   tools,
@@ -454,12 +510,12 @@ const FeatureCategory = ({
   pro = false,
 }: {
   title: string;
-  tools: string[];
+  tools: { name: string; desc: string }[];
   badge?: string;
   pro?: boolean;
 }) => (
   <div>
-    <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+    <h4 className="text-white font-bold mb-4 flex items-center gap-2">
       {pro ? (
         <Zap className="w-4 h-4 text-[#10b981]" />
       ) : (
@@ -472,13 +528,15 @@ const FeatureCategory = ({
         </span>
       )}
     </h4>
-    <ul className="space-y-2">
+    <ul className="space-y-4 pl-6 border-l border-white/5">
       {tools.map((tool, i) => (
-        <li
-          key={i}
-          className="text-sm text-gray-400 font-mono flex items-start gap-2"
-        >
-          <span className="text-gray-600 mt-0.5">{`>`}</span> {tool}
+        <li key={i} className="flex flex-col gap-1">
+          <span className="text-sm text-gray-200 font-semibold">
+            {tool.name}
+          </span>
+          <span className="text-xs text-gray-500 font-mono leading-relaxed">
+            {tool.desc}
+          </span>
         </li>
       ))}
     </ul>
