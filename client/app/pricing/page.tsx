@@ -37,7 +37,7 @@ export default function PricingPage() {
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6">
             CHOOSE YOUR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#10b981] to-[#044a33]">
+            <span className="text-transparent bg-clip-text bg-linear-to-b from-[#10b981] to-[#044a33]">
               INTELLIGENCE
             </span>
           </h1>
@@ -53,7 +53,7 @@ export default function PricingPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="p-8 rounded-[2rem] bg-[#0a0a0a] border border-dashed border-[#10b981]/30 relative overflow-hidden"
+            className="p-8 rounded-4xl bg-[#0a0a0a] border border-dashed border-[#10b981]/30 relative overflow-hidden"
           >
             <Ticket className="w-8 h-8 text-[#10b981] mx-auto mb-4 opacity-50" />
             <h3 className="text-2xl font-bold mb-2">Decrypt a Network Key</h3>
@@ -145,7 +145,7 @@ export default function PricingPage() {
             className="bg-[#050505] rounded-[2.5rem] p-10 border border-[#10b981]/50 flex flex-col relative overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)]"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981]/20 blur-[80px] rounded-full pointer-events-none" />
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10b981] to-emerald-300" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#10b981] to-emerald-300" />
 
             <div className="mb-8 relative z-10">
               <div className="flex justify-between items-start">
