@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import StoryChapter from "../lib/StoryChapter";
+import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 
 // --- STORY DATA (Passed to your StoryChapter component) ---
 const storyData: StoryContent[] = [

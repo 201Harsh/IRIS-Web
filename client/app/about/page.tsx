@@ -231,19 +231,6 @@ const IRISAbout = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-      setMousePos({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       Draggable.create(".draggable-code", {
@@ -271,9 +258,9 @@ const IRISAbout = () => {
           <GridScan
             sensitivity={0.55}
             lineThickness={1}
-            linesColor="#392e4e"
+            linesColor="#10b981"
             gridScale={0.1}
-            scanColor="#FF9FFC"
+            scanColor="#34d399"
             scanOpacity={0.4}
             enablePost
             bloomIntensity={0.6}
@@ -282,20 +269,10 @@ const IRISAbout = () => {
           />
         </div>
 
-        <motion.div
-          className="absolute z-0 w-200 h-200 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen"
-          animate={{ x: mousePos.x * 30, y: mousePos.y * 30 }}
-        />
+        <motion.div className="absolute z-0 w-200 h-200 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
 
         <div className="relative z-10 text-center px-6 pointer-events-none">
-          <motion.div
-            animate={{
-              x: mousePos.x * 10,
-              y: mousePos.y * 10,
-              rotateX: mousePos.y * -5,
-              rotateY: mousePos.x * 5,
-            }}
-          >
+          <motion.div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 text-[#10b981] text-xs font-mono mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)]">
               <Sparkles className="w-3 h-3" />
               <span>PROJECT JARVIS • THE AUTONOMOUS AGENT</span>
