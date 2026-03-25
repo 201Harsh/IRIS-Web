@@ -379,7 +379,7 @@ export default function FeaturesPage() {
             >
               <div className="h-full bg-[#050505] rounded-[2.5rem] p-10 relative overflow-hidden flex flex-col z-10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981]/20 blur-[80px] rounded-full"></div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10b981] to-emerald-300"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#10b981] to-emerald-300"></div>
 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 text-[#10b981] font-mono text-xs tracking-widest uppercase mb-6 border border-[#10b981]/30 w-max">
                   <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{" "}
