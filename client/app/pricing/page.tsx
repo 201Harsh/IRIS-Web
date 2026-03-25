@@ -9,7 +9,7 @@ import { ScratchCard } from "../Components/ScratchCard";
 
 export default function PricingPage() {
   const [discountActive, setDiscountActive] = useState(false);
-  const [discountPercent, setDiscountPercent] = useState(15); // Default fallback
+  const [discountPercent, setDiscountPercent] = useState(15);
 
   useEffect(() => {
     setDiscountPercent(Math.floor(Math.random() * 6) + 10);
