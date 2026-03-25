@@ -1,5 +1,7 @@
 "use client";
-import React, { useRef, useState } from "react";
+
+import React from "react";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Cpu, Activity, TerminalSquare } from "lucide-react";
 import {
   FaXTwitter,
@@ -7,65 +9,48 @@ import {
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa6";
-import Image from "next/image";
 
-const Footer = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function Footer() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setMousePosition({ x, y });
+  const itemVariants: any = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
   };
 
   return (
-    <footer className="footer-section bg-[#050505] pt-24 pb-6 px-6 md:px-20 border-t border-white/5 overflow-hidden relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent" />
+    <footer className="bg-[#050505] pt-16 pb-6 px-6 md:px-20 border-t border-white/5 relative overflow-hidden font-sans">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-[#10b981]/40 to-transparent" />
 
-      <div
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => setMousePosition({ x: 50, y: 50 })}
-        className="w-full flex justify-center items-center select-none relative z-10 py-10 my-10 group"
-      >
-        {/* Massive green spotlight that smoothly tracks behind the logo. Completely separated from overflow-hidden so it blooms softly! */}
-        <div
-          className="absolute pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
-          style={{
-            background: "#10b981",
-            filter: "blur(180px)",
-            width: "800px",
-            height: "800px",
-            borderRadius: "50%",
-            left: `calc(${mousePosition.x}% - 400px)`,
-            top: `calc(${mousePosition.y}% - 400px)`,
-          }}
-        />
-
-        {/* Cropping wrapper designed specially to chop the empty top/bottom space off the original image, bypassing vertical insanity! */}
-        <div className="w-full overflow-hidden flex items-center justify-center relative pointer-events-none h-37.5 sm:h-50 md:h-62.5 lg:h-87.5">
-          <Image
-            src="/img/iris.png"
-            alt="IRIS AI"
-            width={3000}
-            height={800}
-            priority
-            unoptimized
-            className="w-[120%] max-w-none h-auto object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-700 group-hover:scale-105"
-            style={{
-              filter: "drop-shadow(0px 0px 30px rgba(16, 185, 129, 0.5))",
-            }}
-          />
-        </div>
+      <div className="w-full flex justify-center items-center py-12 md:py-20 mb-12 border-b border-white/5 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
+        <h2 className="text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white/80 via-white/20 to-transparent select-none relative z-10">
+          IRIS AI
+        </h2>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 text-sm relative z-10">
-        <div className="flex flex-col gap-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 text-sm relative z-10"
+      >
+        <motion.div variants={itemVariants} className="flex flex-col gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 border border-[#10b981]/30 bg-[#10b981]/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+            <div className="w-12 h-12 border border-[#10b981]/30 bg-[#10b981]/10 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.1)]">
               <Cpu className="text-[#10b981]" size={24} strokeWidth={1.5} />
             </div>
             <div>
@@ -77,7 +62,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <p className="text-gray-500 leading-relaxed pr-4">
+          <p className="text-gray-500 leading-relaxed pr-4 font-light">
             Bypassing standard algorithms to deliver raw, unfiltered
             system-level automation.
           </p>
@@ -101,9 +86,9 @@ const Footer = () => {
               <FaXTwitter size={18} />
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-4">
+        <motion.div variants={itemVariants} className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2 flex items-center gap-2">
             <TerminalSquare size={16} className="text-[#10b981]" /> ABOUT
           </h5>
@@ -123,9 +108,9 @@ const Footer = () => {
               </a>
             ),
           )}
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-4">
+        <motion.div variants={itemVariants} className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2 flex items-center gap-2">
             <Activity size={16} className="text-[#10b981]" /> COMPANY
           </h5>
@@ -145,24 +130,24 @@ const Footer = () => {
           ))}
           <a
             href="#"
-            className="group flex items-center text-gray-400 hover:text-white transition-colors w-max"
+            className="group flex items-center text-gray-400 hover:text-white transition-colors w-max mt-2"
           >
-            <span className="text-[#10b981] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mr-2">
+            <span className="w-8 h-8 rounded-full bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center text-[#10b981] group-hover:bg-[#10b981] group-hover:text-black transition-colors mr-3">
               <FaWhatsapp size={16} />
             </span>
-            <span className="group-hover:translate-x-1 transition-transform duration-300">
-              Whatsapp Group
-            </span>
+            <span>WhatsApp Community</span>
           </a>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-4">
+        <motion.div variants={itemVariants} className="flex flex-col gap-4">
           <h5 className="text-white font-bold tracking-widest mb-2">
             SYSTEM STATUS
           </h5>
-          <div className="p-4 border border-white/5 bg-white/2 rounded-lg space-y-4">
+          <div className="p-5 border border-white/5 bg-[#0a0a0a] rounded-xl space-y-4 relative overflow-hidden group hover:border-[#10b981]/30 transition-colors">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#10b981]/20 shadow-[0_0_15px_#10b981] opacity-0 group-hover:opacity-100 animate-scan pointer-events-none" />
+
             <div className="flex items-center justify-between">
-              <span className="text-gray-400 text-xs uppercase tracking-wider">
+              <span className="text-gray-500 text-xs uppercase tracking-wider font-mono">
                 Network
               </span>
               <div className="flex items-center gap-2">
@@ -170,14 +155,14 @@ const Footer = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
                 </span>
-                <span className="text-[#10b981] text-xs font-bold tracking-widest uppercase">
-                  Active
+                <span className="text-[#10b981] text-[10px] font-bold tracking-widest uppercase">
+                  Operational
                 </span>
               </div>
             </div>
             <div className="h-px w-full bg-white/5" />
             <div>
-              <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">
+              <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1 font-mono">
                 Parent Command
               </p>
               <p className="text-white font-bold tracking-wider">
@@ -185,16 +170,16 @@ const Footer = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="w-full max-w-7xl mx-auto mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 relative z-10">
+      <div className="w-full max-w-7xl mx-auto mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 relative z-10 font-mono">
         <p>© {new Date().getFullYear()} Vital Studio's. All rights reserved.</p>
         <p className="tracking-widest uppercase">
           Made with ❤️ by{" "}
           <a
             href="https://www.instagram.com/201harshs/"
-            className="text-[#10b981] hover:text-emerald-400 transition-colors"
+            className="text-[#10b981] hover:text-emerald-400 transition-colors font-bold"
           >
             201Harsh
           </a>
@@ -202,6 +187,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
