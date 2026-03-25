@@ -26,6 +26,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import Particles from "../utils/Particles";
+import ElectricBorder from "../utils/ElectricBorder";
 
 const storyData: StoryContent[] = [
   {
@@ -247,230 +248,251 @@ export default function FeaturesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <div className="bg-[#0a0a0a] rounded-[2.5rem] p-10 border border-white/10 relative overflow-hidden group hover:border-[#10b981]/30 transition-colors duration-500">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/10 blur-[50px] rounded-full"></div>
+            {/* TIER 1: FREE */}
+            <ElectricBorder
+              color="#333333"
+              speed={0.5}
+              chaos={0.08}
+              borderRadius={40}
+              className="h-full"
+            >
+              <div className="h-full bg-[#0a0a0a] rounded-[2.5rem] p-10 relative overflow-hidden flex flex-col z-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/10 blur-[50px] rounded-full"></div>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-gray-300 font-mono text-xs tracking-widest uppercase mb-6">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div> TIER 1
-              </div>
-              <h3 className="text-4xl font-bold mb-2">IRIS Free</h3>
-              <p className="text-[#10b981] font-mono mb-8">
-                The Ultimate Local Workstation
-              </p>
-              <p className="text-gray-400 mb-8 pb-8 border-b border-white/5">
-                The sticky, highly-capable local OS. It manages files, memory,
-                codebase, and local data, making it an indispensable daily
-                driver.
-              </p>
-
-              <div className="space-y-8">
-                <FeatureCategory
-                  title="System & File Management"
-                  tools={[
-                    {
-                      name: "App & Process Control",
-                      desc: "Instantly open or force-close any installed desktop application.",
-                    },
-                    {
-                      name: "Deep File Operations",
-                      desc: "Create, read, write, move, and manage files across your OS.",
-                    },
-                    {
-                      name: "Smart Drop Zones",
-                      desc: "Visually sort and physically move files into categorized folders.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Vector Search & Knowledge"
-                  badge="NEWLY FREE"
-                  tools={[
-                    {
-                      name: "Semantic Folder Indexing",
-                      desc: "Memorize projects into a local Vector DB for semantic search.",
-                    },
-                    {
-                      name: "Local Vision API",
-                      desc: "Scan your gallery and analyze photos locally without the cloud.",
-                    },
-                    {
-                      name: "Omni-Search",
-                      desc: "Ultra-fast, deep file search across your entire nested system.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Developer & Terminal Tools"
-                  badge="NEWLY FREE"
-                  tools={[
-                    {
-                      name: "Protocol Execution",
-                      desc: "Run shell commands, open projects, and activate Coding Mode.",
-                    },
-                    {
-                      name: "Direct Disk Writing",
-                      desc: "Autonomously write and save code directly to your file system.",
-                    },
-                    {
-                      name: "JSON Sequences",
-                      desc: "Run complex automation flows using JSON-based instructions.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Desktop UI & Vision"
-                  tools={[
-                    {
-                      name: "Window Teleportation",
-                      desc: "Move, resize, and stack physical application windows via voice.",
-                    },
-                    {
-                      name: "Live Widgets",
-                      desc: "Spawn functional, floating HTML/CSS widgets on your screen.",
-                    },
-                    {
-                      name: "Ghost Typing",
-                      desc: "Simulate keyboard shortcuts, mouse clicks, and scroll events.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Web, Media & Comms"
-                  tools={[
-                    {
-                      name: "Market & Web Pulse",
-                      desc: "Real-time stock charts, live weather, and interactive maps.",
-                    },
-                    {
-                      name: "Visual Web Hacking",
-                      desc: "Mutate live websites with custom CSS/JS injections.",
-                    },
-                    {
-                      name: "Instant WhatsApp",
-                      desc: "Draft and send WhatsApp messages or files instantly.",
-                    },
-                  ]}
-                />
-              </div>
-
-              <button className="w-full mt-12 py-4 rounded-xl border border-[#10b981]/30 bg-[#10b981]/5 text-[#10b981] font-bold hover:bg-[#10b981]/10 transition-colors">
-                Download Free Engine
-              </button>
-            </div>
-
-            <div className="bg-[#050505] rounded-[2.5rem] p-10 border border-[#10b981]/50 relative overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)]">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981]/20 blur-[80px] rounded-full"></div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#10b981] to-emerald-300 shadow-[0_0_20px_#10b981]"></div>
-
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 text-[#10b981] font-mono text-xs tracking-widest uppercase mb-6 border border-[#10b981]/30">
-                <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{" "}
-                TIER 2
-              </div>
-              <div className="flex justify-between items-end mb-2">
-                <h3 className="text-4xl font-bold">IRIS Pro</h3>
-                <div className="text-2xl font-bold text-white">
-                  $15
-                  <span className="text-sm font-normal text-gray-500">/mo</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-gray-300 font-mono text-xs tracking-widest uppercase mb-6 w-max">
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div> TIER
+                  1
                 </div>
-              </div>
-              <p className="text-[#10b981] font-mono mb-8">
-                The Deep Ecosystem & Action Agents
-              </p>
-              <p className="text-gray-400 mb-8 pb-8 border-b border-white/5">
-                The powerhouse tier. For users who want IRIS to physically
-                control mobile devices, deploy real internet infrastructure, and
-                act autonomously.
-              </p>
+                <h3 className="text-4xl font-bold mb-2">IRIS Free</h3>
+                <p className="text-[#10b981] font-mono mb-8">
+                  The Ultimate Local Workstation
+                </p>
+                <p className="text-gray-400 mb-8 pb-8 border-b border-white/5">
+                  The sticky, highly-capable local OS. It manages files, memory,
+                  codebase, and local data, making it an indispensable daily
+                  driver.
+                </p>
 
-              <div className="space-y-8">
-                <FeatureCategory
-                  title="Mobile Link (Hardware Bridge)"
-                  pro
-                  tools={[
-                    {
-                      name: "Android Hardware Control",
-                      desc: "Toggle Wi-Fi, Bluetooth, Flashlight, and read battery telemetry.",
-                    },
-                    {
-                      name: "Mobile Screen Execution",
-                      desc: "Tap exact X/Y coordinates, swipe, and open apps on your phone.",
-                    },
-                    {
-                      name: "Device File Sync",
-                      desc: "Push and pull files instantly between your PC and mobile device.",
-                    },
-                    {
-                      name: "Notification Intercept",
-                      desc: "Read incoming messages and alerts directly from your phone.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Autonomous Research & RAG"
-                  pro
-                  tools={[
-                    {
-                      name: "Deep Web Crawler",
-                      desc: "Autonomous Llama 3 agents that research, synthesize, and sync to Notion.",
-                    },
-                    {
-                      name: "Codebase Oracle",
-                      desc: "Ingest massive local repositories and perform deep RAG queries.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Premium Dev & Networks"
-                  pro
-                  tools={[
-                    {
-                      name: "Live Web Forge",
-                      desc: "Generate fully animated React/GSAP websites in real-time.",
-                    },
-                    {
-                      name: "Network Wormholes",
-                      desc: "Expose local server ports to the public internet instantly.",
-                    },
-                    {
-                      name: "Macro Engine",
-                      desc: "Trigger complex, named automation routines via voice.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Advanced AI Gen & Actions"
-                  pro
-                  tools={[
-                    {
-                      name: "Autonomous Dispatch",
-                      desc: "Actually send emails and schedule delayed WhatsApp messages.",
-                    },
-                    {
-                      name: "HuggingFace Gen",
-                      desc: "Generate high-quality cinematic or realistic images natively.",
-                    },
-                  ]}
-                />
-                <FeatureCategory
-                  title="Pro Security & OS Features"
-                  pro
-                  tools={[
-                    {
-                      name: "Biometric Encryption",
-                      desc: "Multi-face recognition to verify identity for OS-level commands.",
-                    },
-                    {
-                      name: "Ghost Coder & OCR",
-                      desc: "Inline IDE generation and instant screen OCR extraction tools.",
-                    },
-                  ]}
-                />
-              </div>
+                <div className="space-y-8 flex-1">
+                  <FeatureCategory
+                    title="System & File Management"
+                    tools={[
+                      {
+                        name: "App & Process Control",
+                        desc: "Instantly open or force-close any installed desktop application.",
+                      },
+                      {
+                        name: "Deep File Operations",
+                        desc: "Create, read, write, move, and manage files across your OS.",
+                      },
+                      {
+                        name: "Smart Drop Zones",
+                        desc: "Visually sort and physically move files into categorized folders.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Vector Search & Knowledge"
+                    badge="NEWLY FREE"
+                    tools={[
+                      {
+                        name: "Semantic Folder Indexing",
+                        desc: "Memorize projects into a local Vector DB for semantic search.",
+                      },
+                      {
+                        name: "Local Vision API",
+                        desc: "Scan your gallery and analyze photos locally without the cloud.",
+                      },
+                      {
+                        name: "Omni-Search",
+                        desc: "Ultra-fast, deep file search across your entire nested system.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Developer & Terminal Tools"
+                    badge="NEWLY FREE"
+                    tools={[
+                      {
+                        name: "Protocol Execution",
+                        desc: "Run shell commands, open projects, and activate Coding Mode.",
+                      },
+                      {
+                        name: "Direct Disk Writing",
+                        desc: "Autonomously write and save code directly to your file system.",
+                      },
+                      {
+                        name: "JSON Sequences",
+                        desc: "Run complex automation flows using JSON-based instructions.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Desktop UI & Vision"
+                    tools={[
+                      {
+                        name: "Window Teleportation",
+                        desc: "Move, resize, and stack physical application windows via voice.",
+                      },
+                      {
+                        name: "Live Widgets",
+                        desc: "Spawn functional, floating HTML/CSS widgets on your screen.",
+                      },
+                      {
+                        name: "Ghost Typing",
+                        desc: "Simulate keyboard shortcuts, mouse clicks, and scroll events.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Web, Media & Comms"
+                    tools={[
+                      {
+                        name: "Market & Web Pulse",
+                        desc: "Real-time stock charts, live weather, and interactive maps.",
+                      },
+                      {
+                        name: "Visual Web Hacking",
+                        desc: "Mutate live websites with custom CSS/JS injections.",
+                      },
+                      {
+                        name: "Instant WhatsApp",
+                        desc: "Draft and send WhatsApp messages or files instantly.",
+                      },
+                    ]}
+                  />
+                </div>
 
-              <button className="w-full mt-12 py-4 rounded-xl bg-[#10b981] text-black font-bold hover:bg-emerald-400 transition-colors shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                Upgrade to Pro Engine
-              </button>
-            </div>
+                <button className="cursor-pointer w-full mt-12 py-4 rounded-xl border border-[#10b981]/30 bg-[#10b981]/5 text-[#10b981] font-bold hover:bg-[#10b981]/10 transition-colors">
+                  Download Free Engine
+                </button>
+              </div>
+            </ElectricBorder>
+
+            {/* TIER 2: PRO */}
+            <ElectricBorder
+              color="#10b981"
+              speed={2}
+              chaos={0.2}
+              borderRadius={10}
+              className="h-full"
+            >
+              <div className="h-full bg-[#050505] rounded-[2.5rem] p-10 relative overflow-hidden flex flex-col z-10">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981]/20 blur-[80px] rounded-full"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10b981] to-emerald-300"></div>
+
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 text-[#10b981] font-mono text-xs tracking-widest uppercase mb-6 border border-[#10b981]/30 w-max">
+                  <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{" "}
+                  TIER 2
+                </div>
+                <div className="flex justify-between items-end mb-2">
+                  <h3 className="text-4xl font-bold">IRIS Pro</h3>
+                  <div className="text-2xl font-bold text-white">
+                    $15
+                    <span className="text-sm font-normal text-gray-500">
+                      /mo
+                    </span>
+                  </div>
+                </div>
+                <p className="text-[#10b981] font-mono mb-8">
+                  The Deep Ecosystem & Action Agents
+                </p>
+                <p className="text-gray-400 mb-8 pb-8 border-b border-white/5">
+                  The powerhouse tier. For users who want IRIS to physically
+                  control mobile devices, deploy real internet infrastructure,
+                  and act autonomously.
+                </p>
+
+                <div className="space-y-8 flex-1">
+                  <FeatureCategory
+                    title="Mobile Link (Hardware Bridge)"
+                    pro
+                    tools={[
+                      {
+                        name: "Android Hardware Control",
+                        desc: "Toggle Wi-Fi, Bluetooth, Flashlight, and read battery telemetry.",
+                      },
+                      {
+                        name: "Mobile Screen Execution",
+                        desc: "Tap exact X/Y coordinates, swipe, and open apps on your phone.",
+                      },
+                      {
+                        name: "Device File Sync",
+                        desc: "Push and pull files instantly between your PC and mobile device.",
+                      },
+                      {
+                        name: "Notification Intercept",
+                        desc: "Read incoming messages and alerts directly from your phone.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Autonomous Research & RAG"
+                    pro
+                    tools={[
+                      {
+                        name: "Deep Web Crawler",
+                        desc: "Autonomous Llama 3 agents that research, synthesize, and sync to Notion.",
+                      },
+                      {
+                        name: "Codebase Oracle",
+                        desc: "Ingest massive local repositories and perform deep RAG queries.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Premium Dev & Networks"
+                    pro
+                    tools={[
+                      {
+                        name: "Live Web Forge",
+                        desc: "Generate fully animated React/GSAP websites in real-time.",
+                      },
+                      {
+                        name: "Network Wormholes",
+                        desc: "Expose local server ports to the public internet instantly.",
+                      },
+                      {
+                        name: "Macro Engine",
+                        desc: "Trigger complex, named automation routines via voice.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Advanced AI Gen & Actions"
+                    pro
+                    tools={[
+                      {
+                        name: "Autonomous Dispatch",
+                        desc: "Actually send emails and schedule delayed WhatsApp messages.",
+                      },
+                      {
+                        name: "HuggingFace Gen",
+                        desc: "Generate high-quality cinematic or realistic images natively.",
+                      },
+                    ]}
+                  />
+                  <FeatureCategory
+                    title="Pro Security & OS Features"
+                    pro
+                    tools={[
+                      {
+                        name: "Biometric Encryption",
+                        desc: "Multi-face recognition to verify identity for OS-level commands.",
+                      },
+                      {
+                        name: "Ghost Coder & OCR",
+                        desc: "Inline IDE generation and instant screen OCR extraction tools.",
+                      },
+                    ]}
+                  />
+                </div>
+
+                <button className="cursor-pointer w-full mt-12 py-4 rounded-xl bg-[#10b981] text-black font-bold hover:bg-emerald-400 transition-colors shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                  Upgrade to Pro Engine
+                </button>
+              </div>
+            </ElectricBorder>
           </div>
         </div>
       </section>
