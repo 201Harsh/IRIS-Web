@@ -187,7 +187,7 @@ export const LoginUser = async (req: Request, res: Response) => {
         tier: user.tier,
         verified: user.verified,
       },
-      token,
+      accessToken: token.accessToken,
     });
   } catch (error: any) {
     return res.status(500).json({
