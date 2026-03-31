@@ -13,15 +13,71 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { FormDataLogin } from "../types/form-type";
+import AxiosInstance from "@/config/AxiosInstacne";
+import ErrorBox from "../Components/ErrorBox";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [FormData, setFormData] = useState<FormDataLogin>({
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error) setError(null);
+    if (success) setSuccess(null);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
+    if (!FormData.email || !FormData.password) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(FormData.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 2000);
+
+    try {
+      const response = await AxiosInstance.post("/users/login", FormData);
+
+      if (response.status === 200) {
+        setSuccess("Login successful! Redirecting...");
+        setFormData({
+          email: "",
+          password: "",
+        });
+      }
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setError(
+          typeof error.response.data === "string"
+            ? error.response.data
+            : error.response.data.message ||
+                "Login failed. Please check your credentials.",
+        );
+      } else {
+        setError(
+          error.message || "An unexpected error occurred. Please try again.",
+        );
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const containerVariants = {
@@ -75,6 +131,21 @@ export default function LoginPage() {
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent opacity-50" />
 
+          {error && (
+            <ErrorBox
+              type="error"
+              message={error}
+              onClose={() => setError(null)}
+            />
+          )}
+          {success && (
+            <ErrorBox
+              type="success"
+              message={success}
+              onClose={() => setSuccess(null)}
+            />
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-1">
               <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
@@ -85,6 +156,10 @@ export default function LoginPage() {
                   <Mail className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="email"
+                  name="email"
+                  value={FormData.email}
+                  onChange={handleChange}
                   type="email"
                   required
                   placeholder="harsh@vitalstudios.com"
@@ -110,6 +185,10 @@ export default function LoginPage() {
                   <Lock className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="password"
+                  name="password"
+                  value={FormData.password}
+                  onChange={handleChange}
                   type={showPassword ? "text" : "password"}
                   required
                   placeholder="••••••••••••"
