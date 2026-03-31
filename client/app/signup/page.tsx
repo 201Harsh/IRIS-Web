@@ -39,6 +39,7 @@ export default function SignupPage() {
       email: "",
       password: "",
     });
+    setIsLoading(false);
   };
 
   const containerVariants = {
