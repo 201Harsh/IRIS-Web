@@ -7,6 +7,7 @@ import {
   setRefreshCookie,
   verifySecureData,
 } from "../utils/user-utils.js";
+import jwt from "jsonwebtoken";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -187,7 +188,7 @@ export const LoginUser = async (req: Request, res: Response) => {
         tier: user.tier,
         verified: user.verified,
       },
-      token,
+      accessToken: token.accessToken,
     });
   } catch (error: any) {
     return res.status(500).json({
@@ -277,5 +278,42 @@ export const LogoutAllusers = async (req: Request, res: Response) => {
     return res.status(500).json({
       message: error.message,
     });
+  }
+};
+
+export const RefreshAccessToken = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const refreshToken = req.cookies?.agentx_refresh_token;
+
+    if (!refreshToken) {
+      res.status(401).json({ error: "Unauthorized. No Refresh Token found." });
+      return;
+    }
+
+    const decoded = jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET as string,
+    ) as { id: string };
+
+    const user = await UserModel.findById(decoded.id).select("+refreshToken");
+
+    if (!user || user.refreshToken !== refreshToken) {
+      res
+        .status(403)
+        .json({ error: "Forbidden. Invalid or revoked refresh token." });
+      return;
+    }
+
+    const newAccessToken = user.createAccessToken();
+
+    res.status(200).json({ accessToken: newAccessToken });
+    return;
+  } catch (error: any) {
+    console.error("Refresh Token Error:", error.message);
+    res.status(403).json({ error: "Forbidden. Token expired or invalid." });
+    return;
   }
 };
