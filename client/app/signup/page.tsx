@@ -13,16 +13,32 @@ import {
   EyeOff,
 } from "lucide-react";
 import Link from "next/link";
+import { FormData } from "../types/form-type";
 import { FcGoogle } from "react-icons/fc";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [FormData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 2000);
+    console.log(FormData);
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
   };
 
   const containerVariants = {
@@ -86,6 +102,10 @@ export default function SignupPage() {
                   <User className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="name"
+                  name="name"
+                  value={FormData.name}
+                  onChange={handleChange}
                   type="text"
                   required
                   placeholder="Harsh Pandey"
@@ -103,6 +123,10 @@ export default function SignupPage() {
                   <Mail className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="email"
+                  name="email"
+                  value={FormData.email}
+                  onChange={handleChange}
                   type="email"
                   required
                   placeholder="harsh@vitalstudios.com"
@@ -120,6 +144,10 @@ export default function SignupPage() {
                   <Lock className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="password"
+                  name="password"
+                  value={FormData.password}
+                  onChange={handleChange}
                   type={showPassword ? "text" : "password"}
                   required
                   placeholder="••••••••••••"
