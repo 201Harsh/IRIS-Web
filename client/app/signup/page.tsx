@@ -22,11 +22,9 @@ export default function SignupPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
     setTimeout(() => setIsLoading(false), 2000);
   };
 
-  // Framer Motion Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -177,13 +175,13 @@ export default function SignupPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="text-center mt-8">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-xl">
             Already have an access key?{" "}
             <Link
               href="/login"
               className="text-[#10b981] font-semibold hover:text-emerald-400 transition-colors flex items-center justify-center gap-1"
             >
-              Sign In <Sparkles className="w-3 h-3" />
+              Login <Sparkles className="w-3 h-3" />
             </Link>
           </p>
         </motion.div>
