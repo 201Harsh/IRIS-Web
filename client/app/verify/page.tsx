@@ -53,7 +53,6 @@ function VerifyContent() {
       }
     };
 
-    // Add a slight artificial delay so the scanning animation looks cool before resolving
     const timer = setTimeout(() => {
       verifyToken();
     }, 1500);
@@ -61,14 +60,12 @@ function VerifyContent() {
     return () => clearTimeout(timer);
   }, [token, router]);
 
-  // --- UI STATES ---
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-2xl relative overflow-hidden w-full max-w-md text-center"
     >
-      {/* Dynamic Top Border Glow based on status */}
       <div
         className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-colors duration-500 ${
           status === "verifying"
@@ -79,7 +76,6 @@ function VerifyContent() {
         }`}
       />
 
-      {/* VERIFYING STATE */}
       {status === "verifying" && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -99,7 +95,6 @@ function VerifyContent() {
         </motion.div>
       )}
 
-      {/* SUCCESS STATE */}
       {status === "success" && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -118,7 +113,6 @@ function VerifyContent() {
         </motion.div>
       )}
 
-      {/* ERROR STATE */}
       {status === "error" && (
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -144,11 +138,9 @@ function VerifyContent() {
   );
 }
 
-// --- MAIN PAGE WRAPPER ---
 export default function VerifyPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
-      {/* Background Ambient Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
 
