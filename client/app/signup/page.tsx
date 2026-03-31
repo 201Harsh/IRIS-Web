@@ -36,10 +36,18 @@ export default function SignupPage() {
     setIsLoading(true);
 
     try {
-      const response = await AxiosInstance.post("/user/register", FormData);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+      const response = await AxiosInstance.post("/users/register", FormData);
+
+      if (response.status === 201) {
+        console.log(response.data);
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
+      }
+    } catch (error: any) {
+      console.log(error.response.data);
     } finally {
       setIsLoading(false);
     }
