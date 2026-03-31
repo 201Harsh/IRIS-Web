@@ -21,11 +21,9 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
     setTimeout(() => setIsLoading(false), 2000);
   };
 
-  // Framer Motion Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
