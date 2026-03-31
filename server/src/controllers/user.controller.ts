@@ -155,7 +155,7 @@ export const LoginUser = async (req: Request, res: Response) => {
 
     if (!user) {
       return res.status(404).json({
-        message: "User not found",
+        message: "Invalid Credentials! (email or password are incorrect)",
       });
     }
 
@@ -169,7 +169,7 @@ export const LoginUser = async (req: Request, res: Response) => {
 
     if (!isPasswordValid) {
       return res.status(401).json({
-        message: "Invalid password",
+        message: "Invalid Credentials! (email or password are incorrect)",
       });
     }
 
