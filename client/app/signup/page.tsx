@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import { FormData } from "../types/form-type";
 import { FcGoogle } from "react-icons/fc";
+import AxiosInstance from "@/config/AxiosInstacne";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,16 +31,18 @@ export default function SignupPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(FormData);
-    setFormData({
-      name: "",
-      email: "",
-      password: "",
-    });
-    setIsLoading(false);
+
+    try {
+      const response = await AxiosInstance.post("/user/register", FormData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const containerVariants = {
