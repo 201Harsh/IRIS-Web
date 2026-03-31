@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { User, Mail, Lock, ArrowRight, Cpu, Sparkles } from 'lucide-react';
-import Link from 'next/link';
-import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { User, Mail, Lock, ArrowRight, Cpu, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,22 +26,25 @@ export default function SignupPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
   };
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
-      
       {/* Background Ambient Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#10b981]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#044a33]/30 blur-[120px] rounded-full pointer-events-none" />
-      
+
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -53,7 +56,10 @@ export default function SignupPage() {
             <Cpu className="w-8 h-8 text-[#10b981]" />
           </div>
           <h1 className="text-3xl md:text-4xl font-black tracking-tighter mb-2">
-            Initialize <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-emerald-200">IRIS</span>
+            Initialize{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-emerald-200">
+              IRIS
+            </span>
           </h1>
           <p className="text-gray-400 text-sm font-mono tracking-widest uppercase">
             Create your access key
@@ -61,7 +67,7 @@ export default function SignupPage() {
         </motion.div>
 
         {/* Main Form Card */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden"
         >
@@ -69,10 +75,11 @@ export default function SignupPage() {
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#10b981]/50 to-transparent opacity-50" />
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            
             {/* Name Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">Full Name</label>
+              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+                Full Name
+              </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <User className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
@@ -88,7 +95,9 @@ export default function SignupPage() {
 
             {/* Email Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">Email Address</label>
+              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+                Email Address
+              </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
@@ -104,7 +113,9 @@ export default function SignupPage() {
 
             {/* Password Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">Secure Password</label>
+              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+                Secure Password
+              </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Lock className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
@@ -141,7 +152,9 @@ export default function SignupPage() {
           {/* Divider */}
           <div className="flex items-center gap-4 my-8">
             <div className="h-px bg-white/10 flex-1" />
-            <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Or Auth With</span>
+            <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+              Or Auth With
+            </span>
             <div className="h-px bg-white/10 flex-1" />
           </div>
 
@@ -156,14 +169,16 @@ export default function SignupPage() {
               GitHub
             </button>
           </div>
-
         </motion.div>
 
         {/* Footer Link */}
         <motion.div variants={itemVariants} className="text-center mt-8">
           <p className="text-gray-400 text-sm">
-            Already have an access key?{' '}
-            <Link href="/login" className="text-[#10b981] font-semibold hover:text-emerald-400 transition-colors flex items-center justify-center gap-1 inline-flex">
+            Already have an access key?{" "}
+            <Link
+              href="/login"
+              className="text-[#10b981] font-semibold hover:text-emerald-400 transition-colors flex items-center justify-center gap-1 inline-flex"
+            >
               Sign In <Sparkles className="w-3 h-3" />
             </Link>
           </p>
