@@ -28,7 +28,7 @@ export const useAuthStore = create<AuthState>()(
     logout: () =>
       set((state) => {
         state.accessToken = null;
-        state.isAuthInitialized = true; // 🔥 prevent app from hanging
+        state.isAuthInitialized = true;
       }),
   })),
 );
