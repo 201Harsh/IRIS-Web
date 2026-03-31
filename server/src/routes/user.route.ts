@@ -4,6 +4,7 @@ import {
   LoginUser,
   LogoutAllusers,
   LogoutUser,
+  RefreshAccessToken,
   registerUser,
   VerifyEmail,
 } from "../controllers/user.controller.js";
@@ -68,5 +69,7 @@ userRouter.get("/me", AuthMiddleware, GetUser);
 userRouter.post("/logout", AuthMiddleware, LogoutUser);
 
 userRouter.post("/logout-all", AuthMiddleware, LogoutAllusers);
+
+userRouter.post("/refresh-token", RefreshAccessToken);
 
 export default userRouter;

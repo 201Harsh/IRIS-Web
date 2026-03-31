@@ -7,6 +7,7 @@ import {
   setRefreshCookie,
   verifySecureData,
 } from "../utils/user-utils.js";
+import jwt from "jsonwebtoken";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -294,7 +295,7 @@ export const RefreshAccessToken = async (
 
     const decoded = jwt.verify(
       refreshToken,
-      process.env.JWT_REFRESH_SECRET as string,
+      process.env.REFRESH_TOKEN_SECRET as string,
     ) as { id: string };
 
     const user = await UserModel.findById(decoded.id).select("+refreshToken");
