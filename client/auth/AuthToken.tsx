@@ -17,10 +17,8 @@ export default function AuthInitializer() {
 
         setAccessToken(accessToken);
       } catch (err) {
-        // refresh failed → user not logged in
         setAccessToken(null);
       } finally {
-        // 🔥 mark auth as initialized (VERY IMPORTANT)
         setIsAuthInitialized(true);
       }
     };
