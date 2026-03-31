@@ -175,12 +175,12 @@ export default function LoginPage() {
 
         <motion.div variants={itemVariants} className="text-center mt-8">
           <p className="text-gray-400 text-sm">
-            Don't have an access key?{" "}
+            Don't have an Account?{" "}
             <Link
               href="/signup"
               className="text-[#10b981] font-semibold hover:text-emerald-400 transition-colors flex items-center justify-center gap-1 inline-flex"
             >
-              Deploy Engine <Sparkles className="w-3 h-3" />
+              Sign Up <Sparkles className="w-3 h-3" />
             </Link>
           </p>
         </motion.div>
