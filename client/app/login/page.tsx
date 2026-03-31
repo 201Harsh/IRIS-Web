@@ -13,15 +13,30 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { FormDataLogin } from "../types/form-type";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [FormData, setFormData] = useState<FormDataLogin>({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 2000);
+    console.log(FormData);
+    setFormData({
+      email: "",
+      password: "",
+    });
+    setIsLoading(false);
   };
 
   const containerVariants = {
@@ -85,6 +100,10 @@ export default function LoginPage() {
                   <Mail className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="email"
+                  name="email"
+                  value={FormData.email}
+                  onChange={handleChange}
                   type="email"
                   required
                   placeholder="harsh@vitalstudios.com"
@@ -110,6 +129,10 @@ export default function LoginPage() {
                   <Lock className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
+                  id="password"
+                  name="password"
+                  value={FormData.password}
+                  onChange={handleChange}
                   type={showPassword ? "text" : "password"}
                   required
                   placeholder="••••••••••••"
