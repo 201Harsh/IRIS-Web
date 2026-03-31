@@ -279,3 +279,40 @@ export const LogoutAllusers = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const RefreshAccessToken = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const refreshToken = req.cookies?.agentx_refresh_token;
+
+    if (!refreshToken) {
+      res.status(401).json({ error: "Unauthorized. No Refresh Token found." });
+      return;
+    }
+
+    const decoded = jwt.verify(
+      refreshToken,
+      process.env.JWT_REFRESH_SECRET as string,
+    ) as { id: string };
+
+    const user = await UserModel.findById(decoded.id).select("+refreshToken");
+
+    if (!user || user.refreshToken !== refreshToken) {
+      res
+        .status(403)
+        .json({ error: "Forbidden. Invalid or revoked refresh token." });
+      return;
+    }
+
+    const newAccessToken = user.createAccessToken();
+
+    res.status(200).json({ accessToken: newAccessToken });
+    return;
+  } catch (error: any) {
+    console.error("Refresh Token Error:", error.message);
+    res.status(403).json({ error: "Forbidden. Token expired or invalid." });
+    return;
+  }
+};
