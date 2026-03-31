@@ -71,8 +71,11 @@ export const registerUser = async (req: Request, res: Response) => {
       });
     }
 
+    const verifyURL = `${process.env.CLIENT_URL}/verify?token=${user.verifyToken}`;
+    console.log(verifyURL);
+
     return res.status(201).json({
-      message: "User registered successfully",
+      message: "User registered successfully Now Verify your email",
       user: {
         name: user.name,
         email: user.email,
