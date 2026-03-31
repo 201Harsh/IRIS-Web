@@ -16,10 +16,13 @@ import Link from "next/link";
 import { FormData } from "../types/form-type";
 import { FcGoogle } from "react-icons/fc";
 import AxiosInstance from "@/config/AxiosInstacne";
+import ErrorBox from "../Components/ErrorBox";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [FormData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -29,17 +32,38 @@ export default function SignupPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error) setError(null);
+    if (success) setSuccess(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
+    if (FormData.name.length < 3) {
+      setError("Name must be at least 3 characters long.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(FormData.email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (FormData.password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
       const response = await AxiosInstance.post("/users/register", FormData);
 
       if (response.status === 201) {
-        console.log(response.data);
+        setSuccess("Account created successfully! You can now login.");
         setFormData({
           name: "",
           email: "",
@@ -47,7 +71,18 @@ export default function SignupPage() {
         });
       }
     } catch (error: any) {
-      console.log(error.response.data);
+      if (error.response && error.response.data) {
+        setError(
+          typeof error.response.data === "string"
+            ? error.response.data
+            : error.response.data.message ||
+                "Registration failed. Please try again."
+        );
+      } else {
+        setError(
+          error.message || "An unexpected error occurred. Please try again."
+        );
+      }
     } finally {
       setIsLoading(false);
     }
@@ -103,6 +138,21 @@ export default function SignupPage() {
           className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-8 shadow-2xl relative overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent opacity-50" />
+
+          {error && (
+            <ErrorBox
+              type="error"
+              message={error}
+              onClose={() => setError(null)}
+            />
+          )}
+          {success && (
+            <ErrorBox
+              type="success"
+              message={success}
+              onClose={() => setSuccess(null)}
+            />
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-1">
