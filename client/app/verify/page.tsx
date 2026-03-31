@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -64,15 +64,15 @@ function VerifyContent() {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-2xl relative overflow-hidden w-full max-w-md text-center"
+      className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-10 shadow-2xl relative overflow-hidden w-full max-w-md text-center"
     >
       <div
         className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-colors duration-500 ${
           status === "verifying"
-            ? "bg-gradient-to-r from-transparent via-blue-500 to-transparent"
+            ? "bg-linear-to-r from-transparent via-blue-500 to-transparent"
             : status === "success"
-              ? "bg-gradient-to-r from-transparent via-[#10b981] to-transparent"
-              : "bg-gradient-to-r from-transparent via-red-500 to-transparent"
+              ? "bg-linear-to-r from-transparent via-[#10b981] to-transparent"
+              : "bg-linear-to-r from-transparent via-red-500 to-transparent"
         }`}
       />
 
@@ -141,8 +141,8 @@ function VerifyContent() {
 export default function VerifyPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
 
       <Suspense
         fallback={
