@@ -2,13 +2,22 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Lock, ArrowRight, Cpu, Sparkles } from "lucide-react";
+import {
+  User,
+  Mail,
+  Lock,
+  ArrowRight,
+  Cpu,
+  Sparkles,
+  Eye,
+  EyeOff,
+} from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 
 export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,11 +130,22 @@ export default function SignupPage() {
                   <Lock className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   placeholder="••••••••••••"
-                  className="w-full bg-[#050505] border border-white/10 rounded-xl py-3.5 pl-12 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all"
+                  className="w-full bg-[#050505] border border-white/10 rounded-xl py-3.5 pl-12 pr-12 text-white placeholder-gray-600 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-[#10b981] transition-colors focus:outline-none"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
+                </button>
               </div>
             </div>
 
