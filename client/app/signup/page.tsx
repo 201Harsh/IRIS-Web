@@ -77,12 +77,12 @@ export default function SignupPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+              <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Full Name
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
+                  <User className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
                   type="text"
@@ -95,30 +95,30 @@ export default function SignupPage() {
 
             {/* Email Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+              <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Email Address
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
+                  <Mail className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
                   type="email"
                   required
                   placeholder="harsh@vitalstudios.com"
-                  className="w-full bg-[#050505] border border-white/10 rounded-xl py-3.5 pl-12 pr-4 text-white placeholder-gray-600 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all"
+                  className="w-full bg-[#050505] border border-white/10 rounded-xl py-3.5 pl-12 pr-4 text-white placeholder-gray-400 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all"
                 />
               </div>
             </div>
 
             {/* Password Input */}
             <div className="space-y-1">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-wider ml-1">
+              <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Secure Password
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-500 group-focus-within:text-[#10b981] transition-colors" />
+                  <Lock className="h-5 w-5 text-gray-300 group-focus-within:text-[#10b981] transition-colors" />
                 </div>
                 <input
                   type="password"
@@ -129,11 +129,10 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full relative group overflow-hidden rounded-xl bg-[#10b981] text-black font-bold py-4 mt-2 transition-all hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="cursor-pointer w-full relative group overflow-hidden rounded-xl bg-[#10b981] text-black font-bold py-4 mt-2 transition-all hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
               <div className="flex items-center justify-center gap-2 relative z-10">
@@ -141,7 +140,7 @@ export default function SignupPage() {
                   <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <>
-                    <span>Deploy Engine</span>
+                    <span>Create Account</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
@@ -149,7 +148,6 @@ export default function SignupPage() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center gap-4 my-8">
             <div className="h-px bg-white/10 flex-1" />
             <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
@@ -158,16 +156,14 @@ export default function SignupPage() {
             <div className="h-px bg-white/10 flex-1" />
           </div>
 
-          {/* Social Logins */}
           <div className="w-full flex items-center justify-center">
-            <button className="flex w-full items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#050505] border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all text-sm font-medium text-gray-300">
+            <button className="cursor-pointer flex w-full items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#050505] border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all text-sm font-medium text-gray-300">
               <FcGoogle className="w-5 h-5" />
               Google
             </button>
           </div>
         </motion.div>
 
-        {/* Footer Link */}
         <motion.div variants={itemVariants} className="text-center mt-8">
           <p className="text-gray-400 text-sm">
             Already have an access key?{" "}
