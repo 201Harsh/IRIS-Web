@@ -1,6 +1,11 @@
 import { useAuthStore } from "@/app/store/auth-store";
 import axios from "axios";
 
+type QueueItem = {
+  resolve: (token: string) => void;
+  reject: (err: any) => void;
+};
+
 const AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
   withCredentials: true,
@@ -17,14 +22,14 @@ AxiosInstance.interceptors.request.use((config) => {
 });
 
 let isRefreshing = false;
-let queue: any[] = [];
+let queue: QueueItem[] = [];
 
 const processQueue = (error: any, token: string | null = null) => {
   queue.forEach((prom) => {
     if (error) {
       prom.reject(error);
     } else {
-      prom.resolve(token);
+      prom.resolve(token!);
     }
   });
 
@@ -54,15 +59,10 @@ AxiosInstance.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        const res = await axios.post(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/api/refresh-token`,
-          {},
-          { withCredentials: true },
-        );
+        const res = await AxiosInstance.post("/users/refresh-token");
 
         const newAccessToken = res.data.accessToken;
 
-        // 🔥 update Zustand
         useAuthStore.getState().setAccessToken(newAccessToken);
 
         processQueue(null, newAccessToken);
