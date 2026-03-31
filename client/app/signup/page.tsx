@@ -46,11 +46,9 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
-      {/* Background Ambient Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#10b981]/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#044a33]/30 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
 
       <motion.div
@@ -59,7 +57,6 @@ export default function SignupPage() {
         animate="show"
         className="w-full max-w-md relative z-10"
       >
-        {/* Header Section */}
         <motion.div variants={itemVariants} className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#10b981]/10 border border-[#10b981]/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] mb-6">
             <Cpu className="w-8 h-8 text-[#10b981]" />
@@ -75,16 +72,13 @@ export default function SignupPage() {
           </p>
         </motion.div>
 
-        {/* Main Form Card */}
         <motion.div
           variants={itemVariants}
           className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-8 shadow-2xl relative overflow-hidden"
         >
-          {/* Subtle top border glow */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#10b981]/50 to-transparent opacity-50" />
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name Input */}
             <div className="space-y-1">
               <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Full Name
@@ -102,7 +96,6 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* Email Input */}
             <div className="space-y-1">
               <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Email Address
@@ -120,7 +113,6 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* Password Input */}
             <div className="space-y-1">
               <label className="text-xs font-mono text-gray-200 uppercase tracking-wider ml-1">
                 Secure Password
