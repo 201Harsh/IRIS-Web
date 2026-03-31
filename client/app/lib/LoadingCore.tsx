@@ -39,7 +39,7 @@ const LoadingCore = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full flex flex-col items-center justify-center bg-transparent overflow-hidden relative z-50 pointer-events-none"
+      className="w-full h-full flex flex-col items-center justify-center bg-blacktext overflow-hidden absolute inset-0 z-500 pointer-events-none"
     >
       <motion.div
         initial={{ opacity: 0 }}
