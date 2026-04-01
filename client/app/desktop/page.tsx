@@ -18,11 +18,9 @@ function RedirectLogic() {
     "initializing" | "redirecting" | "fallback"
   >("initializing");
 
-  // Extract the tokens sent by your backend
   const desktopToken = searchParams.get("desktopToken");
   const refreshToken = searchParams.get("refreshToken");
 
-  // Construct the deep link payload for Electron
   const buildDeepLink = () => {
     let link = "iris://dashboard";
     if (desktopToken && refreshToken) {
@@ -34,7 +32,6 @@ function RedirectLogic() {
   useEffect(() => {
     const initTimer = setTimeout(() => {
       setStatus("redirecting");
-      // Fire the deep link with the tokens attached
       window.location.href = buildDeepLink();
     }, 2000);
 
@@ -208,7 +205,6 @@ function RedirectLogic() {
   );
 }
 
-// Next.js 13+ requires useSearchParams to be wrapped in a Suspense boundary
 export default function DesktopRedirectPage() {
   return (
     <Suspense
