@@ -59,6 +59,11 @@ export default function LoginPage() {
       return;
     }
 
+    if (FormData.password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
