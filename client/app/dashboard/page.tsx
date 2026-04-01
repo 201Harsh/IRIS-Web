@@ -19,7 +19,6 @@ import {
 import Link from "next/link";
 import AxiosInstance from "@/config/AxiosInstacne";
 
-// --- TYPES ---
 interface UserData {
   name: string;
   email: string;
@@ -65,7 +64,6 @@ export default function DashboardPage() {
     fetchUserData();
   }, []);
 
-  // --- FRAMER MOTION VARIANTS ---
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -83,7 +81,6 @@ export default function DashboardPage() {
     },
   };
 
-  // --- LOADING STATE ---
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center text-[#10b981] font-mono text-sm">
@@ -103,7 +100,6 @@ export default function DashboardPage() {
     );
   }
 
-  // --- CALCULATIONS ---
   const isPro = userData?.tier === "pro";
   const maxDevices = isPro ? 3 : 1;
   const activeDevices = userData?.hwids || [];
@@ -111,7 +107,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex flex-col md:flex-row selection:bg-[#10b981] selection:text-black">
-      {/* --- SIDEBAR --- */}
       <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r border-white/5 bg-[#0a0a0a] flex flex-col">
         <div className="p-6 border-b border-white/5 flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.2)]">
@@ -136,14 +131,12 @@ export default function DashboardPage() {
 
         <div className="p-4 border-t border-white/5">
           <button className="flex items-center gap-3 w-full p-3 rounded-xl text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-colors text-sm font-medium">
-            <LogOut className="w-4 h-4" /> Disconnect Session
+            <LogOut className="w-4 h-4" /> Logout Account
           </button>
         </div>
       </aside>
 
-      {/* --- MAIN CONTENT AREA --- */}
       <main className="flex-1 p-6 md:p-10 relative overflow-hidden">
-        {/* Background glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
 
         <motion.div
@@ -152,7 +145,6 @@ export default function DashboardPage() {
           animate="show"
           className="max-w-6xl mx-auto relative z-10"
         >
-          {/* HEADER */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10"
@@ -181,9 +173,7 @@ export default function DashboardPage() {
             </div>
           </motion.div>
 
-          {/* TOP METRICS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* Identity Card */}
             <motion.div
               variants={itemVariants}
               className="p-6 rounded-[2rem] bg-[#0a0a0a] border border-white/5 relative overflow-hidden group"
@@ -210,7 +200,6 @@ export default function DashboardPage() {
               </p>
             </motion.div>
 
-            {/* License Card */}
             <motion.div
               variants={itemVariants}
               className={`p-6 rounded-[2rem] bg-[#0a0a0a] border ${isPro ? "border-[#10b981]/30 shadow-[0_0_30px_rgba(16,185,129,0.05)]" : "border-white/5"} relative overflow-hidden`}
@@ -242,7 +231,6 @@ export default function DashboardPage() {
               </p>
             </motion.div>
 
-            {/* Device Usage Card */}
             <motion.div
               variants={itemVariants}
               className="p-6 rounded-[2rem] bg-[#0a0a0a] border border-white/5 relative overflow-hidden"
@@ -266,7 +254,6 @@ export default function DashboardPage() {
             </motion.div>
           </div>
 
-          {/* --- CENTER CONTROL: ACTIVE DEVICES --- */}
           <motion.div variants={itemVariants} className="mt-4">
             <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
               <Monitor className="w-6 h-6 text-[#10b981]" /> Hardware Bridge
@@ -274,7 +261,6 @@ export default function DashboardPage() {
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Render Active Devices */}
               {activeDevices.map((hwid, index) => (
                 <div
                   key={index}
@@ -309,7 +295,6 @@ export default function DashboardPage() {
                 </div>
               ))}
 
-              {/* Render Empty Slots */}
               {Array.from({ length: emptySlots }).map((_, index) => (
                 <div
                   key={`empty-${index}`}
@@ -325,7 +310,6 @@ export default function DashboardPage() {
                 </div>
               ))}
 
-              {/* Render Upsell Slot if Free Tier */}
               {!isPro && (
                 <div className="p-6 rounded-[2rem] bg-[#050505] border border-dashed border-[#10b981]/30 flex flex-col items-center justify-center text-center min-h-[260px] relative overflow-hidden group">
                   <div className="absolute inset-0 bg-[#10b981]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -354,7 +338,6 @@ export default function DashboardPage() {
   );
 }
 
-// --- HELPER COMPONENT ---
 const SidebarLink = ({
   icon,
   label,
