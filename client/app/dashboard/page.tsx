@@ -132,22 +132,10 @@ export default function DashboardPage() {
             onClick={() => setActiveTab("overview")}
           />
           <SidebarLink
-            icon={<Network />}
-            label="Network Map"
-            active={activeTab === "network"}
-            onClick={() => setActiveTab("network")}
-          />
-          <SidebarLink
             icon={<CreditCard />}
             label="Billing & Tier"
             active={activeTab === "billing"}
             onClick={() => setActiveTab("billing")}
-          />
-          <SidebarLink
-            icon={<Settings />}
-            label="Engine Settings"
-            active={activeTab === "settings"}
-            onClick={() => setActiveTab("settings")}
           />
         </nav>
 
@@ -394,32 +382,6 @@ export default function DashboardPage() {
             </motion.div>
           )}
 
-          {activeTab === "network" && (
-            <motion.div
-              key="network"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-              className="max-w-6xl mx-auto relative z-10"
-            >
-              <h2 className="text-3xl font-bold tracking-tight mb-8">
-                Global Routing & Logs
-              </h2>
-              <div className="w-full h-96 bg-[#0a0a0a] rounded-[2rem] border border-white/5 flex items-center justify-center relative overflow-hidden">
-                {/* Fake cool network map visualization */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.1),transparent_70%)]" />
-                <Globe className="w-32 h-32 text-white/5 absolute" />
-                <div className="flex flex-col items-center gap-4 z-10">
-                  <div className="w-4 h-4 bg-[#10b981] rounded-full animate-ping" />
-                  <p className="font-mono text-sm text-[#10b981] uppercase tracking-widest bg-[#10b981]/10 px-4 py-1 rounded border border-[#10b981]/20">
-                    Tracing Packets...
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
           {activeTab === "billing" && (
             <motion.div
               key="billing"
@@ -531,45 +493,6 @@ export default function DashboardPage() {
               )}
             </motion.div>
           )}
-
-          {activeTab === "settings" && (
-            <motion.div
-              key="settings"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-              className="max-w-6xl mx-auto relative z-10"
-            >
-              <h2 className="text-3xl font-bold tracking-tight mb-8">
-                Engine Configurations
-              </h2>
-              <div className="bg-[#0a0a0a] rounded-[2rem] border border-white/5 overflow-hidden">
-                <SettingRow
-                  title="Autonomous Action Mode"
-                  desc="Allow IRIS to execute file system changes without explicit confirmation."
-                  enabled={false}
-                />
-                <SettingRow
-                  title="Biometric Vault Lock"
-                  desc="Require Face ID to execute sensitive OS shell commands."
-                  enabled={isPro}
-                  isPro={true}
-                  userPro={isPro}
-                />
-                <SettingRow
-                  title="Local LLM Fallback (Ollama)"
-                  desc="Automatically route queries to local models if network drops."
-                  enabled={true}
-                />
-                <SettingRow
-                  title="WebSocket Audio Streaming"
-                  desc="Stream raw binary audio for sub-second conversational latency."
-                  enabled={true}
-                />
-              </div>
-            </motion.div>
-          )}
         </AnimatePresence>
       </main>
     </div>
@@ -597,43 +520,3 @@ const SidebarLink = ({
     {label}
   </button>
 );
-
-const SettingRow = ({
-  title,
-  desc,
-  enabled,
-  isPro,
-  userPro,
-}: {
-  title: string;
-  desc: string;
-  enabled: boolean;
-  isPro?: boolean;
-  userPro?: boolean;
-}) => {
-  const locked = isPro && !userPro;
-  return (
-    <div className="flex items-center justify-between p-6 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
-      <div>
-        <h4 className="text-white font-medium flex items-center gap-2">
-          {title}
-          {isPro && (
-            <span className="text-[10px] font-mono bg-[#10b981]/10 text-[#10b981] px-2 py-0.5 rounded border border-[#10b981]/20 uppercase">
-              Pro Only
-            </span>
-          )}
-        </h4>
-        <p className="text-sm text-gray-500 mt-1">{desc}</p>
-      </div>
-      <button
-        className={`cursor-pointer ${locked ? "opacity-50 cursor-not-allowed" : ""}`}
-      >
-        {enabled ? (
-          <ToggleRight className="w-10 h-10 text-[#10b981]" />
-        ) : (
-          <ToggleLeft className="w-10 h-10 text-gray-600" />
-        )}
-      </button>
-    </div>
-  );
-};
