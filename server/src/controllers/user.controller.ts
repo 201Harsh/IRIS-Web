@@ -91,6 +91,31 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
+export const RegisterAndLoginUsingGoogle = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const user = req.user as any;
+
+    if (!user) {
+      return res.redirect(
+        `${process.env.CLIENT_SIDE_URL}/signup?error=AuthFailed`,
+      );
+    }
+
+    const tokens = generateTokens(user._id, user.tokenVersion);
+    const nextJsApiUrl = `${process.env.CLIENT_SIDE_URL}/api/auth`;
+
+    return res.redirect(`${nextJsApiUrl}/signup`);
+  } catch (error) {
+    console.log(error);
+    return res.redirect(
+      `${process.env.CLIENT_SIDE_URL}/signup?error=AuthFailed`,
+    );
+  }
+};
+
 export const VerifyEmail = async (req: Request, res: Response) => {
   try {
     const { token } = req.body;
