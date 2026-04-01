@@ -7,8 +7,7 @@ export const AuthMiddleware = (
   next: NextFunction,
 ) => {
   try {
-    const token =
-      req.cookies.iris_access || req.headers.authorization?.split(" ")[1];
+    const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
       res.status(401).json({

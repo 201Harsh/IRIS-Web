@@ -120,7 +120,7 @@ export const VerifyEmail = async (req: Request, res: Response) => {
 
     const tokens = generateTokens(user._id, user.tokenVersion);
     setRefreshCookie(res, tokens.refreshToken);
-
+    user.refreshToken = tokens.refreshToken;
     await user.save();
 
     return res.status(200).json({
@@ -177,8 +177,11 @@ export const LoginUser = async (req: Request, res: Response) => {
       });
     }
 
-    const token = generateTokens(user._id, user.tokenVersion);
-    setRefreshCookie(res, token.refreshToken);
+    const tokens = generateTokens(user._id, user.tokenVersion);
+    setRefreshCookie(res, tokens.refreshToken);
+
+    user.refreshToken = tokens.refreshToken;
+    await user.save();
 
     return res.status(200).json({
       message: "User logged in successfully",
@@ -188,7 +191,7 @@ export const LoginUser = async (req: Request, res: Response) => {
         tier: user.tier,
         verified: user.verified,
       },
-      accessToken: token.accessToken,
+      accessToken: tokens.accessToken,
     });
   } catch (error: any) {
     return res.status(500).json({
@@ -286,7 +289,7 @@ export const RefreshAccessToken = async (
   res: Response,
 ): Promise<void> => {
   try {
-    const refreshToken = req.cookies?.agentx_refresh_token;
+    const refreshToken = req.cookies?.iris_refresh;
 
     if (!refreshToken) {
       res.status(401).json({ error: "Unauthorized. No Refresh Token found." });
