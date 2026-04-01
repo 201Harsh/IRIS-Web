@@ -132,7 +132,6 @@ export default function DashboardPage() {
             active={activeTab === "billing"}
             onClick={() => setActiveTab("billing")}
           />
-          
         </nav>
 
         <div className="p-4 border-t border-white/5">
@@ -144,7 +143,6 @@ export default function DashboardPage() {
 
       <main className="flex-1 p-6 md:p-10 relative overflow-hidden overflow-y-auto h-screen">
         <div className="absolute top-0 right-0 w-125 h-125 bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
-
 
         <AnimatePresence mode="wait">
           {activeTab === "overview" && (
