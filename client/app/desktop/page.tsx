@@ -17,13 +17,13 @@ function RedirectLogic() {
     "initializing" | "redirecting" | "fallback"
   >("initializing");
 
-  const desktopToken = searchParams.get("desktopToken");
+  const accessToken = searchParams.get("accessToken");
   const refreshToken = searchParams.get("refreshToken");
 
   const buildDeepLink = () => {
     let link = "iris://dashboard";
-    if (desktopToken && refreshToken) {
-      link += `?desktopToken=${desktopToken}&refreshToken=${refreshToken}`;
+    if (accessToken && refreshToken) {
+      link += `?accessToken=${accessToken}&refreshToken=${refreshToken}`;
     }
     return link;
   };
@@ -42,7 +42,7 @@ function RedirectLogic() {
       clearTimeout(initTimer);
       clearTimeout(fallbackTimer);
     };
-  }, [desktopToken, refreshToken]);
+  }, [accessToken, refreshToken]);
 
   const handleManualTrigger = () => {
     window.location.href = buildDeepLink();
