@@ -91,6 +91,30 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
+export const RegisterAndLoginUsingGoogle = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const user = req.user as any;
+
+    if (!user) {
+      return res.redirect(
+        `${process.env.CLIENT_SIDE_URL}/signup?error=AuthFailed`,
+      );
+    }
+
+    const tokens = generateTokens(user._id, user.tokenVersion);
+    setRefreshCookie(res, tokens.refreshToken);
+    user.refreshToken = tokens.refreshToken;
+    await user.save();
+
+    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+  } catch (error) {
+    return res.redirect(`${process.env.CLIENT_URL}/signup?error=AuthFailed`);
+  }
+};
+
 export const VerifyEmail = async (req: Request, res: Response) => {
   try {
     const { token } = req.body;
@@ -166,6 +190,13 @@ export const LoginUser = async (req: Request, res: Response) => {
     if (!user.verified) {
       return res.status(401).json({
         message: "Verify your email to login!",
+      });
+    }
+
+    if (!user.password) {
+      return res.status(401).json({
+        message:
+          "This account uses Google Login. Please click 'Continue with Google'",
       });
     }
 
