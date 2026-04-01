@@ -327,14 +327,12 @@ export const RefreshAccessToken = async (
   res: Response,
 ): Promise<void> => {
   try {
-    const { refreshToken } = req.body;
+    const { refreshToken } = req?.body || req?.cookies?.iris_refresh;
 
     if (!refreshToken) {
-      res
-        .status(401)
-        .json({
-          error: "Unauthorized. No Refresh Token provided in payload. (1)",
-        });
+      res.status(401).json({
+        error: "Unauthorized. No Refresh Token provided in payload. (1)",
+      });
       return;
     }
 
