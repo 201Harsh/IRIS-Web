@@ -2,6 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 import jwt from "jsonwebtoken";
 
 export interface IUser extends Document {
+  googleId?: string;
   name: string;
   email: string;
   password: string;
@@ -21,6 +22,10 @@ export interface IUser extends Document {
 
 const UserSchema: Schema = new Schema(
   {
+    googleId: {
+      type: String,
+      select: false,
+    },
     name: {
       type: String,
       required: true,
