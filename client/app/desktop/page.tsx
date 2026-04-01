@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Terminal,
@@ -11,16 +12,30 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-export default function DesktopRedirectPage() {
+function RedirectLogic() {
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<
     "initializing" | "redirecting" | "fallback"
   >("initializing");
 
+  // Extract the tokens sent by your backend
+  const desktopToken = searchParams.get("desktopToken");
+  const refreshToken = searchParams.get("refreshToken");
+
+  // Construct the deep link payload for Electron
+  const buildDeepLink = () => {
+    let link = "iris://dashboard";
+    if (desktopToken && refreshToken) {
+      link += `?desktopToken=${desktopToken}&refreshToken=${refreshToken}`;
+    }
+    return link;
+  };
+
   useEffect(() => {
     const initTimer = setTimeout(() => {
       setStatus("redirecting");
-
-      window.location.href = "iris://dashboard";
+      // Fire the deep link with the tokens attached
+      window.location.href = buildDeepLink();
     }, 2000);
 
     const fallbackTimer = setTimeout(() => {
@@ -31,10 +46,10 @@ export default function DesktopRedirectPage() {
       clearTimeout(initTimer);
       clearTimeout(fallbackTimer);
     };
-  }, []);
+  }, [desktopToken, refreshToken]);
 
   const handleManualTrigger = () => {
-    window.location.href = "iris://dashboard";
+    window.location.href = buildDeepLink();
   };
 
   const containerVariants = {
@@ -54,7 +69,7 @@ export default function DesktopRedirectPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-linear(to_right,#ffffff03_1px,transparent_1px),linear-linear(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
 
       <motion.div
         variants={containerVariants}
@@ -64,10 +79,10 @@ export default function DesktopRedirectPage() {
       >
         <motion.div
           variants={itemVariants}
-          className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-10 shadow-[0_0_50px_rgba(16,185,129,0.05)] relative overflow-hidden text-center flex flex-col items-center"
+          className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-[0_0_50px_rgba(16,185,129,0.05)] relative overflow-hidden text-center flex flex-col items-center"
         >
           <div
-            className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-all duration-1000 ${status === "redirecting" ? "bg-linear-to-r from-transparent via-[#10b981] to-transparent" : "bg-white/10"}`}
+            className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-all duration-1000 ${status === "redirecting" ? "bg-gradient-to-r from-transparent via-[#10b981] to-transparent" : "bg-white/10"}`}
           />
 
           <div className="relative w-28 h-28 flex items-center justify-center mb-8">
@@ -125,8 +140,8 @@ export default function DesktopRedirectPage() {
                     Establishing Link...
                   </h2>
                   <p className="text-gray-400 text-sm font-mono tracking-widest uppercase flex items-center justify-center gap-2">
-                    <Loader2 className="w-3 h-3 animate-spin" /> Verifying
-                    Credentials
+                    <Loader2 className="w-3 h-3 animate-spin" /> Packaging Auth
+                    Tokens
                   </p>
                 </motion.div>
               )}
@@ -184,16 +199,26 @@ export default function DesktopRedirectPage() {
                 <button className="w-full py-3 rounded-xl border border-[#10b981]/30 bg-[#10b981]/10 hover:bg-[#10b981]/20 text-[#10b981] font-medium transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer">
                   <Download className="w-4 h-4" /> Download Local Engine
                 </button>
-
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-gray-500">
-                  <ShieldCheck className="w-3 h-3" /> Secure End-to-End
-                  Encryption
-                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
       </motion.div>
     </div>
+  );
+}
+
+// Next.js 13+ requires useSearchParams to be wrapped in a Suspense boundary
+export default function DesktopRedirectPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#050505] flex items-center justify-center text-[#10b981] font-mono tracking-widest text-sm">
+          PREPARING NEURAL UPLINK...
+        </div>
+      }
+    >
+      <RedirectLogic />
+    </Suspense>
   );
 }
