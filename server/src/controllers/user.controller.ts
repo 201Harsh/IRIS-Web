@@ -112,7 +112,7 @@ export const RegisterAndLoginUsingGoogle = async (
     await user.save();
 
     res.redirect(
-      `${process.env.CLIENT_URL}/desktop?desktopToken=${desktopToken}`,
+      `${process.env.CLIENT_URL}/desktop?desktopToken=${desktopToken}&refreshToken=${tokens.refreshToken}`,
     );
   } catch (error) {
     return res.redirect(`${process.env.CLIENT_URL}/signup?error=AuthFailed`);
