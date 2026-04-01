@@ -79,9 +79,11 @@ export default function LoginPage() {
         const accessToken = response.data.accessToken;
         setAccessToken(accessToken);
         const desktopToken = response.data.desktopToken;
-        localStorage.setItem("desktopToken", desktopToken);
+        const refreshToken = response.data.refreshToken;
 
-        router.push("/dashboard");
+        router.push(
+          `/desktop?desktopToken=${desktopToken}&refreshToken=${refreshToken}`,
+        );
       }
     } catch (error: any) {
       if (error.response && error.response.data) {

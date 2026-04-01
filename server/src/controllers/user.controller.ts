@@ -229,6 +229,7 @@ export const LoginUser = async (req: Request, res: Response) => {
       },
       accessToken: tokens.accessToken,
       desktopToken: desktopToken,
+      refreshToken: tokens.refreshToken,
     });
   } catch (error: any) {
     return res.status(500).json({
