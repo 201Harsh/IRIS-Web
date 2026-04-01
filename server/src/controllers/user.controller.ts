@@ -193,6 +193,13 @@ export const LoginUser = async (req: Request, res: Response) => {
       });
     }
 
+    if (!user.password) {
+      return res.status(401).json({
+        message:
+          "This account uses Google Login. Please click 'Continue with Google'",
+      });
+    }
+
     const isPasswordValid = await verifySecureData(password, user.password);
 
     if (!isPasswordValid) {
