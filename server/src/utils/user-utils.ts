@@ -33,7 +33,7 @@ export const setRefreshCookie = (res: Response, refreshToken: string) => {
   res.cookie("iris_refresh", refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    sameSite: "none",
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });
 };
@@ -57,5 +57,3 @@ export const verifySecureData = async (
 ): Promise<boolean> => {
   return bcrypt.compare(rawData, hashedData);
 };
-
-

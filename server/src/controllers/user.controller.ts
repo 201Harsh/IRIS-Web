@@ -109,7 +109,9 @@ export const RegisterAndLoginUsingGoogle = async (
     user.refreshToken = tokens.refreshToken;
     await user.save();
 
-    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+    res.redirect(
+      `${process.env.CLIENT_URL}/desktop?accessToken=${tokens.accessToken}&refreshToken=${tokens.refreshToken}`,
+    );
   } catch (error) {
     return res.redirect(`${process.env.CLIENT_URL}/signup?error=AuthFailed`);
   }
@@ -223,6 +225,7 @@ export const LoginUser = async (req: Request, res: Response) => {
         verified: user.verified,
       },
       accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
     });
   } catch (error: any) {
     return res.status(500).json({
@@ -320,10 +323,12 @@ export const RefreshAccessToken = async (
   res: Response,
 ): Promise<void> => {
   try {
-    const refreshToken = req.cookies?.iris_refresh;
+    const { refreshToken } = req?.body || req?.cookies?.iris_refresh;
 
     if (!refreshToken) {
-      res.status(401).json({ error: "Unauthorized. No Refresh Token found." });
+      res.status(401).json({
+        error: "Unauthorized. No Refresh Token provided in payload. (1)",
+      });
       return;
     }
 

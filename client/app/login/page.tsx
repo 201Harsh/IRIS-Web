@@ -59,6 +59,11 @@ export default function LoginPage() {
       return;
     }
 
+    if (FormData.password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -73,8 +78,11 @@ export default function LoginPage() {
 
         const accessToken = response.data.accessToken;
         setAccessToken(accessToken);
+        const refreshToken = response.data.refreshToken;
 
-        router.push("/dashboard");
+        router.push(
+          `/desktop?accessToken=${accessToken}&refreshToken=${refreshToken}`,
+        );
       }
     } catch (error: any) {
       if (error.response && error.response.data) {
