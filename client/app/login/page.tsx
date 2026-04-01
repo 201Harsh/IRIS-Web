@@ -78,6 +78,8 @@ export default function LoginPage() {
 
         const accessToken = response.data.accessToken;
         setAccessToken(accessToken);
+        const desktopToken = response.data.desktopToken;
+        localStorage.setItem("desktopToken", desktopToken);
 
         router.push("/dashboard");
       }

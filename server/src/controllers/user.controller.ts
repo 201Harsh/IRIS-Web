@@ -106,11 +106,14 @@ export const RegisterAndLoginUsingGoogle = async (
     }
 
     const tokens = generateTokens(user._id, user.tokenVersion);
+    const desktopToken = generateDesktopToken();
     setRefreshCookie(res, tokens.refreshToken);
     user.refreshToken = tokens.refreshToken;
     await user.save();
 
-    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+    res.redirect(
+      `${process.env.CLIENT_URL}/dashboard?desktopToken=${desktopToken}`,
+    );
   } catch (error) {
     return res.redirect(`${process.env.CLIENT_URL}/signup?error=AuthFailed`);
   }
