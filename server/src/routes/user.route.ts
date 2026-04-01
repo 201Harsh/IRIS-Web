@@ -5,12 +5,14 @@ import {
   LogoutAllusers,
   LogoutUser,
   RefreshAccessToken,
+  RegisterAndLoginUsingGoogle,
   registerUser,
   VerifyEmail,
 } from "../controllers/user.controller.js";
 import { body } from "express-validator";
 import ValidateData from "../middlewares/validate-middleware.js";
 import { AuthMiddleware } from "../middlewares/auth-middleware.js";
+import passport from "../lib/passport.js";
 
 const userRouter = Router();
 
@@ -31,6 +33,23 @@ userRouter.post(
   ],
   ValidateData,
   registerUser,
+);
+
+userRouter.get(
+  "/google",
+  passport.authenticate("google", {
+    session: false,
+    scope: ["profile", "email"],
+  }),
+);
+
+userRouter.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    session: false,
+    failureRedirect: "/signin",
+  }),
+  RegisterAndLoginUsingGoogle,
 );
 
 userRouter.post(
