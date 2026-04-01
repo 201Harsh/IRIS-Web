@@ -12,6 +12,7 @@ export interface IUser extends Document {
   refreshToken?: string | null;
   hwids: string[];
   tokenVersion: number;
+  dailyLimit: number;
   createdAt: Date;
   updatedAt: Date;
 
@@ -68,6 +69,10 @@ const UserSchema: Schema = new Schema(
     tokenVersion: {
       type: Number,
       default: 1,
+    },
+    dailyLimit: {
+      type: Number,
+      default: 10,
     },
   },
   {
