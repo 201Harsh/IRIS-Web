@@ -132,6 +132,7 @@ export default function DashboardPage() {
             active={activeTab === "billing"}
             onClick={() => setActiveTab("billing")}
           />
+          
         </nav>
 
         <div className="p-4 border-t border-white/5">
