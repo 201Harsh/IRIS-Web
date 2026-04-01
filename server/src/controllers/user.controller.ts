@@ -8,7 +8,6 @@ import {
   verifySecureData,
 } from "../utils/user-utils.js";
 import jwt from "jsonwebtoken";
-import { generateDesktopToken } from "../utils/desktop-token.js";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -212,7 +211,6 @@ export const LoginUser = async (req: Request, res: Response) => {
     }
 
     const tokens = generateTokens(user._id, user.tokenVersion);
-    const desktopToken = generateDesktopToken();
     setRefreshCookie(res, tokens.refreshToken);
 
     user.refreshToken = tokens.refreshToken;
@@ -227,7 +225,6 @@ export const LoginUser = async (req: Request, res: Response) => {
         verified: user.verified,
       },
       accessToken: tokens.accessToken,
-      desktopToken: desktopToken,
       refreshToken: tokens.refreshToken,
     });
   } catch (error: any) {
