@@ -137,7 +137,7 @@ export default function DashboardPage() {
       </aside>
 
       <main className="flex-1 p-6 md:p-10 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-125 h-125 bg-[#10b981]/5 blur-[150px] rounded-full pointer-events-none" />
 
         <motion.div
           variants={containerVariants}
@@ -152,7 +152,7 @@ export default function DashboardPage() {
             <div>
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
                 Welcome back,{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-emerald-200">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200">
                   {userData?.name.split(" ")[0]}
                 </span>
               </h1>
@@ -176,7 +176,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <motion.div
               variants={itemVariants}
-              className="p-6 rounded-[2rem] bg-[#0a0a0a] border border-white/5 relative overflow-hidden group"
+              className="p-6 rounded-4xl bg-[#0a0a0a] border border-white/5 relative overflow-hidden group"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 rounded-xl bg-white/5 text-gray-400 group-hover:text-white transition-colors">
@@ -202,10 +202,10 @@ export default function DashboardPage() {
 
             <motion.div
               variants={itemVariants}
-              className={`p-6 rounded-[2rem] bg-[#0a0a0a] border ${isPro ? "border-[#10b981]/30 shadow-[0_0_30px_rgba(16,185,129,0.05)]" : "border-white/5"} relative overflow-hidden`}
+              className={`p-6 rounded-4xl bg-[#0a0a0a] border ${isPro ? "border-[#10b981]/30 shadow-[0_0_30px_rgba(16,185,129,0.05)]" : "border-white/5"} relative overflow-hidden`}
             >
               {isPro && (
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/10 blur-[40px] rounded-full" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/10 blur-2xl rounded-full" />
               )}
               <div className="flex items-start justify-between mb-4 relative z-10">
                 <div
@@ -233,7 +233,7 @@ export default function DashboardPage() {
 
             <motion.div
               variants={itemVariants}
-              className="p-6 rounded-[2rem] bg-[#0a0a0a] border border-white/5 relative overflow-hidden"
+              className="p-6 rounded-4xl bg-[#0a0a0a] border border-white/5 relative overflow-hidden"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
@@ -264,9 +264,9 @@ export default function DashboardPage() {
               {activeDevices.map((hwid, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-[2rem] bg-[#050505] border border-[#10b981]/40 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all"
+                  className="p-6 rounded-4xl bg-[#050505] border border-[#10b981]/40 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all"
                 >
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#10b981] to-transparent opacity-50" />
+                  <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#10b981] to-transparent opacity-50" />
 
                   <div className="flex justify-between items-start mb-6">
                     <div className="p-4 rounded-full bg-[#10b981]/10 border border-[#10b981]/20">
@@ -298,20 +298,20 @@ export default function DashboardPage() {
               {Array.from({ length: emptySlots }).map((_, index) => (
                 <div
                   key={`empty-${index}`}
-                  className="p-6 rounded-[2rem] bg-[#0a0a0a] border border-dashed border-white/10 flex flex-col items-center justify-center text-center opacity-70 hover:opacity-100 transition-opacity min-h-[260px]"
+                  className="p-6 rounded-4xl bg-[#0a0a0a] border border-dashed border-white/10 flex flex-col items-center justify-center text-center opacity-70 hover:opacity-100 transition-opacity min-h-65"
                 >
                   <div className="p-4 rounded-full bg-white/5 border border-white/10 mb-4 text-gray-500">
                     <Monitor className="w-8 h-8" />
                   </div>
                   <h3 className="text-white font-medium mb-1">Empty Slot</h3>
-                  <p className="text-gray-500 text-xs max-w-[200px]">
+                  <p className="text-gray-500 text-xs max-w-50">
                     Install IRIS on a new device and login to secure this node.
                   </p>
                 </div>
               ))}
 
               {!isPro && (
-                <div className="p-6 rounded-[2rem] bg-[#050505] border border-dashed border-[#10b981]/30 flex flex-col items-center justify-center text-center min-h-[260px] relative overflow-hidden group">
+                <div className="p-6 rounded-4xl bg-[#050505] border border-dashed border-[#10b981]/30 flex flex-col items-center justify-center text-center min-h-65 relative overflow-hidden group">
                   <div className="absolute inset-0 bg-[#10b981]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="p-4 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 mb-4 text-[#10b981]">
                     <ShieldCheck className="w-8 h-8" />
@@ -319,7 +319,7 @@ export default function DashboardPage() {
                   <h3 className="text-[#10b981] font-bold mb-1">
                     Unlock Pro Nodes
                   </h3>
-                  <p className="text-gray-400 text-xs max-w-[200px] mb-4">
+                  <p className="text-gray-400 text-xs max-w-50 mb-4">
                     Upgrade to connect up to 3 devices simultaneously.
                   </p>
                   <Link
