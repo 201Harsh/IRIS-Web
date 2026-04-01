@@ -8,6 +8,7 @@ import {
   verifySecureData,
 } from "../utils/user-utils.js";
 import jwt from "jsonwebtoken";
+import { generateVerifyToken } from "../utils/auth-utils.js";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -104,12 +105,15 @@ export const RegisterAndLoginUsingGoogle = async (
       );
     }
 
-    const tokens = generateTokens(user._id, user.tokenVersion);
-    const nextJsApiUrl = `${process.env.CLIENT_SIDE_URL}/api/auth`;
+    const verifyToken = generateVerifyToken();
 
-    return res.redirect(`${nextJsApiUrl}/signup`);
+    user.verifyToken = verifyToken.verifyToken;
+    user.verifyTokenExpiry = verifyToken.verifyTokenExpiry;
+    await user.save();
+
+    const verifyURL = `${process.env.CLIENT_URL}/verify?token=${verifyToken.verifyToken}`;
+    res.redirect(verifyURL);
   } catch (error) {
-    console.log(error);
     return res.redirect(
       `${process.env.CLIENT_SIDE_URL}/signup?error=AuthFailed`,
     );
