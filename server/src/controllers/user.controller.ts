@@ -327,10 +327,13 @@ export const RefreshAccessToken = async (
   res: Response,
 ): Promise<void> => {
   try {
-    const refreshToken = req.cookies?.iris_refresh;
+    // ✅ CRITICAL FIX: Extract the refresh token from the request body, not cookies
+    const { refreshToken } = req.body;
 
     if (!refreshToken) {
-      res.status(401).json({ error: "Unauthorized. No Refresh Token found." });
+      res
+        .status(401)
+        .json({ error: "Unauthorized. No Refresh Token provided in payload." });
       return;
     }
 
@@ -339,8 +342,10 @@ export const RefreshAccessToken = async (
       process.env.REFRESH_TOKEN_SECRET as string,
     ) as { id: string };
 
+    // Find the user and explicitly select the stored refresh token to compare
     const user = await UserModel.findById(decoded.id).select("+refreshToken");
 
+    // Security Check: Ensure the token exists and perfectly matches the database
     if (!user || user.refreshToken !== refreshToken) {
       res
         .status(403)
@@ -348,8 +353,10 @@ export const RefreshAccessToken = async (
       return;
     }
 
+    // Generate a fresh, short-lived access token
     const newAccessToken = user.createAccessToken();
 
+    // Send it back to the Electron client
     res.status(200).json({ accessToken: newAccessToken });
     return;
   } catch (error: any) {
