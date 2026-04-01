@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Terminal,
   Loader2,
-  ArrowRight,
   Download,
   ShieldCheck,
   CheckCircle2,
@@ -18,19 +17,12 @@ export default function DesktopRedirectPage() {
   >("initializing");
 
   useEffect(() => {
-    // 1. Initial artificial delay for the "System Handshake" aesthetic
     const initTimer = setTimeout(() => {
       setStatus("redirecting");
-
-      // 2. Fire the Deep Link to Electron.
-      // If you are passing a token, grab it from the URL or localStorage and append it:
-      // const token = localStorage.getItem('iris_cloud_token');
-      // window.location.href = `iris://auth?token=${token}`;
 
       window.location.href = "iris://dashboard";
     }, 2000);
 
-    // 3. If the user is still on this page after 6 seconds, assume they don't have the app installed or the browser blocked the popup.
     const fallbackTimer = setTimeout(() => {
       setStatus("fallback");
     }, 6000);
@@ -61,7 +53,6 @@ export default function DesktopRedirectPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
-      {/* Background Ambient Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
 
@@ -75,12 +66,10 @@ export default function DesktopRedirectPage() {
           variants={itemVariants}
           className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-[0_0_50px_rgba(16,185,129,0.05)] relative overflow-hidden text-center flex flex-col items-center"
         >
-          {/* Subtle top border glow */}
           <div
             className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-all duration-1000 ${status === "redirecting" ? "bg-gradient-to-r from-transparent via-[#10b981] to-transparent" : "bg-white/10"}`}
           />
 
-          {/* Central Animated Icon Hub */}
           <div className="relative w-28 h-28 flex items-center justify-center mb-8">
             <AnimatePresence mode="wait">
               {status === "initializing" && (
@@ -123,7 +112,6 @@ export default function DesktopRedirectPage() {
             </AnimatePresence>
           </div>
 
-          {/* Dynamic Text Content */}
           <div className="h-24">
             <AnimatePresence mode="wait">
               {status === "initializing" && (
@@ -177,7 +165,6 @@ export default function DesktopRedirectPage() {
             </AnimatePresence>
           </div>
 
-          {/* Fallback Action Buttons (Fades in if redirect takes too long) */}
           <AnimatePresence>
             {status === "fallback" && (
               <motion.div
