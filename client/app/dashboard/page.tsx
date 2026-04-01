@@ -16,7 +16,6 @@ import {
   CreditCard,
   Network,
   Globe,
-  Zap,
   HardDrive,
   ToggleRight,
   ToggleLeft,
@@ -52,11 +51,11 @@ export default function DashboardPage() {
       } catch (err) {
         console.warn("Backend unreachable, loading mock data for UI preview.");
         setUserData({
-          name: "Harsh Pandey",
-          email: "harsh@vitalstudios.com",
-          tier: "pro",
+          name: "User",
+          email: "user@vitalstudios.com",
+          tier: "free",
           verified: true,
-          hwids: ["WIN-AB12-XYZ9", "AND-ONEPLUS-9"],
+          hwids: ["WIN-AB12-XYZ9", "MAC-1234-ABC"],
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         });
