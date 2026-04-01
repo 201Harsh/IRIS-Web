@@ -7,7 +7,6 @@ import {
   Terminal,
   Loader2,
   Download,
-  ShieldCheck,
   CheckCircle2,
   ExternalLink,
 } from "lucide-react";
@@ -66,7 +65,7 @@ function RedirectLogic() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
 
       <motion.div
         variants={containerVariants}
@@ -76,10 +75,10 @@ function RedirectLogic() {
       >
         <motion.div
           variants={itemVariants}
-          className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-[0_0_50px_rgba(16,185,129,0.05)] relative overflow-hidden text-center flex flex-col items-center"
+          className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-10 shadow-[0_0_50px_rgba(16,185,129,0.05)] relative overflow-hidden text-center flex flex-col items-center"
         >
           <div
-            className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-all duration-1000 ${status === "redirecting" ? "bg-gradient-to-r from-transparent via-[#10b981] to-transparent" : "bg-white/10"}`}
+            className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-all duration-1000 ${status === "redirecting" ? "bg-linear-to-r from-transparent via-[#10b981] to-transparent" : "bg-white/10"}`}
           />
 
           <div className="relative w-28 h-28 flex items-center justify-center mb-8">
