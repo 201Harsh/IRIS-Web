@@ -52,6 +52,7 @@ passport.use(
           name: profile.displayName,
           email,
           googleId,
+          verified: true,
         });
 
         return done(null, newUser);

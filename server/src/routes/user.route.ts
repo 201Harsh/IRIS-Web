@@ -47,7 +47,7 @@ userRouter.get(
   "/google/callback",
   passport.authenticate("google", {
     session: false,
-    failureRedirect: "/signin",
+    failureRedirect: "/signup?error=AuthFailed",
   }),
   RegisterAndLoginUsingGoogle,
 );
