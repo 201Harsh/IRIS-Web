@@ -17,6 +17,7 @@ import {
   Network,
 } from "lucide-react";
 import Link from "next/link";
+import AxiosInstance from "@/config/AxiosInstacne";
 
 // --- TYPES ---
 interface UserData {
@@ -32,29 +33,20 @@ interface UserData {
 export default function DashboardPage() {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  // --- DATA FETCHING ---
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token"); // Assuming JWT is stored here
-        const backendUrl =
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        const response = await AxiosInstance.get("/users/me");
 
-        const response = await fetch(`${backendUrl}/user/me`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        console.log(response);
 
-        if (!response.ok) throw new Error("Failed to authenticate session.");
-
-        const data = await response.json();
-        setUserData(data.user);
+        if (response.status === 200) {
+          const data = response.data.user;
+          console.log(data);
+          setUserData(data);
+        }
       } catch (err) {
-        // Fallback mock data for UI testing if backend is offline
         console.warn("Backend unreachable, loading mock data for UI preview.");
         setUserData({
           name: "Harsh Pandey",
@@ -66,7 +58,6 @@ export default function DashboardPage() {
           updatedAt: new Date().toISOString(),
         });
       } finally {
-        // Artificial delay to show off the cool terminal boot sequence
         setTimeout(() => setIsLoading(false), 1500);
       }
     };
