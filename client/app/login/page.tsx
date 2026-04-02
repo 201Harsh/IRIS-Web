@@ -17,7 +17,6 @@ import { FormDataLogin } from "../types/form-type";
 import AxiosInstance from "@/config/AxiosInstacne";
 import ErrorBox from "../Components/ErrorBox";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "../store/auth-store";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +29,6 @@ export default function LoginPage() {
   });
 
   const router = useRouter();
-  const setAccessToken = useAuthStore.getState().setAccessToken;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -77,7 +75,6 @@ export default function LoginPage() {
         });
 
         const accessToken = response.data.accessToken;
-        setAccessToken(accessToken);
         const refreshToken = response.data.refreshToken;
 
         router.push(
