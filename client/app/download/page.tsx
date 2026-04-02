@@ -54,7 +54,7 @@ export default function DownloadPage() {
 
           <motion.h1 className="relative z-10 text-6xl md:text-8xl font-black tracking-tight mb-6">
             Summon The{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-emerald-200 drop-shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200 drop-shadow-[0_0_30px_rgba(16,185,129,0.5)]">
               Ghost.
             </span>
           </motion.h1>
