@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -66,7 +66,6 @@ const Header = () => {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6 text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em]">
           {["About", "Features", "Pricing"].map((item) => (
             <Link
@@ -80,7 +79,6 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Desktop Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
           <div className="hidden md:block px-4 py-2 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-[9px] font-bold tracking-[0.3em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
             Get Started
@@ -94,11 +92,9 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Slidebar Menu using Framer Motion */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -107,7 +103,6 @@ const Header = () => {
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-101 md:hidden"
             />
 
-            {/* Sidebar */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
