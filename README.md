@@ -1,12 +1,13 @@
 <div align="center">
 
-# 👁️ IRIS  
+# 👁️ IRIS
+
 ## The Autonomous Neural OS Agent
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/iris?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/iris?style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors/yourusername/iris?style=for-the-badge)
-![Downloads](https://img.shields.io/github/downloads/yourusername/iris/total?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/201Harsh/IRIS-AI?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/201Harsh/IRIS-AI?style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors/201Harsh/IRIS-AI?style=for-the-badge)
+![Downloads](https://img.shields.io/github/downloads/201Harsh/IRIS-AI/total?style=for-the-badge)
 
 **A local-first neural execution system that turns intent into real OS actions.**
 
@@ -38,16 +39,19 @@ It is a **local-first AI Operating System layer** that executes real-world actio
 ## 🏗️ Architecture
 
 ### Frontend
+
 - React + Tailwind + Framer Motion
 - Handles UI, commands, voice
 
 ### Backend
+
 - Electron (Node.js)
 - Full system access (files, automation, sockets)
 
 ### IPC Bridge
+
 ```js
-window.electron.ipcRenderer.invoke('tool-name', payload)
+window.electron.ipcRenderer.invoke("tool-name", payload);
 ```
 
 ---
@@ -64,12 +68,14 @@ window.electron.ipcRenderer.invoke('tool-name', payload)
 ## 🚀 Installation & Setup
 
 ### 1. Clone Repo
+
 ```bash
 git clone https://github.com/yourusername/iris.git
 cd iris
 ```
 
 ### 2. Environment Setup
+
 ```bash
 cp .env.example .env
 ```
@@ -79,6 +85,7 @@ Add your API keys.
 ---
 
 ### 3. Install Dependencies
+
 ```bash
 npm install
 ```
@@ -86,6 +93,7 @@ npm install
 ---
 
 ### 4. Run Dev Server
+
 ```bash
 npm run dev
 ```
@@ -93,6 +101,7 @@ npm run dev
 ---
 
 ### 5. Initialize Vault
+
 - Open app
 - Go to Command Center (Settings)
 - Add API keys securely
@@ -128,11 +137,11 @@ IRIS is built for the community.
 
 ### How to Contribute
 
-1. Fork the repository  
-2. Create your branch from main  
-3. Follow existing patterns (Tailwind + IPC typing)  
-4. Test thoroughly (no blocking main thread)  
-5. Submit PR with clear explanation  
+1. Fork the repository
+2. Create your branch from main
+3. Follow existing patterns (Tailwind + IPC typing)
+4. Test thoroughly (no blocking main thread)
+5. Submit PR with clear explanation
 
 ---
 
@@ -148,6 +157,7 @@ IRIS is built for the community.
 ## 🧩 Extending IRIS
 
 You can:
+
 - Add new IPC tools
 - Integrate APIs
 - Build automation modules
@@ -175,7 +185,7 @@ Use responsibly. The maintainers are not liable for misuse.
 ## 👨‍💻 Architect
 
 **Harsh Pandey**  
-AI Systems Engineer  
+AI Systems Engineer
 
 Instagram: @irisx.ai
 
