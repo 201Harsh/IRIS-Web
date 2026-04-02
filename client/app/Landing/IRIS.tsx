@@ -385,7 +385,7 @@ const IRIS = () => {
           <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
             Scroll to Explore
           </span>
-          <div className="w-px h-16 bg-gradient-to-b from-[#10b981] to-transparent animate-pulse" />
+          <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
         </div>
       </div>
 
@@ -444,7 +444,7 @@ const IRIS = () => {
           <div className="w-full max-w-4xl mx-auto flex justify-center relative z-20 mt-12 mb-20">
             <div className="flex gap-4 sm:gap-6 relative">
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
                   24/7
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
@@ -453,7 +453,7 @@ const IRIS = () => {
               </div>
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
                   &lt;3s
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
@@ -462,7 +462,7 @@ const IRIS = () => {
               </div>
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
                   1M+
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
