@@ -31,7 +31,7 @@ export default function DownloadPage() {
                 "radial-gradient(circle at center, black 20%, transparent 70%)",
               WebkitMaskImage:
                 "radial-gradient(circle at center, black 20%, transparent 70%)",
-              opacity: 0.6,
+              opacity: 0.8,
             }}
           >
             <Lightning
