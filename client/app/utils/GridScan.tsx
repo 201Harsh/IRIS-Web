@@ -348,8 +348,8 @@ export const GridScan: React.FC<GridScanProps> = ({
   const chromaRef = useRef<ChromaticAberrationEffect | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  const [modelsReady, setModelsReady] = useState(false);
-  const [uiFaceActive, setUiFaceActive] = useState(false);
+  const [modelsReady] = useState(false);
+  const [uiFaceActive] = useState(false);
 
   const lookTarget = useRef(new THREE.Vector2(0, 0));
   const tiltTarget = useRef(0);
