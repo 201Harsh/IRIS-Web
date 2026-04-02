@@ -178,6 +178,7 @@ const IRIS = () => {
                 takeoverDuration={0.25}
                 autoResumeDelay={3000}
                 autoRampDuration={0.6}
+                className="md:block hidden"
               />
             </Suspense>
           )}
@@ -212,7 +213,7 @@ const IRIS = () => {
             kernel-level OS automation and zero-trust execution.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-6 w-full sm:w-auto relative z-20">
+          <div className="mt-12 flex justify-center items-center gap-6 w-full sm:w-auto relative z-20">
             <MagneticButton
               title="Download IRIS"
               subtitle="Get the App"
@@ -222,18 +223,6 @@ const IRIS = () => {
               }
               className="bg-emerald-500/20 border border-emerald-500/20 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)]"
             />
-
-            <Link href="/signup">
-              <MagneticButton
-                title="Get Started"
-                subtitle="Join the Beta"
-                iconLeft={<FileCode2 className="w-6 h-6 text-[#10b981]" />}
-                iconRight={
-                  <ArrowRight className="w-5 h-5 text-current group-hover:text-[#10b981]" />
-                }
-                className="bg-transparent border border-white/20 text-white hover:bg-white/5 backdrop-blur-sm shadow-none"
-              />
-            </Link>
           </div>
         </div>
 
