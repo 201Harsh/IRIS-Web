@@ -110,45 +110,49 @@ const Header = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-[#050505] border-l border-[#10b981]/20 z-102 flex flex-col p-8 shadow-[-20px_0_50px_rgba(0,0,0,0.8)] md:hidden"
             >
-              <div className="flex justify-between items-center mb-16">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/img/logo.png"
-                    alt="Logo"
-                    width={30}
-                    height={30}
-                    className="rounded-full"
-                    unoptimized
-                  />
-                  <span className="text-xl font-black tracking-tighter text-[#10b981]">
-                    IRIS
-                  </span>
+              <Link href="/">
+                <div className="flex justify-between items-center mb-16">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/img/logo.png"
+                      alt="Logo"
+                      width={30}
+                      height={30}
+                      className="rounded-full"
+                      unoptimized
+                    />
+                    <span className="text-xl font-black tracking-tighter text-[#10b981]">
+                      IRIS
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2 -mr-2 text-gray-400 hover:text-[#10b981] rounded-full hover:bg-[#10b981]/10 transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 -mr-2 text-gray-400 hover:text-[#10b981] rounded-full hover:bg-[#10b981]/10 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
+              </Link>
 
               <nav className="flex flex-col gap-10 text-sm font-bold uppercase tracking-[0.2em]">
-                {["About", "Systems", "Terminal"].map((item) => (
-                  <a
+                {["About", "Features", "Pricing"].map((item) => (
+                  <Link
                     key={item}
-                    href={`#${item.toLowerCase()}`}
+                    href={`/${item.toLowerCase()}`}
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-gray-300 hover:text-[#10b981] transition-colors border-b border-white/5 pb-4"
                   >
                     {item}
-                  </a>
+                  </Link>
                 ))}
               </nav>
 
               <div className="mt-auto pt-8">
-                <div className="w-full text-center px-4 py-4 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
-                  Connect to Core
-                </div>
+                <Link href="/download">
+                  <div className="w-full text-center px-4 py-4 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
+                    Download IRIS
+                  </div>
+                </Link>
               </div>
             </motion.div>
           </>
