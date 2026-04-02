@@ -12,7 +12,8 @@ import {
   Github,
   Instagram,
 } from "lucide-react";
-
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 export default function DownloadPage() {
   const containerVariants = {
