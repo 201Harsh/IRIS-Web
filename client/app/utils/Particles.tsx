@@ -149,7 +149,6 @@ const Particles: React.FC<ParticlesProps> = ({
       mouseRef.current = { x, y };
     };
 
-    // FIX: Listen to the whole window so overlapping divs don't block the hover
     if (moveParticlesOnHover) {
       window.addEventListener("mousemove", handleMouseMove);
     }
@@ -236,7 +235,6 @@ const Particles: React.FC<ParticlesProps> = ({
 
     return () => {
       window.removeEventListener("resize", resize);
-      // FIX: Clean up the window listener correctly
       if (moveParticlesOnHover) {
         window.removeEventListener("mousemove", handleMouseMove);
       }
@@ -245,7 +243,6 @@ const Particles: React.FC<ParticlesProps> = ({
         container.removeChild(gl.canvas);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     particleCount,
     particleSpread,
