@@ -8,7 +8,25 @@ import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
 const LightPillar = lazy(() => import("../utils/LightPillar"));
 import MagneticButton from "../utils/MagneticButton";
-import { Command, Download } from "lucide-react";
+import {
+  User,
+  Mic,
+  Zap,
+  MousePointer2,
+  Workflow,
+  Brain,
+  HardDrive,
+  Database,
+  Keyboard,
+  Smartphone,
+  ScanFace,
+  Bell,
+  Layers,
+  Code2,
+  Globe,
+  Command,
+  Download,
+} from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
 import LogoLoop from "../utils/LogoLoop";
@@ -30,6 +48,7 @@ import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
+import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,6 +119,129 @@ const IRIS = () => {
     { node: <SiElectron className="text-4xl text-white" />, title: "Electron" },
     { node: <SiNotion className="text-4xl text-white" />, title: "Notion" },
     { node: <FaYahoo className="text-4xl text-white" />, title: "Yahoo" },
+  ];
+
+  const storyData: StoryContent[] = [
+    {
+      num: "01",
+      title: "The Broken Paradigm",
+      text: "Modern AI is stuck in passive loops—type, wait, read. It responds, but never acts. The real problem isn't intelligence. It's the lack of execution.",
+      icon: <User className="w-24 h-24 text-gray-500" />,
+      visualTitle: "PASSIVE SYSTEMS",
+      visualSub: "The Limitation",
+    },
+    {
+      num: "02",
+      title: "A New Interface",
+      text: "IRIS eliminates friction. No typing, no waiting. Just speak. Your voice becomes the command layer—natural, fast, and always active.",
+      icon: <Mic className="w-24 h-24 text-blue-400" />,
+      visualTitle: "VOICE LAYER",
+      visualSub: "Natural Control",
+    },
+    {
+      num: "03",
+      title: "Real-Time Core",
+      text: "Built on persistent WebSocket streams, IRIS processes audio in real time. No request-response delays. Just continuous, live interaction.",
+      icon: <Zap className="w-24 h-24 text-yellow-400" />,
+      visualTitle: "REAL-TIME",
+      visualSub: "Zero Latency",
+    },
+    {
+      num: "04",
+      title: "Execution Engine",
+      text: "IRIS doesn't reply—it executes. Every command is translated into system-level actions across files, apps, input devices, and processes.",
+      icon: <MousePointer2 className="w-24 h-24 text-red-400" />,
+      visualTitle: "EXECUTION",
+      visualSub: "System Control",
+    },
+    {
+      num: "05",
+      title: "Multi-Step Thinking",
+      text: "Complex tasks are broken into chains. IRIS plans, sequences, and executes multiple tools autonomously—turning intent into completed workflows.",
+      icon: <Workflow className="w-24 h-24 text-[#10b981]" />,
+      visualTitle: "CHAINING",
+      visualSub: "Autonomous Flow",
+    },
+    {
+      num: "06",
+      title: "Dual-Brain Intelligence",
+      text: "A hybrid intelligence model powers IRIS. Groq handles ultra-fast execution logic, while Gemini manages deep reasoning and contextual understanding.",
+      icon: <Brain className="w-24 h-24 text-purple-500" />,
+      visualTitle: "HYBRID AI",
+      visualSub: "Speed + Reasoning",
+    },
+    {
+      num: "07",
+      title: "Local Autonomy",
+      text: "IRIS runs critical tasks locally using on-device LLMs. Files, scripts, and sensitive operations stay on your machine—private and fast.",
+      icon: <HardDrive className="w-24 h-24 text-orange-500" />,
+      visualTitle: "LOCAL CORE",
+      visualSub: "Private AI",
+    },
+    {
+      num: "08",
+      title: "System-Level Access",
+      text: "Built on Electron, IRIS breaks free from browser limits. It directly interacts with your OS—launching apps, scanning directories, executing commands.",
+      icon: <Database className="w-24 h-24 text-pink-500" />,
+      visualTitle: "OS ACCESS",
+      visualSub: "Full Control",
+    },
+    {
+      num: "09",
+      title: "Input Domination",
+      text: "IRIS controls keyboard and mouse like a human—executing clicks, typing, navigation, and workflows without manual interaction.",
+      icon: <Keyboard className="w-24 h-24 text-red-500" />,
+      visualTitle: "INPUT CONTROL",
+      visualSub: "Human-Level Actions",
+    },
+    {
+      num: "10",
+      title: "Mobile Telekinesis",
+      text: "Through ADB integration, IRIS extends beyond desktop—controlling Android devices, reading notifications, launching apps, and mirroring screens.",
+      icon: <Smartphone className="w-24 h-24 text-green-400" />,
+      visualTitle: "MOBILE LINK",
+      visualSub: "Cross-Device Control",
+    },
+    {
+      num: "11",
+      title: "Visual Intelligence",
+      text: "With integrated face recognition, IRIS verifies identity before executing sensitive commands—bringing biometric security into the AI layer.",
+      icon: <ScanFace className="w-24 h-24 text-cyan-400" />,
+      visualTitle: "VISION",
+      visualSub: "Biometric Security",
+    },
+    {
+      num: "12",
+      title: "Persistent Awareness",
+      text: "IRIS continuously monitors system signals and notifications, reacting in real time—no prompts required, no missed events.",
+      icon: <Bell className="w-24 h-24 text-yellow-300" />,
+      visualTitle: "AWARENESS",
+      visualSub: "Always Active",
+    },
+    {
+      num: "13",
+      title: "Fluid Interface",
+      text: "A reactive UI built with React, Tailwind, and motion systems visualizes every action. The interface evolves dynamically with system state.",
+      icon: <Layers className="w-24 h-24 text-indigo-400" />,
+      visualTitle: "UI SYSTEM",
+      visualSub: "Live Feedback",
+    },
+    {
+      num: "14",
+      title: "The Architect",
+      text: "Designed and engineered from the ground up by Harsh Pandey—focused on pushing the limits of AI systems, performance, and real-world execution.",
+      icon: <Code2 className="w-24 h-24 text-white" />,
+      visualTitle: "ARCHITECT",
+      visualSub: "System Design",
+    },
+    {
+      num: "15",
+      title: "The Shift",
+      text: "This isn't an app. It's a new computing model. From interaction to execution—the operating system is becoming intelligent.",
+      icon: <Globe className="w-24 h-24 text-[#10b981]" />,
+      visualTitle: "THE FUTURE",
+      visualSub: "AI OS Era",
+    },
   ];
 
   useGSAP(
@@ -399,6 +541,8 @@ const IRIS = () => {
             </div>
           </div>
         </section>
+
+        <StoryChapter content={storyData} />
 
         <Footer />
       </div>
