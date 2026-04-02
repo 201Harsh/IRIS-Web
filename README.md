@@ -148,7 +148,7 @@ IRIS is built for the community.
 ### Commit Rules
 
 ```bash
-✅ git commit -m 'feat: add new module'
+✅ git commit -m 'Added new module'
 ❌ git commit -m "feat: add new module"
 ```
 
