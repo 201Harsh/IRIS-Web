@@ -13,7 +13,6 @@ import {
   Instagram,
 } from "lucide-react";
 
-// --- HEADER COMPONENT ---
 const Header = () => (
   <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -43,7 +42,6 @@ const Header = () => (
   </header>
 );
 
-// --- FOOTER COMPONENT ---
 const Footer = () => (
   <footer className="bg-black border-t border-white/5 py-12 mt-20">
     <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
