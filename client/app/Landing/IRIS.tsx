@@ -253,7 +253,7 @@ const IRIS = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=800", // Exact scroll distance before animation completes
+          end: "+=800",
           scrub: 1,
         },
       });
