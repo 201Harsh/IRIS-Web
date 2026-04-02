@@ -36,15 +36,11 @@ export default function DownloadPage() {
 
       <main className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.section
-          variants={containerVariants}
           initial="hidden"
           animate="show"
           className="py-20 flex flex-col justify-center items-center text-center min-h-screen"
         >
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-xs font-mono tracking-widest mb-8"
-          >
+          <motion.div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-xs font-mono tracking-widest mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
@@ -52,29 +48,20 @@ export default function DownloadPage() {
             PUBLIC BETA V1.0.0 LIVE
           </motion.div>
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-black tracking-tight mb-6"
-          >
+          <motion.h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
             Summon The{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200">
               Ghost.
             </span>
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
-            className="max-w-2xl text-zinc-400 text-lg md:text-xl mb-12 leading-relaxed"
-          >
+          <motion.p className="max-w-2xl text-zinc-400 text-lg md:text-xl mb-12 leading-relaxed">
             Download the IRIS desktop engine. Experience autonomous file
             management, local deep research, and multimodal AI directly on your
             operating system.
           </motion.p>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col items-center gap-4"
-          >
+          <motion.div className="flex flex-col items-center gap-4">
             <a
               href="/releases/IRIS-Setup-1.0.0.exe"
               className="group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
@@ -98,13 +85,7 @@ export default function DownloadPage() {
           </motion.div>
         </motion.section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="py-20 border-t border-white/5"
-        >
+        <motion.section className="py-20 border-t border-white/5">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold tracking-widest text-white uppercase font-mono">
               Platform Support
