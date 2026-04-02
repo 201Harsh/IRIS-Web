@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Lightning from "../utils/Lightning";
 
 export default function DownloadPage() {
   return (
@@ -21,9 +22,28 @@ export default function DownloadPage() {
         <motion.section
           initial="hidden"
           animate="show"
-          className="py-20 flex flex-col justify-center items-center text-center min-h-screen"
+          className="relative py-20 flex flex-col justify-center items-center text-center min-h-[80vh]"
         >
-          <motion.div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-xs font-mono tracking-widest mb-8">
+          <div
+            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+            style={{
+              maskImage:
+                "radial-gradient(circle at center, black 20%, transparent 70%)",
+              WebkitMaskImage:
+                "radial-gradient(circle at center, black 20%, transparent 70%)",
+              opacity: 0.8,
+            }}
+          >
+            <Lightning
+              hue={150}
+              xOffset={0}
+              speed={1.2}
+              intensity={1.5}
+              size={1.2}
+            />
+          </div>
+
+          <motion.div className="relative z-10 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/20 text-[#10b981] text-xs font-mono tracking-widest mb-8">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
@@ -31,20 +51,20 @@ export default function DownloadPage() {
             PUBLIC BETA V1.0.0 LIVE
           </motion.div>
 
-          <motion.h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
+          <motion.h1 className="relative z-10 text-6xl md:text-8xl font-black tracking-tight mb-6">
             Summon The{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200 drop-shadow-[0_0_30px_rgba(16,185,129,0.5)]">
               Ghost.
             </span>
           </motion.h1>
 
-          <motion.p className="max-w-2xl text-zinc-400 text-lg md:text-xl mb-12 leading-relaxed">
+          <motion.p className="relative z-10 max-w-2xl text-zinc-300 text-lg md:text-xl mb-12 leading-relaxed">
             Download the IRIS desktop engine. Experience autonomous file
             management, local deep research, and multimodal AI directly on your
             operating system.
           </motion.p>
 
-          <motion.div className="flex flex-col items-center gap-4">
+          <motion.div className="relative z-10 flex flex-col items-center gap-4">
             <a
               href="/releases/IRIS-Setup-1.0.0.exe"
               className="group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
@@ -54,7 +74,7 @@ export default function DownloadPage() {
               <div className="absolute inset-0 rounded-2xl border border-white/20 pointer-events-none" />
             </a>
 
-            <div className="flex items-center gap-6 text-zinc-500 font-mono text-xs tracking-widest mt-2">
+            <div className="flex items-center gap-6 text-zinc-500 font-mono text-xs tracking-widest mt-4 bg-black/50 px-4 py-2 rounded-full border border-white/5 backdrop-blur-md">
               <span className="flex items-center gap-1.5">
                 <Monitor className="w-3 h-3" /> Windows 10/11
               </span>
@@ -63,12 +83,12 @@ export default function DownloadPage() {
                 <ShieldCheck className="w-3 h-3" /> 100% BYOK
               </span>
               <span>•</span>
-              <span>~145 MB</span>
+              <span>~2.5 GB</span>
             </div>
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-20 border-t border-white/5">
+        <motion.section className="py-20 border-t border-white/5 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold tracking-widest text-white uppercase font-mono">
               Platform Support
@@ -79,7 +99,7 @@ export default function DownloadPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0a0a0a] border border-[#10b981]/30 rounded-3xl p-8 relative overflow-hidden group">
+            <div className="bg-[#0a0a0a] border border-[#10b981]/30 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10b981]/60 transition-colors">
               <div className="absolute top-0 right-0 p-6 opacity-10">
                 <Monitor className="w-32 h-32 text-[#10b981]" />
               </div>
@@ -94,7 +114,7 @@ export default function DownloadPage() {
               </span>
             </div>
 
-            <div className="bg-black border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="bg-[#050505] border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
               <div className="absolute top-0 right-0 p-6 opacity-5">
                 <Apple className="w-32 h-32 text-white" />
               </div>
@@ -109,7 +129,7 @@ export default function DownloadPage() {
               </span>
             </div>
 
-            <div className="bg-black border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="bg-[#050505] border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
               <div className="absolute top-0 right-0 p-6 opacity-5">
                 <Command className="w-32 h-32 text-white" />
               </div>
