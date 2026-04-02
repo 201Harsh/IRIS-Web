@@ -3,6 +3,11 @@
 @theme {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
+html,
+body {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
 
 @keyframes shimmer {
   100% {
