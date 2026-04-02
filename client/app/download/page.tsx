@@ -24,7 +24,6 @@ export default function DownloadPage() {
           animate="show"
           className="relative py-20 flex flex-col justify-center items-center text-center min-h-[80vh]"
         >
-          {/* BEAUTIFUL LIGHTNING BACKGROUND COMPOSITING */}
           <div
             className="absolute inset-0 w-full h-full pointer-events-none z-0"
             style={{
