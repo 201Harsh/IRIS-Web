@@ -27,6 +27,7 @@ function VerifyContent() {
     if (!token) {
       setStatus("error");
       setErrorMessage("NO CRYPTOGRAPHIC TOKEN DETECTED IN URL.");
+      router.push("/signup?error=No-token-found");
       return;
     }
 
@@ -61,11 +62,7 @@ function VerifyContent() {
   }, [token, router]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-10 shadow-2xl relative overflow-hidden w-full max-w-md text-center"
-    >
+    <motion.div className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-10 shadow-2xl relative overflow-hidden w-full max-w-md text-center">
       <div
         className={`absolute top-0 left-0 w-full h-1 opacity-50 transition-colors duration-500 ${
           status === "verifying"
