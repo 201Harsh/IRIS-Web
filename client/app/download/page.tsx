@@ -13,20 +13,6 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 export default function DownloadPage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  };
-
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
-    },
-  };
-
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
