@@ -324,7 +324,7 @@ const IRIS = () => {
               iterationsViscous={0}
               iterationsPoisson={10}
               BFECC={false}
-              resolution={0.25}
+              resolution={0.28}
               isBounce={true}
               autoDemo
               autoSpeed={0.5}
