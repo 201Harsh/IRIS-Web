@@ -6,7 +6,6 @@ import Header from "../Components/Header";
 import { useRef, useState, Suspense, lazy } from "react";
 import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
-const LightPillar = lazy(() => import("../utils/LightPillar"));
 import MagneticButton from "../utils/MagneticButton";
 import {
   User,
@@ -50,6 +49,7 @@ import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import Link from "next/link";
+import LightPillar from "../utils/LightPillar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -285,7 +285,7 @@ const IRIS = () => {
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
-        <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-100 mix-blend-screen pointer-events-none">
           {isHeroVisible && (
             <Suspense fallback={<LoadingCore />}>
               <LightPillar
@@ -301,6 +301,7 @@ const IRIS = () => {
                 interactive={false}
                 mixBlendMode="screen"
                 quality="high"
+                className="md:hidden block"
               />
 
               <LiquidEther
