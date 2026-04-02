@@ -17,7 +17,7 @@ export default function SmoothScroll({
       smoothWheel: true,
       wheelMultiplier: 0.7,
       touchMultiplier: 2,
-      lerp: 0.1,
+      lerp: 0.02,
     });
 
     function raf(time: number) {
