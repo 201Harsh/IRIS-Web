@@ -39,7 +39,7 @@ export default function DownloadPage() {
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="py-20 flex flex-col items-center text-center"
+          className="py-20 flex flex-col justify-center items-center text-center min-h-screen"
         >
           <motion.div
             variants={itemVariants}
