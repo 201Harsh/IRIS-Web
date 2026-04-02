@@ -401,19 +401,6 @@ const IRIS = () => {
           </div>
         </section>
 
-        <section className="relative z-20">
-          <video
-            ref={videoRef}
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-auto rounded-2xl shadow-[0_0_50px_rgba(16,185,129,0.1)] border border-white/5"
-          >
-            <source src="/videos/Pre-load.mp4" type="video/mp4" />
-          </video>
-        </section>
-
         <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 border-b border-white/5">
           <h2 className="text-4xl font-bold mb-16 text-center">
             System Capabilities
