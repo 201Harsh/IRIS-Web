@@ -83,7 +83,7 @@ export default function DownloadPage() {
                 <ShieldCheck className="w-3 h-3" /> 100% BYOK
               </span>
               <span>•</span>
-              <span>~145 MB</span>
+              <span>~2.5 GB</span>
             </div>
           </motion.div>
         </motion.section>
