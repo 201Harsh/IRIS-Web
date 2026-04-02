@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef, useState, Suspense } from "react";
+import { useRef, useState, Suspense, lazy } from "react";
 import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
 import MagneticButton from "../utils/MagneticButton";
@@ -49,13 +49,13 @@ import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import Link from "next/link";
-import LightPillar from "../utils/LightPillar";
+const LightPillar = lazy(() => import("../utils/LightPillar"));
 
 gsap.registerPlugin(ScrollTrigger);
 
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLHeadingElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
@@ -251,9 +251,9 @@ const IRIS = () => {
         opacity: 0,
         y: -100,
         scrollTrigger: {
-          trigger: ".hero-section",
+          trigger: containerRef.current,
           start: "top top",
-          end: "100% top",
+          end: "+=800", // Exact scroll distance before animation completes
           scrub: 1,
         },
       });
@@ -275,46 +275,46 @@ const IRIS = () => {
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
-        <div className="absolute inset-0 z-0 opacity-100 mix-blend-screen pointer-events-none">
-          {isHeroVisible && (
-            <Suspense fallback={<LoadingCore />}>
-              <LightPillar
-                topColor="#022c1e"
-                bottomColor="#34d399"
-                intensity={1}
-                rotationSpeed={0.3}
-                glowAmount={0.002}
-                pillarWidth={3}
-                pillarHeight={0.4}
-                noiseIntensity={0.5}
-                pillarRotation={25}
-                interactive={false}
-                mixBlendMode="screen"
-                quality="high"
-                className="md:hidden block"
-              />
+        <div
+          className={`absolute inset-0 z-0 mix-blend-screen pointer-events-none transition-opacity duration-700 ease-in-out ${isHeroVisible ? "opacity-100" : "opacity-0"}`}
+        >
+          <Suspense fallback={<LoadingCore />}>
+            <LightPillar
+              topColor="#022c1e"
+              bottomColor="#34d399"
+              intensity={1}
+              rotationSpeed={0.3}
+              glowAmount={0.002}
+              pillarWidth={3}
+              pillarHeight={0.4}
+              noiseIntensity={0.5}
+              pillarRotation={25}
+              interactive={false}
+              mixBlendMode="screen"
+              quality="high"
+              className="md:hidden block"
+            />
 
-              <LiquidEther
-                colors={["#064e3b", "#10b981", "#34d399"]}
-                mouseForce={50}
-                cursorSize={50}
-                isViscous={false}
-                viscous={0}
-                iterationsViscous={0}
-                iterationsPoisson={10}
-                BFECC={false}
-                resolution={0.25}
-                isBounce={true}
-                autoDemo
-                autoSpeed={0.5}
-                autoIntensity={0.25}
-                takeoverDuration={0.25}
-                autoResumeDelay={3000}
-                autoRampDuration={0.6}
-                className="md:block hidden"
-              />
-            </Suspense>
-          )}
+            <LiquidEther
+              colors={["#064e3b", "#10b981", "#34d399"]}
+              mouseForce={50}
+              cursorSize={50}
+              isViscous={false}
+              viscous={0}
+              iterationsViscous={0}
+              iterationsPoisson={10}
+              BFECC={false}
+              resolution={0.25}
+              isBounce={true}
+              autoDemo
+              autoSpeed={0.5}
+              autoIntensity={0.25}
+              takeoverDuration={0.25}
+              autoResumeDelay={3000}
+              autoRampDuration={0.6}
+              className="md:block hidden"
+            />
+          </Suspense>
         </div>
 
         <div className="absolute inset-0 z-5 opacity-70 pointer-events-none" />
@@ -365,7 +365,7 @@ const IRIS = () => {
           <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
             Scroll to Explore
           </span>
-          <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
+          <div className="w-px h-16 bg-gradient-to-b from-[#10b981] to-transparent animate-pulse" />
         </div>
       </div>
 
@@ -424,7 +424,7 @@ const IRIS = () => {
           <div className="w-full max-w-4xl mx-auto flex justify-center relative z-20 mt-12 mb-20">
             <div className="flex gap-4 sm:gap-6 relative">
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
                   24/7
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
@@ -433,7 +433,7 @@ const IRIS = () => {
               </div>
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
                   &lt;3s
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
@@ -442,7 +442,7 @@ const IRIS = () => {
               </div>
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
-                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
+                <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4ADE80] to-[#14532D]">
                   1M+
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
