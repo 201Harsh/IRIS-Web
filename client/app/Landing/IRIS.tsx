@@ -288,7 +288,6 @@ const IRIS = () => {
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
-        {/* MOBILE ONLY: Aggressive unmount to save battery & VRAM */}
         <div className="absolute inset-0 z-0 mix-blend-screen pointer-events-none md:hidden block">
           {isHeroVisible && (
             <Suspense fallback={<LoadingCore />}>
