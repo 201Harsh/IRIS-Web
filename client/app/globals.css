@@ -9,6 +9,10 @@ body {
   scrollbar-width: none;
 }
 
+::selection {
+  background-color: #06742b;
+}
+
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
