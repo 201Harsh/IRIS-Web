@@ -14,10 +14,7 @@ import Footer from "../Components/Footer";
 
 export default function DownloadPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay" />
-
+    <div className="min-h-screen bg-[#000000] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
       <Header />
 
       <main className="max-w-7xl mx-auto px-6 relative z-10">
