@@ -196,7 +196,7 @@ const IRIS = () => {
           </div>
           <div className="animatedLetters relative z-100 w-full flex justify-center flex-col items-center">
             <h1
-              className="text-[25vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
+              className="text-[30vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
               style={{
                 filter:
                   "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
