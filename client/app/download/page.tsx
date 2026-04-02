@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import {
   Download,
@@ -78,7 +77,6 @@ const Footer = () => (
 );
 
 export default function DownloadPage() {
-  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -95,14 +93,12 @@ export default function DownloadPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
-      {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay" />
 
       <Header />
 
       <main className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* --- HERO SECTION --- */}
         <motion.section
           variants={containerVariants}
           initial="hidden"
@@ -143,7 +139,6 @@ export default function DownloadPage() {
             variants={itemVariants}
             className="flex flex-col items-center gap-4"
           >
-            {/* Direct Download Link - Replace with your actual GitHub Releases / AWS S3 link */}
             <a
               href="/releases/IRIS-Setup-1.0.0.exe"
               className="group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
@@ -167,7 +162,6 @@ export default function DownloadPage() {
           </motion.div>
         </motion.section>
 
-        {/* --- OS AVAILABILITY SECTION --- */}
         <motion.section
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -185,7 +179,6 @@ export default function DownloadPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Windows Card (Active) */}
             <div className="bg-[#0a0a0a] border border-[#10b981]/30 rounded-3xl p-8 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-6 opacity-10">
                 <Monitor className="w-32 h-32 text-[#10b981]" />
@@ -201,7 +194,6 @@ export default function DownloadPage() {
               </span>
             </div>
 
-            {/* macOS Card (Coming Soon) */}
             <div className="bg-black border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
               <div className="absolute top-0 right-0 p-6 opacity-5">
                 <Apple className="w-32 h-32 text-white" />
@@ -217,7 +209,6 @@ export default function DownloadPage() {
               </span>
             </div>
 
-            {/* Linux Card (Coming Soon) */}
             <div className="bg-black border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
               <div className="absolute top-0 right-0 p-6 opacity-5">
                 <Command className="w-32 h-32 text-white" />
