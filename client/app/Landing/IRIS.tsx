@@ -57,7 +57,6 @@ const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const actualTechLogos = [
@@ -264,15 +263,6 @@ const IRIS = () => {
         start: "top top",
         onEnter: () => setIsHeroVisible(false),
         onLeaveBack: () => setIsHeroVisible(true),
-      });
-
-      ScrollTrigger.create({
-        trigger: videoRef.current,
-        start: "top bottom",
-        onEnter: () => videoRef.current?.play(),
-        onEnterBack: () => videoRef.current?.play(),
-        onLeave: () => videoRef.current?.pause(),
-        onLeaveBack: () => videoRef.current?.pause(),
       });
     },
     { scope: containerRef },
