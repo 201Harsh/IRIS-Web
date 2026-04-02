@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef, useState, Suspense, lazy } from "react";
+import { useRef, useState, useEffect, Suspense, lazy } from "react";
 import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
 import MagneticButton from "../utils/MagneticButton";
@@ -57,7 +57,20 @@ const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
   const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isHeroActive, setIsHeroActive] = useState(true);
+
+  // 🔴 THE FIX: Handle delayed display:none to kill GPU load without destroying shaders
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isHeroVisible) {
+      setIsHeroActive(true); // Immediately make visible before fading in
+    } else {
+      timeout = setTimeout(() => setIsHeroActive(false), 700); // Wait for opacity transition, then kill rendering
+    }
+    return () => clearTimeout(timeout);
+  }, [isHeroVisible]);
 
   const actualTechLogos = [
     {
@@ -275,8 +288,10 @@ const IRIS = () => {
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
+        {/* 🔴 APPLIED FIX: Using display: none alongside opacity prevents GPU lag on mobile */}
         <div
           className={`absolute inset-0 z-0 mix-blend-screen pointer-events-none transition-opacity duration-700 ease-in-out ${isHeroVisible ? "opacity-100" : "opacity-0"}`}
+          style={{ display: isHeroActive ? "block" : "none" }}
         >
           <Suspense fallback={<LoadingCore />}>
             <LightPillar
