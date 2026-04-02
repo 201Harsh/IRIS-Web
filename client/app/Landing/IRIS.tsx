@@ -301,7 +301,6 @@ const IRIS = () => {
                 interactive={false}
                 mixBlendMode="screen"
                 quality="high"
-                className="md:hidden block"
               />
 
               <LiquidEther
