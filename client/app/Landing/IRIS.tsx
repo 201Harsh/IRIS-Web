@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef, useState, Suspense, lazy } from "react";
+import { useRef, useState, Suspense } from "react";
 import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
 import MagneticButton from "../utils/MagneticButton";
