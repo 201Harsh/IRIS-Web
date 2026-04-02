@@ -3,14 +3,11 @@
 import { motion } from "framer-motion";
 import {
   Download,
-  Terminal,
   Monitor,
   Apple,
   Command,
   ShieldCheck,
   Cpu,
-  Github,
-  Instagram,
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
