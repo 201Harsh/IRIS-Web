@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Lightning from "../utils/Lightning";
 
 export default function DownloadPage() {
   return (
@@ -18,6 +19,9 @@ export default function DownloadPage() {
       <Header />
 
       <main className="max-w-7xl mx-auto px-6 relative z-10">
+        <div style={{ width: "100%", height: "600px", position: "relative" }}>
+          <Lightning hue={260} xOffset={0} speed={1} intensity={1} size={1} />
+        </div>
         <motion.section
           initial="hidden"
           animate="show"
