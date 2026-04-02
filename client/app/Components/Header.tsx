@@ -48,7 +48,7 @@ const Header = () => {
     <>
       <div
         ref={headerRef}
-        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-[#050505]/10 backdrop-blur-md z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
+        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-black/40 backdrop-blur-lg z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
       >
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer group">
