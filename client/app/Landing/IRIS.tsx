@@ -8,7 +8,7 @@ import Footer from "../Components/Footer";
 import LoadingCore from "../lib/LoadingCore";
 const LightPillar = lazy(() => import("../utils/LightPillar"));
 import MagneticButton from "../utils/MagneticButton";
-import { Command, Download, FileCode2, ArrowRight } from "lucide-react";
+import { Command, Download } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
 import LogoLoop from "../utils/LogoLoop";
@@ -30,7 +30,6 @@ import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
-import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
