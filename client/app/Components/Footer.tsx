@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Cpu, Activity, TerminalSquare } from "lucide-react";
 import {
