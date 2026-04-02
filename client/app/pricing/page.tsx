@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Zap, Activity, Sparkles, Ticket } from "lucide-react";
 import Header from "../Components/Header";

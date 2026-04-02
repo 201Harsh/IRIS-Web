@@ -348,8 +348,8 @@ export const GridScan: React.FC<GridScanProps> = ({
   const chromaRef = useRef<ChromaticAberrationEffect | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  const [modelsReady, setModelsReady] = useState(false);
-  const [uiFaceActive, setUiFaceActive] = useState(false);
+  const [modelsReady] = useState(false);
+  const [uiFaceActive] = useState(false);
 
   const lookTarget = useRef(new THREE.Vector2(0, 0));
   const tiltTarget = useRef(0);
@@ -379,16 +379,10 @@ export const GridScan: React.FC<GridScanProps> = ({
     }
   };
 
-  const bufX = useRef<number[]>([]);
-  const bufY = useRef<number[]>([]);
-  const bufT = useRef<number[]>([]);
-  const bufYaw = useRef<number[]>([]);
-
   const s = THREE.MathUtils.clamp(sensitivity, 0, 1);
   const skewScale = THREE.MathUtils.lerp(0.06, 0.2, s);
   const tiltScale = THREE.MathUtils.lerp(0.12, 0.3, s);
   const yawScale = THREE.MathUtils.lerp(0.1, 0.28, s);
-  const depthResponse = THREE.MathUtils.lerp(0.25, 0.45, s);
   const smoothTime = THREE.MathUtils.lerp(0.45, 0.12, s);
   const maxSpeed = Infinity;
 
@@ -728,7 +722,7 @@ export const GridScan: React.FC<GridScanProps> = ({
       style={style}
     >
       {showPreview && (
-        <div className="right-3 bottom-3 absolute bg-black shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-white/25 rounded-lg w-[220px] h-[132px] overflow-hidden font-sans text-[12px] text-white leading-[1.2] pointer-events-none">
+        <div className="right-3 bottom-3 absolute bg-black shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-white/25 rounded-lg w-55 h-33 overflow-hidden font-sans text-[12px] text-white leading-[1.2] pointer-events-none">
           <video
             ref={videoRef}
             muted
@@ -736,7 +730,7 @@ export const GridScan: React.FC<GridScanProps> = ({
             autoPlay
             className="w-full h-full object-cover -scale-x-100"
           />
-          <div className="top-2 left-2 absolute bg-black/50 backdrop-blur-[4px] px-[6px] py-[2px] rounded-[6px]">
+          <div className="top-2 left-2 absolute bg-black/50 backdrop-blur-xs px-0.5 py-0.5 rounded-md">
             {enableWebcam
               ? modelsReady
                 ? uiFaceActive
@@ -827,31 +821,4 @@ function smoothDampFloat(
     velRef.v = 0;
   }
   return { value: out, v: velRef.v };
-}
-
-function medianPush(buf: number[], v: number, maxLen: number) {
-  buf.push(v);
-  if (buf.length > maxLen) buf.shift();
-}
-
-function median(buf: number[]) {
-  if (buf.length === 0) return 0;
-  const a = [...buf].sort((x, y) => x - y);
-  const mid = Math.floor(a.length / 2);
-  return a.length % 2 ? a[mid] : (a[mid - 1] + a[mid]) * 0.5;
-}
-
-function centroid(points: { x: number; y: number }[]) {
-  let x = 0,
-    y = 0;
-  const n = points.length || 1;
-  for (const p of points) {
-    x += p.x;
-    y += p.y;
-  }
-  return { x: x / n, y: y / n };
-}
-
-function dist2(a: { x: number; y: number }, b: { x: number; y: number }) {
-  return Math.hypot(a.x - b.x, a.y - b.y);
 }

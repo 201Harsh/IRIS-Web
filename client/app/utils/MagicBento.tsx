@@ -750,7 +750,6 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-4">
           {cardData.map((card, index) => {
-            // Added 'group' to trigger hover events on child elements
             const baseClassName = `group card flex flex-col justify-between relative aspect-[4/3] min-h-[250px] w-full max-w-full p-6 rounded-[24px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(16,185,129,0.1)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
