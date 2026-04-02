@@ -158,6 +158,7 @@ export const VerifyEmail = async (req: Request, res: Response) => {
         verified: user.verified,
       },
       accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
     });
   } catch (error: any) {
     return res.status(500).json({

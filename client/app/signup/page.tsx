@@ -92,23 +92,6 @@ export default function SignupPage() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
-    },
-  };
-
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans flex items-center justify-center p-6 relative overflow-hidden selection:bg-[#10b981] selection:text-black">
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#10b981]/10 blur-[120px] rounded-full pointer-events-none" />
@@ -116,13 +99,8 @@ export default function SignupPage() {
 
       <div className="absolute inset-0 bg-[linear-linear(to_right,#ffffff03_1px,transparent_1px),linear-linear(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        className="w-full max-w-md relative z-10"
-      >
-        <motion.div variants={itemVariants} className="text-center mb-10">
+      <motion.div className="w-full max-w-md relative z-10">
+        <motion.div className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#10b981]/10 border border-[#10b981]/30 shadow-[0_0_20px_rgba(16,185,129,0.2)] mb-6">
             <Cpu className="w-8 h-8 text-[#10b981]" />
           </div>
@@ -137,10 +115,7 @@ export default function SignupPage() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-8 shadow-2xl relative overflow-hidden"
-        >
+        <motion.div className="bg-[#0a0a0a] border border-white/10 rounded-4xl p-8 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#10b981]/50 to-transparent opacity-50" />
 
           {error && (
@@ -271,7 +246,7 @@ export default function SignupPage() {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="text-center mt-8">
+        <motion.div className="text-center mt-8">
           <p className="text-gray-400 text-sm">
             Already have an Account?{" "}
             <Link
