@@ -191,12 +191,12 @@ const IRIS = () => {
             <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping absolute"></span>
             <span className="w-2 h-2 rounded-full bg-[#10b981] relative"></span>
             <span className="text-[10px] md:text-xs font-mono text-[#ffffff] tracking-[0.2em] uppercase font-bold">
-              Beta Release // Q1 2026
+              Beta Release // Q1 {new Date().getFullYear()}
             </span>
           </div>
           <div className="animatedLetters relative z-100 w-full flex justify-center flex-col items-center">
             <h1
-              className="text-[15vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
+              className="text-[25vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
               style={{
                 filter:
                   "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
@@ -206,7 +206,7 @@ const IRIS = () => {
             </h1>
           </div>
 
-          <p className="mt-6 max-w-2xl text-base md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
+          <p className="mt-6 max-w-2xl text-xs md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
             Beyond a standard language model. A deep-system neural extension
             engineered by{" "}
             <span className="text-white font-bold">Vital Studio's</span> for
