@@ -200,4 +200,3 @@ const Lightning: React.FC<LightningProps> = ({
 };
 
 export default Lightning;
-// export
