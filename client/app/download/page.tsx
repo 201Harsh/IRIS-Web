@@ -29,7 +29,7 @@ export default function DownloadPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-[#10b981]/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay" />
 
       <Header />
@@ -57,7 +57,7 @@ export default function DownloadPage() {
             className="text-5xl md:text-7xl font-black tracking-tight mb-6"
           >
             Summon The{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-emerald-200">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#10b981] to-emerald-200">
               Ghost.
             </span>
           </motion.h1>
