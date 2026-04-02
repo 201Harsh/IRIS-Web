@@ -13,66 +13,6 @@ import {
   Instagram,
 } from "lucide-react";
 
-const Header = () => (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
-    <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <Terminal className="text-[#10b981] w-6 h-6" />
-        <span className="font-black tracking-[0.2em] text-white text-lg">
-          IRIS<span className="text-[#10b981]">_</span>
-        </span>
-      </div>
-      <nav className="hidden md:flex items-center gap-8 text-sm font-mono tracking-widest text-zinc-400">
-        <a href="/" className="hover:text-white transition-colors">
-          HOME
-        </a>
-        <a href="#features" className="hover:text-white transition-colors">
-          FEATURES
-        </a>
-        <a
-          href="https://github.com/yourusername/iris"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center gap-2 hover:text-white transition-colors"
-        >
-          <Github className="w-4 h-4" /> SOURCE
-        </a>
-      </nav>
-    </div>
-  </header>
-);
-
-const Footer = () => (
-  <footer className="bg-black border-t border-white/5 py-12 mt-20">
-    <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div className="flex items-center gap-2 text-zinc-500 font-mono text-xs tracking-widest">
-        <Terminal className="w-4 h-4" />
-        <span>
-          © {new Date().getFullYear()} IRIS NEURAL INTERFACE. ALL RIGHTS
-          RESERVED.
-        </span>
-      </div>
-      <div className="flex items-center gap-6">
-        <a
-          href="https://www.instagram.com/irisx.ai/"
-          target="_blank"
-          rel="noreferrer"
-          className="text-zinc-500 hover:text-[#10b981] transition-colors"
-        >
-          <Instagram className="w-5 h-5" />
-        </a>
-        <a
-          href="https://github.com/yourusername/iris"
-          target="_blank"
-          rel="noreferrer"
-          className="text-zinc-500 hover:text-white transition-colors"
-        >
-          <Github className="w-5 h-5" />
-        </a>
-      </div>
-    </div>
-  </footer>
-);
 
 export default function DownloadPage() {
   const containerVariants = {
