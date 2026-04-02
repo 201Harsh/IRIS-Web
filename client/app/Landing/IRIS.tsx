@@ -314,8 +314,8 @@ const IRIS = () => {
                 resolution={0.25}
                 isBounce={true}
                 autoDemo
-                autoSpeed={0.7}
-                autoIntensity={2.5}
+                autoSpeed={0.5}
+                autoIntensity={0.25}
                 takeoverDuration={0.25}
                 autoResumeDelay={3000}
                 autoRampDuration={0.6}
