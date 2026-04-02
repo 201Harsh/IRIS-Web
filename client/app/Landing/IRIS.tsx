@@ -401,50 +401,6 @@ const IRIS = () => {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 border-b border-white/5">
-          <h2 className="text-4xl font-bold mb-16 text-center">
-            System Capabilities
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-7xl">
-            <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
-              <h4 className="text-xl font-bold mb-2 text-[#10b981]">
-                Deep Search
-              </h4>
-              <p className="text-gray-400 text-sm">
-                Bypasses standard algorithms to fetch raw, unfiltered data
-                metrics.
-              </p>
-            </div>
-            <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
-              <h4 className="text-xl font-bold mb-2 text-[#10b981]">
-                App Control
-              </h4>
-              <p className="text-gray-400 text-sm">
-                Directly interfaces with installed software via OS-level
-                bridging.
-              </p>
-            </div>
-            <div className="p-8 border border-white/10 bg-white/5 hover:border-[#10b981]/50 transition-colors">
-              <h4 className="text-xl font-bold mb-2 text-[#10b981]">
-                Contextual Memory
-              </h4>
-              <p className="text-gray-400 text-sm">
-                Retains session states and learns from your operational
-                patterns.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="min-h-[50vh] flex flex-col justify-center items-center px-6 border-b border-[#10b981]/20 bg-linear-to-b from-transparent to-[#10b981]/10">
-          <h2 className="text-3xl md:text-5xl font-black mb-8">
-            Ready to override?
-          </h2>
-          <button className="px-10 py-4 bg-[#10b981] text-black font-black tracking-widest uppercase hover:bg-white transition-all">
-            Initialize Core
-          </button>
-        </section>
-
         <Footer />
       </div>
     </div>
