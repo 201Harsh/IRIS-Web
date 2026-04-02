@@ -80,9 +80,11 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="hidden md:block px-4 py-2 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-[9px] font-bold tracking-[0.3em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
-            Get Started
-          </div>
+          <Link href="/download">
+            <div className="hidden md:block px-4 py-2 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#ffffff] text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-[#099443] hover:text-white hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
+              Download IRIS
+            </div>
+          </Link>
           <button
             className="md:hidden text-[#10b981] p-1 rounded-full hover:bg-[#10b981]/10 transition-colors"
             onClick={() => setMobileMenuOpen(true)}
