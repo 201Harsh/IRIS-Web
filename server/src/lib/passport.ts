@@ -31,10 +31,7 @@ passport.use(
     ) => {
       try {
         if (!accessToken || !refreshToken) {
-          return done(
-            new Error("Access token or refresh token is missing"),
-            undefined,
-          );
+          console.log("Access token or refresh token is missing");
         }
         const email = profile.emails?.[0]?.value;
         const googleId = profile.id;
