@@ -233,8 +233,10 @@ MIT License — see LICENSE file.
 
 ---
 
-<div align="center">
+## 🟥 Final Note
 
-# IRIS is not just AI. It's execution.
+**IRIS is not a chatbot.** It is a **neural extension of your operating system**.
 
-</div>
+> _System Online._
+
+# Made with ❤️ by [Harsh Pandey](https://instagram.com/201Harshs)
