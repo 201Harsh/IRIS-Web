@@ -98,8 +98,8 @@ window.electron.ipcRenderer.invoke("tool-name", payload);
 ### 1. Clone Repo
 
 ```bash
-git clone https://github.com/yourusername/iris.git
-cd iris
+git clone https://github.com/201Harsh/IRIS-AI.git
+cd IRIS-AI
 ```
 
 ### 2. Environment Setup
