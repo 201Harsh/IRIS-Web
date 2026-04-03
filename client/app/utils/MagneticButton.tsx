@@ -46,8 +46,8 @@ export default function MagneticButton({
     if (!boundsRef.current) return;
     const { left, top, width, height } = boundsRef.current;
 
-    const moveX = (e.clientX - left - width / 2) * strength;
-    const moveY = (e.clientY - top - height / 2) * strength;
+    const moveX = (e.clientX - left - width / 5) * strength;
+    const moveY = (e.clientY - top - height / 5) * strength;
 
     x.set(moveX);
     y.set(moveY);
