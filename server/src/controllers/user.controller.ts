@@ -73,7 +73,6 @@ export const registerUser = async (req: Request, res: Response) => {
     }
 
     const verifyURL = `${process.env.CLIENT_URL}/verify?token=${user.verifyToken}`;
-    console.log(verifyURL);
 
     return res.status(201).json({
       message: "User registered successfully Now Verify your email",
@@ -83,6 +82,7 @@ export const registerUser = async (req: Request, res: Response) => {
         tier: user.tier,
         verified: user.verified,
       },
+      verifyURL,
     });
   } catch (error: any) {
     return res.status(500).json({
