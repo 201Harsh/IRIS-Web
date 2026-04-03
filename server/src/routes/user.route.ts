@@ -45,7 +45,6 @@ userRouter.post(
 
 userRouter.get(
   "/google",
-  registerLimit,
   passport.authenticate("google", {
     session: false,
     scope: ["profile", "email"],
@@ -54,7 +53,6 @@ userRouter.get(
 
 userRouter.get(
   "/google/callback",
-  registerLimit,
   passport.authenticate("google", {
     session: false,
     failureRedirect: "/signup?error=AuthFailed",
