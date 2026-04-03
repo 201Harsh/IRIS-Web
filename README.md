@@ -264,7 +264,9 @@ IRIS is built for the community.
 2. Create your branch from main
 3. Follow existing patterns (Tailwind + IPC typing)
 4. Test thoroughly (no blocking main thread)
-5. Submit PR with clear explanation
+5. Submit PR with clear 
+
+**For More Info Reade this File [CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ---
 
