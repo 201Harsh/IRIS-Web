@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  iris-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iris-monolith
+    ports:
+      - "3000:3000" 
+      - "5000:5000" 
+    env_file:
+      - ./server/.env 
+      - ./client/.env 
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
