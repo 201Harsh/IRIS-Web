@@ -116,7 +116,6 @@ const LightPillar: React.FC<LightPillarProps> = ({
         depth: false,
       });
     } catch (error) {
-      console.error("Failed to create WebGL renderer:", error);
       setWebGLSupported(false);
       return;
     }
