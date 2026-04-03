@@ -31,7 +31,7 @@ const Header = () => {
         self.direction === -1 ? showAnim.play() : showAnim.reverse();
       },
     });
-  });
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
