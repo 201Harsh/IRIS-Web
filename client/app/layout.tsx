@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: "/img/Logo.png",
+    apple: "/img/Logo.png",
+    shortcut: "/img/Logo.png",
   },
 
   robots: {
