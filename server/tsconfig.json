@@ -33,7 +33,6 @@
     "isolatedModules": true,
     "skipLibCheck": true,
 
-    /* JSON Support */
     "resolveJsonModule": true
   },
   "include": ["src"],
