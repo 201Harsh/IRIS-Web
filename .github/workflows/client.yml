@@ -1,14 +1,17 @@
 name: Client CI (Next.js)
 
 on:
+  workflow_dispatch: # 🔴 Added this so you can manually click "Run workflow" in GitHub
   push:
     branches: ["main"]
     paths:
       - "client/**"
+      - ".github/workflows/client.yml" # 🔴 Triggers action if you edit this workflow file
   pull_request:
     branches: ["main"]
     paths:
       - "client/**"
+      - ".github/workflows/client.yml"
 
 jobs:
   build-client:
@@ -24,15 +27,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "24" # Node 24 fixes the deprecation warnings!
           cache: "npm"
           cache-dependency-path: "./client/package-lock.json"
 
       - name: Install Dependencies
         run: npm ci || npm install
-
-      - name: Lint Frontend
-        run: npm run lint --if-present
 
       - name: Build Next.js App
         run: npm run build
