@@ -13,7 +13,7 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-unused-vars": "warn",
       "react-hooks/exhaustive-deps": "warn",
       "react/no-unescaped-entities": "off",
-      "prefer-const": "warn", // 🔴 Added this to stop CI crashes!
+      "prefer-const": "warn", 
     },
   },
 ]);
