@@ -55,12 +55,23 @@ It is a **local-first AI Operating System layer** that executes real-world actio
 
 ## ✨ Core Features
 
-- 🧠 Local RAG Oracle (codebase understanding via LanceDB)
-- 🖼️ Screen OCR → UI to Code (Gemini Vision)
-- 👻 Phantom Typing (global AI injection)
-- 📱 Android Control via ADB
-- 🌐 Real-time Web Generation (Tailwind + GSAP)
-- ⚡ System-level execution engine
+- 🧠 **Local RAG Oracle:** Deep codebase ingestion & querying.
+- 🖼️ **Screen Peeler OCR:** Instant UI-to-code extraction (`Ctrl+Alt+X`).
+- 👻 **Phantom Inline Typer:** Global IDE clipboard injection (`Ctrl+Alt+Space`).
+- 📱 **Mobile Telekinesis:** Full Android ADB remote control & telemetry.
+- 🌐 **Live Web Forge:** Agentic Tailwind & GSAP generation.
+- 💻 **Deep Terminal Execution:** Native shell & local scripting.
+- 📂 **Autonomous File Sorting:** Smart directory & system management.
+- 🎯 **Visual UI Automation:** AI-driven mouse & keyboard control.
+- 🕳️ **Localhost Wormholes:** Instantly expose local ports publicly.
+- 🧠 **Persistent Core Memory:** Deep identity & preference tracking.
+- 🕵️ **Deep Web Research:** Autonomous Llama 3 web crawling & Notion sync.
+- 🕷️ **Live Reality Hacking:** Real-time DOM manipulation & injection.
+- 💬 **Autonomous Dispatch:** Automated WhatsApp & Email routing.
+- 📈 **Live Financial Terminal:** Real-time stock & market analysis.
+- 🧩 **Dynamic OS Widgets:** Real-time floating desktop components.
+- ⚙️ **Macro Workflow Engine:** Chained autonomous action sequences.
+- 🔐 **Biometric Vault Security:** Multi-face recognition OS lockdown.
 
 ---
 
