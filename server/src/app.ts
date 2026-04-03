@@ -2,8 +2,11 @@ import express from "express";
 import userRouter from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import ConnectTODB from "./database/mongo-db.js";
 
 const app = express();
+
+ConnectTODB();
 
 app.set("trust proxy", 1);
 
