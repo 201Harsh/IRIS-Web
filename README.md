@@ -25,7 +25,7 @@
 
 </div>
 
-## 📑 Table of Contents
+# 📑 Table of Contents
 
 - [⚡ Overview](#-overview)
 - [✨ Core Features](#-core-features)
@@ -43,7 +43,7 @@
 
 ---
 
-## ⚡ Overview
+# ⚡ Overview
 
 IRIS is not a chatbot.
 
@@ -53,29 +53,107 @@ It is a **local-first AI Operating System layer** that executes real-world actio
 
 ---
 
-## ✨ Core Features
+# ✨ Core Features & System Capabilities
 
-- 🧠 **Local RAG Oracle:** Deep codebase ingestion & querying.
-- 🖼️ **Screen Peeler OCR:** Instant UI-to-code extraction (`Ctrl+Alt+X`).
-- 👻 **Phantom Inline Typer:** Global IDE clipboard injection (`Ctrl+Alt+Space`).
-- 📱 **Mobile Telekinesis:** Full Android ADB remote control & telemetry.
-- 🌐 **Live Web Forge:** Agentic Tailwind & GSAP generation.
-- 💻 **Deep Terminal Execution:** Native shell & local scripting.
-- 📂 **Autonomous File Sorting:** Smart directory & system management.
-- 🎯 **Visual UI Automation:** AI-driven mouse & keyboard control.
-- 🕳️ **Localhost Wormholes:** Instantly expose local ports publicly.
-- 🧠 **Persistent Core Memory:** Deep identity & preference tracking.
-- 🕵️ **Deep Web Research:** Autonomous Llama 3 web crawling & Notion sync.
-- 🕷️ **Live Reality Hacking:** Real-time DOM manipulation & injection.
-- 💬 **Autonomous Dispatch:** Automated WhatsApp & Email routing.
-- 📈 **Live Financial Terminal:** Real-time stock & market analysis.
-- 🧩 **Dynamic OS Widgets:** Real-time floating desktop components.
-- ⚙️ **Macro Workflow Engine:** Chained autonomous action sequences.
-- 🔐 **Biometric Vault Security:** Multi-face recognition OS lockdown.
+### 📂 System & File Management
+
+- 🖥️ **Open App:** Native application lifecycle control.
+- 🛑 **Close App:** Instant process termination commands.
+- 🗂️ **Read Directory:** Local folder scanning & indexing.
+- 📁 **Create Folder:** Instant directory structure generation.
+- 📄 **Read File:** Deep text & code extraction.
+- 📝 **Write File:** Autonomous disk write access.
+- 🔄 **Manage File:** Copy, move, and delete control.
+- 🚀 **Open File:** Native OS application launcher.
+- 🗃️ **Smart Drop Zones:** Viral, autonomous folder sorting.
+
+### 🧠 Vector Search & Local Knowledge
+
+- 🔍 **Index Folder:** Semantic LanceDB directory ingestion.
+- 🔎 **Smart File Search:** Vector-based local file retrieval.
+- 🖼️ **Read Gallery:** Local image cache scanning.
+- 👁️ **Analyze Photo:** Direct multimodal vision processing.
+
+### 💻 Developer & Terminal Tools
+
+- ⌨️ **Run Terminal:** Native shell & CLI execution.
+- 🛠️ **Open Project:** Instant IDE workspace loading.
+- ⚙️ **Activate Protocol:** Context-aware coding mode switch.
+- 🏗️ **Build File:** Writing code directly to disk.
+- 🤖 **Execute Sequence:** JSON-based macro automation runs.
+- ▶️ **Execute Macro:** Named workflow sequence triggering.
+- 🕳️ **Deploy Wormhole:** Expose localhost to public internet.
+- 🛑 **Close Wormhole:** Terminate public localhost tunnels.
+
+### 🎯 Desktop UI, Vision & Automation
+
+- 🪟 **Teleport Windows:** Dynamic desktop window management.
+- 🧩 **Create Widget:** Spawn live floating desktop components.
+- ❌ **Close Widgets:** Clear active floating overlays.
+- 🖱️ **Click on Screen:** AI-driven exact coordinate targeting.
+- 📜 **Scroll Screen:** Autonomous up/down page navigation.
+- ⚡ **Press Shortcut:** Global keyboard hotkey injection.
+- 👻 **Phantom Typer:** Global inline clipboard injection.
+- ✂️ **Screen Peeler (OCR):** Instant UI-to-code visual extraction.
+- ⌨️ **Ghost Coder:** Inline IDE generation (`Ctrl+Alt+Space`).
+- 🔊 **Set Volume:** Master audio level control.
+- 📸 **Take Screenshot:** Instant visual context capture.
+
+### 💾 Memory & Information
+
+- 🧠 **Save Core Memory:** Deep persistent identity tracking.
+- 📥 **Retrieve Memory:** Instant past context recall.
+- 📝 **Save Note:** Local markdown note generation.
+- 📖 **Read Notes:** Instant saved plan retrieval.
+- 📧 **Read Emails:** Gmail inbox scraping & summarization.
+
+### 🌐 Web, Media & Financials
+
+- 🔍 **Google Search:** Live internet data retrieval.
+- 🌤️ **Get Weather:** Real-time atmospheric condition checks.
+- 🗺️ **Open Map:** Interactive dark-mode map loading.
+- 🚗 **Get Navigation:** Real-time routing and directions.
+- 🎵 **Play Spotify:** Instant music & playlist execution.
+- 📈 **Stock Price:** Real-time financial ticker tracking.
+- 📊 **Compare Stocks:** Dual-ticker fundamental market analysis.
+- 🕷️ **Hack Live Website:** Viral visual DOM manipulation.
+- 🎨 **Build Animated Web:** Agentic Tailwind & GSAP generation.
+- 🖼️ **Generate Image:** High-fidelity multimodal media generation.
+
+### 💬 Communications
+
+- 📲 **Send WhatsApp:** Instant automated message dispatch.
+- 🕒 **Schedule WhatsApp:** Cron-based delayed message automation.
+- 📧 **Draft Email:** Autonomous message composition.
+- 🚀 **Send Email:** Action-oriented direct dispatch.
+
+### 📱 Mobile Telekinesis (Deep Android Link)
+
+- 🔔 **Mobile Notifications:** Read texts from connected phone.
+- 🔋 **Mobile Info:** Battery & hardware telemetry tracking.
+- 📤 **Push File to Mobile:** Seamless PC-to-phone transfers.
+- 📥 **Pull File from Mobile:** Instant phone-to-PC fetching.
+- 📱 **Open Mobile App:** Remote Android application launching.
+- 🛑 **Close Mobile App:** Remote Android process killing.
+- 👆 **Tap Mobile Screen:** Remote coordinate touch execution.
+- 📜 **Swipe Mobile Screen:** Remote directional scrolling control.
+- ⚙️ **Toggle Hardware:** Remote Wi-Fi/Bluetooth/Flashlight switching.
+
+### 🕵️ Autonomous Research & Deep RAG
+
+- 🕸️ **Deep Research:** Autonomous Llama 3 web crawling.
+- 📓 **Read Notion Reports:** Deep sync with Notion databases.
+- 📚 **Ingest Codebase:** Deep local project Vector embedding.
+- 🔮 **Consult Oracle:** Deep local codebase RAG queries.
+
+### 🔐 Security & OS Vault
+
+- 🔒 **Lock System Vault:** Standard PIN OS lockdown protocol.
+- 🛡️ **Biometric Encryption:** Multi-face recognition OS lockdown.
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ Architecture
 
 ### Frontend
 
@@ -95,7 +173,7 @@ window.electron.ipcRenderer.invoke("tool-name", payload);
 
 ---
 
-## 🔐 Security
+# 🔐 Security
 
 - 100% BYOK (Bring Your Own Key)
 - Local encryption (OS keychain)
@@ -104,7 +182,7 @@ window.electron.ipcRenderer.invoke("tool-name", payload);
 
 ---
 
-## 🚀 Installation & Setup
+# 🚀 Installation & Setup
 
 ### 1. Clone Repo
 
@@ -147,7 +225,7 @@ npm run dev
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 iris/
@@ -167,7 +245,7 @@ iris/
 
 ---
 
-## 🧠 Development Philosophy
+# 🧠 Development Philosophy
 
 - Execution > Conversation
 - Local-first intelligence
@@ -176,7 +254,7 @@ iris/
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
 IRIS is built for the community.
 
@@ -199,7 +277,7 @@ IRIS is built for the community.
 
 ---
 
-## 🧩 Extending IRIS
+# 🧩 Extending IRIS
 
 You can:
 
@@ -220,14 +298,14 @@ You can:
 
 ---
 
-## ⚠️ Disclaimer
+# ⚠️ Disclaimer
 
 IRIS has deep system-level execution capabilities.  
 Use responsibly. The maintainers are not liable for misuse.
 
 ---
 
-## 👨‍💻 Architect
+# 👨‍💻 Architect
 
 **Harsh Pandey**  
 AI Systems Engineer
@@ -237,14 +315,14 @@ GitHub: [@201Harsh](https://github.com/201Harsh)
 
 ---
 
-## 📜 License
+# 📜 License
 
 MIT License — see LICENSE file.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## 🟥 Final Note
+# 🟥 Final Note
 
 **IRIS is not a chatbot.** It is a **neural extension of your operating system**.
 
