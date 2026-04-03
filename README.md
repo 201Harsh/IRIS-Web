@@ -221,7 +221,7 @@ Use responsibly. The maintainers are not liable for misuse.
 **Harsh Pandey**  
 AI Systems Engineer
 
-Instagram: @irisx.ai
+Instagram: [@201Harshs](https://www.instagram.com/201harshs/)
 
 ---
 
