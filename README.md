@@ -229,12 +229,12 @@ GitHub: [@201Harsh](https://github.com/201Harsh)
 ## 📜 License
 
 MIT License — see LICENSE file.
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
 <div align="center">
 
-**IRIS is not just AI. It's execution.**
+# IRIS is not just AI. It's execution.
 
 </div>
