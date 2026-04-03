@@ -13,11 +13,19 @@ import { body } from "express-validator";
 import ValidateData from "../middlewares/validate-middleware.js";
 import { AuthMiddleware } from "../middlewares/auth-middleware.js";
 import passport from "../lib/passport.js";
+import {
+  GlobalLimit,
+  loginLimit,
+  RefreshTokenLimit,
+  registerLimit,
+  verifyLimit,
+} from "../middlewares/rate-limit-middleware.js";
 
 const userRouter = Router();
 
 userRouter.post(
   "/register",
+  registerLimit,
   [
     body("name").notEmpty().withMessage("Name is required"),
     body("email")
@@ -37,6 +45,7 @@ userRouter.post(
 
 userRouter.get(
   "/google",
+  registerLimit,
   passport.authenticate("google", {
     session: false,
     scope: ["profile", "email"],
@@ -45,6 +54,7 @@ userRouter.get(
 
 userRouter.get(
   "/google/callback",
+  registerLimit,
   passport.authenticate("google", {
     session: false,
     failureRedirect: "/signup?error=AuthFailed",
@@ -54,6 +64,7 @@ userRouter.get(
 
 userRouter.post(
   "/verify",
+  verifyLimit,
   [
     body("token")
       .notEmpty()
@@ -67,6 +78,7 @@ userRouter.post(
 
 userRouter.post(
   "/login",
+  loginLimit,
   [
     body("email")
       .notEmpty()
@@ -83,12 +95,12 @@ userRouter.post(
   LoginUser,
 );
 
-userRouter.get("/me", AuthMiddleware, GetUser);
+userRouter.get("/me", GlobalLimit, AuthMiddleware, GetUser);
 
 userRouter.post("/logout", AuthMiddleware, LogoutUser);
 
 userRouter.post("/logout-all", AuthMiddleware, LogoutAllusers);
 
-userRouter.post("/refresh-token", RefreshAccessToken);
+userRouter.post("/refresh-token", RefreshTokenLimit, RefreshAccessToken);
 
 export default userRouter;
