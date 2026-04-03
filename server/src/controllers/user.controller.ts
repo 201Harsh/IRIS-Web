@@ -352,7 +352,6 @@ export const RefreshAccessToken = async (
     res.status(200).json({ accessToken: newAccessToken });
     return;
   } catch (error: any) {
-    console.error("Refresh Token Error:", error.message);
     res.status(403).json({ error: "Forbidden. Token expired or invalid." });
     return;
   }
