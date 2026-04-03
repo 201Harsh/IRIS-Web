@@ -49,7 +49,7 @@ userRouter.get(
     session: false,
     scope: ["profile", "email"],
     accessType: "offline",
-    prompt: "consent",
+    prompt: "select_account",
   }),
 );
 
