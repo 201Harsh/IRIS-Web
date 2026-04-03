@@ -30,9 +30,6 @@ passport.use(
       done: VerifyCallback,
     ) => {
       try {
-        if (!accessToken || !refreshToken) {
-          console.log("Access token or refresh token is missing");
-        }
         const email = profile.emails?.[0]?.value;
         const googleId = profile.id;
 
