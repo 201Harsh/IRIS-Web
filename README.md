@@ -2,6 +2,8 @@
 
 # 👁️ IRIS
 
+![IRIS Neural OS Documentation Banner](./assets//docs_banner.jpeg)
+
 ## The Autonomous Neural OS Agent
 
 ![GitHub stars](https://img.shields.io/github/stars/201Harsh/IRIS-AI?style=for-the-badge)
