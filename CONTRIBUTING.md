@@ -8,13 +8,14 @@ Please read this guide to ensure your Pull Requests (PRs) merge smoothly and kee
 
 ## 🔗 Quick Links
 
-- **GitHub:** https://github.com/yourusername/iris
+- **GitHub:** https://github.com/201Harsh/IRIS-AI
 - **Instagram:** [@irisx.ai](https://www.instagram.com/irisx.ai/)
 
 ## 👑 Maintainers
 
 - **Harsh Pandey** - Creator & Lead Architect
-  - GitHub: [@yourusername](https://github.com/yourusername) · IG: [@irisx.ai](https://www.instagram.com/irisx.ai/)
+  - GitHub: [201Harsh](https://github.com/201Harsh)
+  - Instagram: [201harshs](https://www.instagram.com/201harshs/)
 
 ---
 
@@ -33,9 +34,15 @@ Please read this guide to ensure your Pull Requests (PRs) merge smoothly and kee
 - **Mind the Bridge:** IRIS operates on a strict split-architecture. Frontend React code cannot use Node.js modules (like `fs` or `child_process`). All system-level execution MUST be handled in the backend and triggered via the `window.electron.ipcRenderer.invoke` bridge.
 - Keep PRs focused. One feature/fix per PR. Do not mix unrelated concerns.
 - **Include screenshots/videos:** If you change the UI (Tailwind/GSAP/Framer Motion), you _must_ include a before/after screenshot or a screen recording of the animation in your PR description.
-- **Strict Commit Formatting:** To keep the Git history clean, you MUST use single quotes (`'`) instead of double quotes (`"`) inside your commit messages.
-  - ✅ `git commit -m 'fix: resolve IPC bridge memory leak'`
-  - ❌ `git commit -m "fix: resolve IPC bridge memory leak"`
+- **Strict Commit Formatting:** Keep your commit messages clean, descriptive, and easy to understand. Clearly state what the commit accomplishes and always include the relevant Issue ID so we can track the changes.
+
+✅ `git commit -m "feat: integrated new desktop widget (#45)"`
+✅ `git commit -m "fix: resolved IPC memory leak in Oracle module (#12)"`
+❌ `git commit -m "Integrated desktop widget"`
+❌ `git commit -m "resolved IPC memory leak in Oracle module"`
+
+---
+
 
 ## 🤖 AI/Vibe-Coded PRs Welcome!
 

@@ -266,7 +266,7 @@ IRIS is built for the community. If you want to expand the neural forge, submit 
 4. **Test** thoroughly (ensure tools do not block the main Electron thread).
 5. **Submit** a PR with a clear explanation and visual evidence if altering the UI.
 
-🚨 **Read the full [Contribution Guide (CONTRIBUTING.md)](CONTRIBUTING.md) before submitting.**
+🚨 **Read the full [Contribution Guide](CONTRIBUTING.md) before submitting.**
 
 ---
 
