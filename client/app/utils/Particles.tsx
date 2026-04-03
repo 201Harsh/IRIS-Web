@@ -34,7 +34,7 @@ const hexToRgb = (hex: string): [number, number, number] => {
   return [r, g, b];
 };
 
-const vertex = /* glsl */ `
+const vertex = `
   attribute vec3 position;
   attribute vec4 random;
   attribute vec3 color;
