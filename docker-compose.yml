@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  iris-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iris-monolith
+    ports:
+      - "3000:3000" # Next.js Frontend
+      - "5000:5000" # Express Backend
+    env_file:
+      - ./server/.env # Loads backend secrets
+      - ./client/.env # Loads frontend secrets
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped # Automatically restarts if it crashes
