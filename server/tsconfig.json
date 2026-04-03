@@ -29,7 +29,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Build Behavior */
     "isolatedModules": true,
     "skipLibCheck": true,
 
