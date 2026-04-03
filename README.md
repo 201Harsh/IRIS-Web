@@ -110,14 +110,20 @@ npm run dev
 
 ## 📁 Project Structure
 
-```
+```text
 iris/
-├── frontend/
-├── electron/
-├── ipc/
-├── modules/
-├── assets/
-└── config/
+├── build/                   # OS-specific build artifacts
+├── out/                     # Compiled output ready for packaging
+├── resources/               # Static assets (icons, trained data, etc.)
+├── src/                     # Core application source code
+│   ├── main/                # Electron Main Process (Node.js backend & OS execution)
+│   ├── preload/             # Context Isolation Scripts (The IPC secure bridge)
+│   └── renderer/            # React Frontend (UI, floating widgets, GSAP animations)
+├── .env.example             # Template for API keys and environment variables
+├── electron-builder.yml     # Configuration for packaging the .exe / .app / .AppImage
+├── electron.vite.config.ts  # Vite configuration for the split architecture
+├── eng.traineddata          # Tesseract OCR language data file
+└── package.json             # Project dependencies and scripts
 ```
 
 ---
