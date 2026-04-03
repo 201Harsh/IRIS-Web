@@ -6,7 +6,7 @@ If you believe you've found a legitimate security vulnerability in the IRIS OS A
 
 Report vulnerabilities directly via email to the Lead Architect:
 
-- **[Insert Your Email Here]**
+- **gamerpandeyharsh@gmail.com**
 
 Please allow up to 48 hours for an initial response. IRIS is currently a solo-developed project, but all severe reports are triaged with the highest priority.
 

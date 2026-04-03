@@ -22,7 +22,7 @@ Please read this guide to ensure your Pull Requests (PRs) merge smoothly and kee
 ## 🛠 How to Contribute
 
 1. **Bugs & small fixes** → Open a PR!
-2. **New features / architecture** → Start a [GitHub Discussion](https://github.com/yourusername/iris/discussions) or open an Issue first. Please don't spend 20 hours building a massive feature without checking if it aligns with the project roadmap.
+2. **New features / architecture** → Start a [GitHub Discussion](https://github.com/201Harsh/IRIS-AI/discussions) or open an Issue first. Please don't spend 20 hours building a massive feature without checking if it aligns with the project roadmap.
 3. **Refactor-only PRs** → **Do not open a PR.** I am not accepting purely cosmetic refactors (e.g., changing linting rules, reorganizing folders) unless requested as part of a specific bug fix.
 4. **Questions** → Open a Discussion on GitHub.
 
@@ -42,7 +42,6 @@ Please read this guide to ensure your Pull Requests (PRs) merge smoothly and kee
 ❌ `git commit -m "resolved IPC memory leak in Oracle module"`
 
 ---
-
 
 ## 🤖 AI/Vibe-Coded PRs Welcome!
 
