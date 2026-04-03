@@ -222,12 +222,14 @@ Use responsibly. The maintainers are not liable for misuse.
 AI Systems Engineer
 
 Instagram: [@201Harshs](https://www.instagram.com/201harshs/)
+GitHub: [@201Harsh](https://github.com/201Harsh)
 
 ---
 
 ## 📜 License
 
 MIT License — see LICENSE file.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
