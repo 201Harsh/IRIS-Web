@@ -1,12 +1,12 @@
 name: Client CI (Next.js)
 
 on:
-  workflow_dispatch: # 🔴 Added this so you can manually click "Run workflow" in GitHub
+  workflow_dispatch:
   push:
     branches: ["main"]
     paths:
       - "client/**"
-      - ".github/workflows/client.yml" # 🔴 Triggers action if you edit this workflow file
+      - ".github/workflows/client.yml"
   pull_request:
     branches: ["main"]
     paths:
