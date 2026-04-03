@@ -30,8 +30,6 @@ passport.use(
       done: VerifyCallback,
     ) => {
       try {
-        console.log("Profile ID:", profile.id);
-
         const email = profile.emails?.[0]?.value;
         const googleId = profile.id;
 
