@@ -18,7 +18,7 @@ export default function MagneticButton({
   iconLeft,
   iconRight,
   className = "",
-  strength = 0.05,
+  strength = 0.25,
   ...props
 }: MagneticButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -46,8 +46,8 @@ export default function MagneticButton({
     if (!boundsRef.current) return;
     const { left, top, width, height } = boundsRef.current;
 
-    const moveX = (e.clientX - left - width / 5) * strength;
-    const moveY = (e.clientY - top - height / 5) * strength;
+    const moveX = (e.clientX - left - width / 2) * strength;
+    const moveY = (e.clientY - top - height / 2) * strength;
 
     x.set(moveX);
     y.set(moveY);
