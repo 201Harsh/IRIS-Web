@@ -28,7 +28,7 @@ export const verifyLimit = rateLimit({
 });
 
 export const loginLimit = rateLimit({
-  windowMs: 3 * 60 * 1000,
-  max: 3,
-  message: "Too many login attempts, please try again after 5 minutes ⚠️",
+  windowMs: 2 * 60 * 1000,
+  max: 5,
+  message: "Too many login attempts, please try again after 2 minutes ⚠️",
 });
