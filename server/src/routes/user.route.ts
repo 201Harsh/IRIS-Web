@@ -48,6 +48,8 @@ userRouter.get(
   passport.authenticate("google", {
     session: false,
     scope: ["profile", "email"],
+    accessType: "offline",
+    prompt: "consent",
   }),
 );
 
