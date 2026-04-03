@@ -1,23 +1,45 @@
 <div align="center">
 
-# 👁️ IRIS
-
 ![IRIS Neural OS Documentation Banner](./assets/docs_banner.jpeg)
 
 ## The Autonomous Neural OS Agent
 
-[![GitHub stars](https://img.shields.io/github/stars/201Harsh/IRIS-AI?style=for-the-badge)](https://github.com/201Harsh/IRIS-AI/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/201Harsh/IRIS-AI?style=for-the-badge)](https://github.com/201Harsh/IRIS-AI/network/members)
-[![Contributors](https://img.shields.io/github/contributors/201Harsh/IRIS-AI?style=for-the-badge)](https://github.com/201Harsh/IRIS-AI/graphs/contributors)
-[![Downloads](https://img.shields.io/github/downloads/201Harsh/IRIS-AI/total?style=for-the-badge)](https://github.com/201Harsh/IRIS-AI/releases)
+<div style="display: flex; justify-center; gap: 10px; margin-bottom: 20px;">
+  <a href="https://github.com/201Harsh/IRIS-AI/stargazers">
+    <img src="https://img.shields.io/github/stars/201Harsh/IRIS-AI?style=for-the-badge&color=10b981&logo=github&logoColor=white" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/201Harsh/IRIS-AI/network/members">
+    <img src="https://img.shields.io/github/forks/201Harsh/IRIS-AI?style=for-the-badge&color=10b981&logo=git&logoColor=white" alt="GitHub forks">
+  </a>
+  <a href="https://github.com/201Harsh/IRIS-AI/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/201Harsh/IRIS-AI?style=for-the-badge&color=10b981&logo=users&logoColor=white" alt="Contributors">
+  </a>
+  <a href="https://github.com/201Harsh/IRIS-AI/releases">
+    <img src="https://img.shields.io/github/downloads/201Harsh/IRIS-AI/total?style=for-the-badge&color=10b981&logo=download&logoColor=white" alt="Downloads">
+  </a>
+</div>
 
 **A local-first neural execution system that turns intent into real OS actions.**
-
-[Download the App](#-installation--setup) • [Features](#-core-modules) • [Architecture](#-system-architecture) • [Contributing](#-contributing)
 
 ---
 
 </div>
+
+## 📑 Table of Contents
+
+- [⚡ Overview](#-overview)
+- [✨ Core Features](#-core-features)
+- [🏗️ Architecture](#️-architecture)
+- [🔐 Security](#-security)
+- [🚀 Installation & Setup](#-installation--setup)
+- [📁 Project Structure](#-project-structure)
+- [🧠 Development Philosophy](#-development-philosophy)
+- [🤝 Contributing](#-contributing)
+- [🧩 Extending IRIS](#-extending-iris)
+- [🧠 Roadmap](#-roadmap)
+- [⚠️ Disclaimer](#️-disclaimer)
+- [👨‍💻 Architect](#-architect)
+- [📜 License](#-license)
 
 ---
 
