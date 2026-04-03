@@ -1,12 +1,12 @@
 name: Server CI (Express)
 
 on:
-  workflow_dispatch: # 🔴 Added this for manual triggering
+  workflow_dispatch:
   push:
     branches: ["main"]
     paths:
       - "server/**"
-      - ".github/workflows/server.yml" # 🔴 Triggers action if you edit this workflow file
+      - ".github/workflows/server.yml"
   pull_request:
     branches: ["main"]
     paths:
