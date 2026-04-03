@@ -254,27 +254,29 @@ iris/
 
 ---
 
-# 🤝 Contributing
+## 🤝 Contributing
 
-IRIS is built for the community.
+IRIS is built for the community. If you want to expand the neural forge, submit a PR.
 
-### How to Contribute
+### Quick Start
 
-1. Fork the repository
-2. Create your branch from main
-3. Follow existing patterns (Tailwind + IPC typing)
-4. Test thoroughly (no blocking main thread)
-5. Submit PR with clear 
+1. **Fork** the repository.
+2. **Branch** off `main`.
+3. **Match** existing patterns (Tailwind for UI, strict IPC typing for the backend).
+4. **Test** thoroughly (ensure tools do not block the main Electron thread).
+5. **Submit** a PR with a clear explanation and visual evidence if altering the UI.
 
-**For More Info Reade this File [CONTRIBUTING.md](CONTRIBUTING.md)**
+🚨 **Read the full [Contribution Guide (CONTRIBUTING.md)](CONTRIBUTING.md) before submitting.**
 
 ---
 
 ### Commit Rules
 
+Keep your commit messages clean, descriptive, and easy to understand. Clearly state what the commit accomplishes and always include the relevant Issue ID so we can track the changes.
+
 ```bash
-✅ git commit -m 'Added new module'
-❌ git commit -m "feat: add new module"
+✅ git commit -m "feat: integrated new desktop widget (#45)"
+✅ git commit -m "fix: resolved IPC memory leak in Oracle module (#12)"
 ```
 
 ---
