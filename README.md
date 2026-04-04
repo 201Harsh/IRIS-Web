@@ -1,6 +1,6 @@
 <div align="center">
 
-![IRIS Neural OS Documentation Banner](./assets/docs_banner.jpeg)
+![IRIS Neural OS Documentation Banner](./assets/banner.jpeg)
 
 ## The Autonomous Neural OS Agent
 
@@ -14,7 +14,7 @@
   <a href="https://github.com/201Harsh/IRIS-AI/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/201Harsh/IRIS-AI?style=for-the-badge&color=10b981&logo=users&logoColor=white" alt="Contributors">
   </a>
-  <a href="https://github.com/201Harsh/IRIS-AI/releases/">
+  <a href="https://github.com/201Harsh/IRIS-AI/releases">
     <img src="https://img.shields.io/github/downloads/201Harsh/IRIS-AI/total?style=for-the-badge&color=10b981&logo=download&logoColor=white" alt="Downloads">
   </a>
 </div>
@@ -30,6 +30,7 @@
 - [⚡ Overview](#-overview)
 - [✨ Core Features](#-core-features)
 - [🏗️ Architecture](#️-architecture)
+- [💻 Tech Stack](#-tech-stack)
 - [🔐 Security](#-security)
 - [🚀 Installation & Setup](#-installation--setup)
 - [📁 Project Structure](#-project-structure)
@@ -173,12 +174,58 @@ window.electron.ipcRenderer.invoke("tool-name", payload);
 
 ---
 
+# 💻 Tech Stack
+
+IRIS is forged using a high-performance stack combining web technologies with deep native OS access and state-of-the-art AI models.
+
+### 🖥️ Core Desktop & UI Framework
+
+- **Electron & Vite:** High-performance desktop compilation and split-process architecture.
+- **React 19:** Component-based, responsive frontend.
+- **Tailwind CSS v4:** Utility-first styling engine for the Neon Emerald aesthetic.
+- **Framer Motion & GSAP:** Cinematic, hardware-accelerated UI animations.
+- **Three.js & React Three Fiber:** 3D rendering for complex neural visualizations.
+- **Zustand:** Fast, scalable global state management.
+
+### 🧠 AI, RAG & Machine Learning
+
+- **Google Gemini AI:** Core reasoning and generative engine (`@google/genai`).
+- **Groq SDK:** Ultra-fast, low-latency inference routing.
+- **Hugging Face & Xenova:** Local model inference and transformers (`@huggingface/inference`, `@xenova/transformers`).
+- **LanceDB (VectorDB):** Embedded local vector database for deep codebase RAG and memory storage.
+- **Face-api.js:** Local biometric facial recognition for the System Vault.
+
+### ⚙️ OS Control & Automation Engine
+
+- **Nut.js:** Deep native desktop automation (mouse, keyboard, exact coordinate targeting).
+- **Puppeteer (with Stealth):** Headless browser automation, DOM hacking, and invisible web crawling.
+- **Node Window Manager:** Native OS window lifecycle and spatial placement control.
+- **Tesseract.js:** Optical Character Recognition (OCR) for the 'Screen Peeler' visual extraction.
+- **Native Utilities:** `loudness` (master audio), `clipboardy` (phantom typing), `screenshot-desktop` (visual context).
+
+### 🔗 Integrations & Parsing
+
+- **Google APIs & Auth:** Secure local auth, Gmail scraping, and Google Cloud services.
+- **Notion Client:** Direct read/write mapping to Notion databases.
+- **Tavily Core:** Agentic, deep-web search routing.
+- **Data Parsers:** `pdf-parse`, `mammoth` (docx), `cheerio` (HTML DOM).
+
+---
+
 # 🔐 Security
 
 - 100% BYOK (Bring Your Own Key)
 - Local encryption (OS keychain)
 - Zero-trust architecture
 - No external key storage
+
+---
+
+# 💻 System Requirements
+
+- **OS:** Windows 10 / 11 (Native execution).
+- **Memory:** Minimum 4GB RAM (8GB recommended for heavy RAG indexing).
+- **Storage:** ~3.2 GB for the application, plus extra space for local LanceDB vector storage.
 
 ---
 
