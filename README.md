@@ -1,6 +1,6 @@
 <div align="center">
 
-![IRIS Neural OS Documentation Banner](./assets/banner.jpeg)
+![IRIS Neural OS Documentation Banner](./assets/docs_banner.jpeg)
 
 ## The Autonomous Neural OS Agent
 
