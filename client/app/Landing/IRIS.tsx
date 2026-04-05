@@ -51,7 +51,6 @@ import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import Link from "next/link";
-const LightPillar = lazy(() => import("../utils/LightPillar"));
 
 gsap.registerPlugin(ScrollTrigger);
 
