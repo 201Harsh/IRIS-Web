@@ -290,28 +290,6 @@ const IRIS = () => {
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
-        <div className="absolute inset-0 z-0 mix-blend-screen pointer-events-none md:hidden block">
-          {isHeroVisible && (
-            <Suspense fallback={<LoadingCore />}>
-              <LightPillar
-                topColor="#022c1e"
-                bottomColor="#34d399"
-                intensity={1}
-                rotationSpeed={0.3}
-                glowAmount={0.002}
-                pillarWidth={3}
-                pillarHeight={0.4}
-                noiseIntensity={0.5}
-                pillarRotation={25}
-                interactive={false}
-                mixBlendMode="screen"
-                quality="high"
-                className="md:hidden block"
-              />
-            </Suspense>
-          )}
-        </div>
-
         <div
           className={`absolute inset-0 z-0 mix-blend-screen pointer-events-none hidden md:block transition-opacity duration-700 ease-in-out ${isHeroVisible ? "opacity-100" : "opacity-0"}`}
           style={{ display: isHeroActive ? "block" : "none" }}
@@ -367,7 +345,7 @@ const IRIS = () => {
             kernel-level OS automation and zero-trust execution.
           </p>
 
-          <div className="mt-12 flex justify-center items-center gap-6 w-full sm:w-auto relative z-20">
+          <div className="mt-12 flex md:flex-row flex-col justify-center items-center gap-6 w-full sm:w-auto relative z-20">
             <Link href="/download">
               <MagneticButton
                 title="Download IRIS"
