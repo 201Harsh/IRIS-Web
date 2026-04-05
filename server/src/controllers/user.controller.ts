@@ -9,6 +9,7 @@ import {
 } from "../utils/user-utils.js";
 import jwt from "jsonwebtoken";
 
+
 export const registerUser = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
@@ -356,3 +357,4 @@ export const RefreshAccessToken = async (
     return;
   }
 };
+
