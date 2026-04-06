@@ -10,7 +10,6 @@ import {
   Terminal,
 } from "lucide-react";
 
-// The data structure for all required and optional keys
 const apiKeysData = [
   {
     id: "gemini",
@@ -70,7 +69,6 @@ const apiKeysData = [
 ];
 
 export default function ApiKeysGuide() {
-  // Framer Motion Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,7 +104,6 @@ export default function ApiKeysGuide() {
         </p>
       </motion.div>
 
-      {/* Cards Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -119,7 +116,6 @@ export default function ApiKeysGuide() {
             variants={itemVariants}
             className="group relative bg-zinc-950 border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 overflow-hidden"
           >
-            {/* Subtle background glow effect on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
             <div className="flex justify-between items-start mb-4 relative z-10">
