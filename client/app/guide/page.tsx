@@ -145,7 +145,7 @@ export default function ApiKeysGuide() {
 
                   <button
                     onClick={() => handleCopy(key.envVar)}
-                    className="flex items-center gap-2 text-xs text-emerald-500/50 mt-2 hover:text-emerald-400 transition-colors"
+                    className="cursor-pointer flex items-center gap-2 text-xs text-emerald-500/50 mt-2 hover:text-emerald-400 transition-colors"
                     title="Copy to clipboard"
                   >
                     <code>.env: {key.envVar}</code>
