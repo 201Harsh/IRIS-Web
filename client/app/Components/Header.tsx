@@ -67,7 +67,7 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex gap-6 text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em]">
-          {["About", "Features", "Pricing"].map((item) => (
+          {["About", "Features", "Pricing", "Guide"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
@@ -116,7 +116,7 @@ const Header = () => {
                 <div className="flex justify-between items-center mb-16">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/img/logo.png"
+                      src="/img/Logo.png"
                       alt="Logo"
                       width={30}
                       height={30}
@@ -137,7 +137,7 @@ const Header = () => {
               </Link>
 
               <nav className="flex flex-col gap-10 text-sm font-bold uppercase tracking-[0.2em]">
-                {["About", "Features", "Pricing"].map((item) => (
+                {["About", "Features", "Pricing", "Guide"].map((item) => (
                   <Link
                     key={item}
                     href={`/${item.toLowerCase()}`}
