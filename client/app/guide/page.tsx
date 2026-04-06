@@ -102,7 +102,6 @@ export default function ApiKeysGuide() {
     <div className="flex flex-col min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30">
       <Header />
 
-      {/* Main content expands to push Footer down */}
       <main className="flex-grow p-6 md:p-12 lg:p-24 pt-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -144,7 +143,6 @@ export default function ApiKeysGuide() {
                     {key.name}
                   </h2>
 
-                  {/* Click to Copy Environment Variable */}
                   <button
                     onClick={() => handleCopy(key.envVar)}
                     className="flex items-center gap-2 text-xs text-emerald-500/50 mt-2 hover:text-emerald-400 transition-colors"
