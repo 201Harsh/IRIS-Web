@@ -18,11 +18,11 @@ import Lightning from "../utils/Lightning";
 
 export default function DownloadPage() {
   const [showWarning, setShowWarning] = useState(false);
-  const [countdown, setCountdown] = useState(4);
+  const [countdown, setCountdown] = useState(5);
 
   const handleDownload = () => {
     setShowWarning(true);
-    let counter = 4;
+    let counter = 5;
     setCountdown(counter);
 
     const interval = setInterval(() => {
@@ -32,7 +32,7 @@ export default function DownloadPage() {
         clearInterval(interval);
         window.location.href =
           "https://github.com/201Harsh/IRIS-AI/releases/download/v1.0.0/IRIS-AI.exe";
-        setTimeout(() => setShowWarning(false), 3000);
+        setTimeout(() => setShowWarning(false), 5000);
       }
     }, 1000);
   };
