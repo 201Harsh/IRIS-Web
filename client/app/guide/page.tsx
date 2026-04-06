@@ -102,7 +102,7 @@ export default function ApiKeysGuide() {
     <div className="flex flex-col min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30">
       <Header />
 
-      <main className="flex-grow p-6 md:p-12 lg:p-24 pt-24">
+      <main className="grow p-6 md:p-12 lg:p-24 pt-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function ApiKeysGuide() {
               variants={itemVariants}
               className="group relative bg-zinc-950 border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="flex justify-between items-start mb-4 relative z-10">
                 <div>
@@ -172,7 +172,7 @@ export default function ApiKeysGuide() {
                 </span>
               </div>
 
-              <p className="text-zinc-400 text-sm mb-6 relative z-10 min-h-[40px]">
+              <p className="text-zinc-400 text-sm mb-6 relative z-10 min-h-10">
                 {key.description}
               </p>
 
@@ -180,7 +180,7 @@ export default function ApiKeysGuide() {
                 <h3 className="text-sm font-semibold text-emerald-500 mb-2 uppercase tracking-wider">
                   How to get it:
                 </h3>
-                <ul className="space-y-2 min-h-[100px]">
+                <ul className="space-y-2 min-h-25">
                   {key.steps.map((step, index) => (
                     <li
                       key={index}
