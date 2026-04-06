@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   Terminal,
 } from "lucide-react";
+import Footer from "../Components/Footer";
 
 const apiKeysData = [
   {
@@ -83,99 +84,102 @@ export default function ApiKeysGuide() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30 p-6 md:p-12 lg:p-24">
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto mb-16"
-      >
-        <div className="flex items-center gap-3 mb-4 text-emerald-500">
-          <Terminal size={32} />
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            System Keys
-          </h1>
-        </div>
-        <p className="text-lg text-emerald-100/60 leading-relaxed">
-          IRIS operates locally, but requires specific API keys to bridge the
-          gap to large language models and search engines. Follow this guide to
-          forge your keys and initialize the system. Your keys are stored
-          locally on your machine and never sent to our servers.
-        </p>
-      </motion.div>
+    <>
+      <div className="min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30 p-6 md:p-12 lg:p-24">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <div className="flex items-center gap-3 mb-4 text-emerald-500">
+            <Terminal size={32} />
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              System Keys
+            </h1>
+          </div>
+          <p className="text-lg text-emerald-100/60 leading-relaxed">
+            IRIS operates locally, but requires specific API keys to bridge the
+            gap to large language models and search engines. Follow this guide
+            to forge your keys and initialize the system. Your keys are stored
+            locally on your machine and never sent to our servers.
+          </p>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        {apiKeysData.map((key) => (
-          <motion.div
-            key={key.id}
-            variants={itemVariants}
-            className="group relative bg-zinc-950 border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-            <div className="flex justify-between items-start mb-4 relative z-10">
-              <div>
-                <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-                  <Key size={20} />
-                  {key.name}
-                </h2>
-                <code className="text-xs text-emerald-500/50 mt-1 block">
-                  .env: {key.envVar}
-                </code>
-              </div>
-              <span
-                className={`px-3 py-1 text-xs font-semibold rounded-full flex items-center gap-1 ${
-                  key.status === "Required"
-                    ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                    : "bg-zinc-800 text-zinc-400 border border-zinc-700"
-                }`}
-              >
-                {key.status === "Required" ? (
-                  <AlertTriangle size={12} />
-                ) : (
-                  <CheckCircle2 size={12} />
-                )}
-                {key.status}
-              </span>
-            </div>
-
-            <p className="text-zinc-400 text-sm mb-6 relative z-10">
-              {key.description}
-            </p>
-
-            <div className="mb-6 relative z-10">
-              <h3 className="text-sm font-semibold text-emerald-500 mb-2 uppercase tracking-wider">
-                How to get it:
-              </h3>
-              <ul className="space-y-2">
-                {key.steps.map((step, index) => (
-                  <li
-                    key={index}
-                    className="text-sm text-zinc-300 flex items-start gap-2"
-                  >
-                    <span className="text-emerald-500 mt-0.5">•</span>
-                    {step}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <a
-              href={key.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 w-full justify-center bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 py-2.5 px-4 rounded-lg transition-all duration-200 text-sm font-medium relative z-10 group-hover:border-emerald-500"
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {apiKeysData.map((key) => (
+            <motion.div
+              key={key.id}
+              variants={itemVariants}
+              className="group relative bg-zinc-950 border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 overflow-hidden"
             >
-              Get {key.name.split(" ")[0]} Key <ExternalLink size={16} />
-            </a>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="flex justify-between items-start mb-4 relative z-10">
+                <div>
+                  <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+                    <Key size={20} />
+                    {key.name}
+                  </h2>
+                  <code className="text-xs text-emerald-500/50 mt-1 block">
+                    .env: {key.envVar}
+                  </code>
+                </div>
+                <span
+                  className={`px-3 py-1 text-xs font-semibold rounded-full flex items-center gap-1 ${
+                    key.status === "Required"
+                      ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                      : "bg-zinc-800 text-zinc-400 border border-zinc-700"
+                  }`}
+                >
+                  {key.status === "Required" ? (
+                    <AlertTriangle size={12} />
+                  ) : (
+                    <CheckCircle2 size={12} />
+                  )}
+                  {key.status}
+                </span>
+              </div>
+
+              <p className="text-zinc-400 text-sm mb-6 relative z-10">
+                {key.description}
+              </p>
+
+              <div className="mb-6 relative z-10">
+                <h3 className="text-sm font-semibold text-emerald-500 mb-2 uppercase tracking-wider">
+                  How to get it:
+                </h3>
+                <ul className="space-y-2">
+                  {key.steps.map((step, index) => (
+                    <li
+                      key={index}
+                      className="text-sm text-zinc-300 flex items-start gap-2"
+                    >
+                      <span className="text-emerald-500 mt-0.5">•</span>
+                      {step}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a
+                href={key.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 w-full justify-center bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 py-2.5 px-4 rounded-lg transition-all duration-200 text-sm font-medium relative z-10 group-hover:border-emerald-500"
+              >
+                Get {key.name.split(" ")[0]} Key <ExternalLink size={16} />
+              </a>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+      <Footer />
+    </>
   );
 }
