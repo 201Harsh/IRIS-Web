@@ -102,7 +102,7 @@ export default function ApiKeysGuide() {
     <div className="flex flex-col min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30">
       <Header />
 
-      <main className="grow p-6 md:p-12 lg:p-24 pt-24">
+      <main className="grow p-6 md:p-12 lg:p-24 pt-24 mt-16">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
