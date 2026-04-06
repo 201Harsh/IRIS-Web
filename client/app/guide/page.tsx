@@ -10,6 +10,7 @@ import {
   Terminal,
 } from "lucide-react";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 const apiKeysData = [
   {
@@ -86,11 +87,12 @@ export default function ApiKeysGuide() {
   return (
     <>
       <div className="min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30 p-6 md:p-12 lg:p-24">
-        {/* Header Section */}
+        <Header />
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto mb-16"
+          className="max-w-4xl mx-auto mb-16 mt-20"
         >
           <div className="flex items-center gap-3 mb-4 text-emerald-500">
             <Terminal size={32} />
