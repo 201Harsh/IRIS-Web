@@ -32,7 +32,6 @@ export default function DownloadPage() {
         clearInterval(interval);
         window.location.href =
           "https://github.com/201Harsh/IRIS-AI/releases/download/v1.0.0/IRIS-AI.exe";
-        // Optionally close popup after download triggers, or keep it open so they have the guide
         setTimeout(() => setShowWarning(false), 3000);
       }
     }, 1000);
@@ -42,7 +41,6 @@ export default function DownloadPage() {
     <div className="min-h-screen bg-[#000000] text-zinc-100 font-sans selection:bg-[#10b981]/30 pt-24 overflow-hidden relative">
       <Header />
 
-      {/* SmartScreen Warning Modal */}
       <AnimatePresence>
         {showWarning && (
           <motion.div
@@ -139,7 +137,6 @@ export default function DownloadPage() {
             operating system.
           </motion.p>
 
-          {/* System Requirements Inserted Here */}
           <motion.div className="relative z-10 flex flex-wrap justify-center gap-3 text-sm text-zinc-400 mb-8 max-w-3xl">
             <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-lg border border-[#10b981]/20 backdrop-blur-md">
               <Monitor className="w-4 h-4 text-[#10b981]" />
