@@ -31,7 +31,7 @@ export default function DownloadPage() {
       if (counter <= 0) {
         clearInterval(interval);
         window.location.href =
-          "https://github.com/201Harsh/IRIS-AI/releases/download/v1.0.0/IRIS-AI.exe";
+          "https://github.com/201Harsh/IRIS-AI/releases/download/v1.0.1/iris-ai-1.0.1-setup.exe";
         setTimeout(() => setShowWarning(false), 5000);
       }
     }, 1000);
