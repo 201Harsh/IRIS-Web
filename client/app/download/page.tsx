@@ -159,7 +159,7 @@ export default function DownloadPage() {
           <motion.div className="relative z-10 flex flex-col items-center gap-4">
             <button
               onClick={handleDownload}
-              className="group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
+              className="cursor-pointer group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
             >
               <Download className="w-6 h-6 group-hover:animate-bounce" />
               Download for Windows
