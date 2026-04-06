@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ExternalLink,
@@ -7,6 +8,8 @@ import {
   CheckCircle2,
   AlertTriangle,
   Terminal,
+  Copy,
+  Check,
 } from "lucide-react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -25,6 +28,7 @@ const apiKeysData = [
     ],
     link: "https://aistudio.google.com/app/apikey",
     envVar: "GEMINI_API_KEY",
+    buttonText: "Get Gemini Key",
   },
   {
     id: "groq",
@@ -40,6 +44,7 @@ const apiKeysData = [
     ],
     link: "https://console.groq.com/keys",
     envVar: "GROQ_API_KEY",
+    buttonText: "Get Groq Key",
   },
   {
     id: "tavily",
@@ -53,6 +58,7 @@ const apiKeysData = [
     ],
     link: "https://app.tavily.com/home",
     envVar: "TAVILY_API_KEY",
+    buttonText: "Get Tavily Key",
   },
   {
     id: "huggingface",
@@ -66,10 +72,19 @@ const apiKeysData = [
     ],
     link: "https://huggingface.co/settings/tokens",
     envVar: "HUGGINGFACE_API_KEY",
+    buttonText: "Get Hugging Face Token",
   },
 ];
 
 export default function ApiKeysGuide() {
+  const [copiedVar, setCopiedVar] = useState<string | null>(null);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedVar(text);
+    setTimeout(() => setCopiedVar(null), 2000);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -84,14 +99,15 @@ export default function ApiKeysGuide() {
   };
 
   return (
-    <>
-      <div className="min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30 p-6 md:p-12 lg:p-24">
-        <Header />
+    <div className="flex flex-col min-h-screen bg-black text-emerald-50 font-sans selection:bg-emerald-500/30">
+      <Header />
 
+      {/* Main content expands to push Footer down */}
+      <main className="flex-grow p-6 md:p-12 lg:p-24 pt-24">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto mb-16 mt-20"
+          className="max-w-4xl mx-auto mb-16"
         >
           <div className="flex items-center gap-3 mb-4 text-emerald-500">
             <Terminal size={32} />
@@ -119,7 +135,7 @@ export default function ApiKeysGuide() {
               variants={itemVariants}
               className="group relative bg-zinc-950 border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="flex justify-between items-start mb-4 relative z-10">
                 <div>
@@ -127,9 +143,20 @@ export default function ApiKeysGuide() {
                     <Key size={20} />
                     {key.name}
                   </h2>
-                  <code className="text-xs text-emerald-500/50 mt-1 block">
-                    .env: {key.envVar}
-                  </code>
+
+                  {/* Click to Copy Environment Variable */}
+                  <button
+                    onClick={() => handleCopy(key.envVar)}
+                    className="flex items-center gap-2 text-xs text-emerald-500/50 mt-2 hover:text-emerald-400 transition-colors"
+                    title="Copy to clipboard"
+                  >
+                    <code>.env: {key.envVar}</code>
+                    {copiedVar === key.envVar ? (
+                      <Check size={14} className="text-emerald-400" />
+                    ) : (
+                      <Copy size={14} />
+                    )}
+                  </button>
                 </div>
                 <span
                   className={`px-3 py-1 text-xs font-semibold rounded-full flex items-center gap-1 ${
@@ -147,7 +174,7 @@ export default function ApiKeysGuide() {
                 </span>
               </div>
 
-              <p className="text-zinc-400 text-sm mb-6 relative z-10">
+              <p className="text-zinc-400 text-sm mb-6 relative z-10 min-h-[40px]">
                 {key.description}
               </p>
 
@@ -155,7 +182,7 @@ export default function ApiKeysGuide() {
                 <h3 className="text-sm font-semibold text-emerald-500 mb-2 uppercase tracking-wider">
                   How to get it:
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 min-h-[100px]">
                   {key.steps.map((step, index) => (
                     <li
                       key={index}
@@ -174,13 +201,14 @@ export default function ApiKeysGuide() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 w-full justify-center bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 py-2.5 px-4 rounded-lg transition-all duration-200 text-sm font-medium relative z-10 group-hover:border-emerald-500"
               >
-                Get {key.name.split(" ")[0]} Key <ExternalLink size={16} />
+                {key.buttonText} <ExternalLink size={16} />
               </a>
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
