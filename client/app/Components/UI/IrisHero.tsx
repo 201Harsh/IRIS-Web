@@ -31,7 +31,7 @@ export default function IrisHero({
             gridSize={10}
             gridThickness={5}
             mouseInteraction={true}
-            mouseInteractionRadius={10}
+            mouseInteractionRadius={2}
             opacity={0.8}
             fadeDistance={1.5}
             vignetteStrength={5}
