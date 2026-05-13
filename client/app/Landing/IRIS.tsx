@@ -3,10 +3,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, useState, useEffect } from "react";
 import Footer from "../Components/Footer";
-import LoadingCore from "../lib/LoadingCore";
-import MagneticButton from "../utils/MagneticButton";
 import {
   User,
   Mic,
@@ -23,10 +21,6 @@ import {
   Layers,
   Code2,
   Globe,
-  Command,
-  Download,
-  FileCode2,
-  ArrowRight,
 } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
@@ -48,10 +42,7 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
-import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
-import Link from "next/link";
-import RippleGrid from "../constants/RippleGrid";
 import IrisHero from "../Components/IrisHero";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +55,6 @@ const IRIS = () => {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isHeroActive, setIsHeroActive] = useState(true);
 
-  // Desktop smooth fade-out timer
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (isHeroVisible) {
