@@ -23,7 +23,7 @@ export default function IrisHero({
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
       >
-        <div className="w-full h-full absolute inset-0 z-0 bg-black">
+        <div className="hidden md:block w-full h-full absolute inset-0 z-0 bg-black">
           <RippleGrid
             enableRainbow={false}
             gridColor="#0f8218"
