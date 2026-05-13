@@ -219,6 +219,8 @@ void main() {
     }
     resize();
 
+    let rafId: number;
+
     const render = (t: number) => {
       uniforms.iTime.value = t * 0.001;
 
@@ -239,12 +241,13 @@ void main() {
       ];
 
       renderer.render({ scene: mesh });
-      requestAnimationFrame(render);
+      rafId = requestAnimationFrame(render);
     };
 
-    requestAnimationFrame(render);
+    rafId = requestAnimationFrame(render);
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
       if (mouseInteraction && containerRef.current) {
         containerRef.current.removeEventListener("mousemove", handleMouseMove);
