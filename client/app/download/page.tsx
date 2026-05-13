@@ -172,7 +172,7 @@ export default function DownloadPage() {
               </div>
               <button
                 onClick={handleCopyCli}
-                className="flex items-center justify-center w-12 h-12 bg-white/5 hover:bg-[#10b981]/20 rounded-xl text-zinc-400 hover:text-[#10b981] transition-colors"
+                className="cursor-pointer flex items-center justify-center w-12 h-12 bg-white/5 hover:bg-[#10b981]/20 rounded-xl text-zinc-400 hover:text-[#10b981] transition-colors"
                 title="Copy to clipboard"
               >
                 {copied ? (
