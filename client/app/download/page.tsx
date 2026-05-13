@@ -152,7 +152,7 @@ export default function DownloadPage() {
           <motion.div className="relative z-10 flex flex-col md:flex-row items-center gap-6 mb-12">
             <button
               onClick={handleDownload}
-              className="cursor-pointer group relative flex items-center justify-center gap-3 w-full md:w-[280px] h-[64px] bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
+              className="cursor-pointer group relative flex items-center justify-center gap-3 w-full md:w-70 h-16 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
             >
               <Download className="w-6 h-6 group-hover:animate-bounce" />
               Desktop App
@@ -163,7 +163,7 @@ export default function DownloadPage() {
               OR
             </span>
 
-            <div className="relative group flex items-center justify-between bg-[#0a0a0a] border border-white/10 hover:border-[#10b981]/50 w-full md:w-[380px] h-[64px] rounded-2xl p-2 pl-6 pr-2 shadow-2xl transition-all">
+            <div className="relative group flex items-center justify-between bg-[#0a0a0a] border border-white/10 hover:border-[#10b981]/50 w-full md:w-95 h-16 rounded-2xl p-2 pl-6 pr-2 shadow-2xl transition-all">
               <div className="flex items-center gap-3">
                 <Terminal className="w-5 h-5 text-[#10b981]" />
                 <code className="text-sm md:text-base font-mono text-zinc-300">
@@ -267,7 +267,7 @@ export default function DownloadPage() {
                 Agentic control for Android devices. Features background task
                 scheduling and native device automation.
               </p>
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-[#10b981]/20 to-emerald-900/40 text-emerald-400 border border-[#10b981]/30 rounded text-xs font-bold tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-linear-to-r from-[#10b981]/20 to-emerald-900/40 text-emerald-400 border border-[#10b981]/30 rounded text-xs font-bold tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.15)]">
                 <Smartphone className="w-3 h-3" /> COMING SOON
               </span>
             </div>
