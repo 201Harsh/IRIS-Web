@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
@@ -48,7 +48,7 @@ const Header = () => {
     <>
       <div
         ref={headerRef}
-        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-3xl px-5 py-5 flex justify-between items-center bg-black/40 backdrop-blur-lg z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
+        className="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] md:w-[70%] lg:w-[50%] max-w-4xl px-5 py-5 flex justify-between items-center bg-black/40 backdrop-blur-lg z-100 border border-[#10b981]/20 rounded-full text-white shadow-[0_4px_30px_rgba(16,185,129,0.15)]"
       >
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer group">
@@ -79,12 +79,23 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/201Harsh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex text-zinc-400 hover:text-[#10b981] transition-colors"
+            title="View Source on GitHub"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+
           <Link href="/download">
             <div className="hidden md:block px-4 py-2 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#ffffff] text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-[#099443] hover:text-white hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
               Download IRIS
             </div>
           </Link>
+
           <button
             className="md:hidden text-[#10b981] p-1 rounded-full hover:bg-[#10b981]/10 transition-colors"
             onClick={() => setMobileMenuOpen(true)}
@@ -149,7 +160,19 @@ const Header = () => {
                 ))}
               </nav>
 
-              <div className="mt-auto pt-8">
+              <div className="mt-auto pt-8 flex flex-col gap-6">
+                <a
+                  href="https://github.com/201Harsh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 text-zinc-400 hover:text-[#10b981] transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase">
+                    Open Source
+                  </span>
+                </a>
+
                 <Link href="/download">
                   <div className="w-full text-center px-4 py-4 rounded-full border border-[#10b981]/50 bg-[#10b981]/10 text-[#10b981] text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#10b981] hover:text-black hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all cursor-pointer">
                     Download IRIS

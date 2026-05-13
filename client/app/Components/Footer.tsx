@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa6";
+import { TextHoverEffect } from "./TextHoverEffect";
 
 export default function Footer() {
   const containerVariants = {
@@ -35,9 +36,7 @@ export default function Footer() {
 
       <div className="w-full flex justify-center items-center py-12 md:py-20 mb-12 border-b border-white/5 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
-        <h2 className="text-6xl md:text-9xl lg:text-[12rem] font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white/80 via-white/20 to-transparent select-none relative z-10">
-          IRIS AI
-        </h2>
+        <TextHoverEffect text="IRIS AI" />
       </div>
 
       <motion.div
