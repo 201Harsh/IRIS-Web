@@ -209,7 +209,7 @@ export default function IrisHero({
           {/* Waveform + voice hint */}
           <div className="flex items-center gap-3 mt-6 mb-10">
             <Mic className="w-4 h-4 text-[#10b981]" />
-            <div className="flex items-end gap-[3px]">
+            <div className="flex items-end gap-0.75">
               {Array.from({ length: 7 }).map((_, i) => (
                 <span key={i} className="iris-wave-bar" />
               ))}
