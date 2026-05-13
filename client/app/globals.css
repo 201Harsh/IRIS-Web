@@ -19,7 +19,6 @@ body {
   }
 }
 
-/* ── Waveform bars ── */
 @keyframes iris-bar {
   0%,
   100% {
@@ -60,7 +59,6 @@ body {
   animation-delay: 0.12s;
 }
 
-/* ── Scroll indicator ── */
 @keyframes iris-scroll-dot {
   0% {
     transform: translateY(0);
@@ -79,7 +77,6 @@ body {
   animation: iris-scroll-dot 1.8s ease-in-out infinite;
 }
 
-/* ── Floating chip pulse ── */
 @keyframes iris-chip-glow {
   0%,
   100% {
@@ -93,7 +90,6 @@ body {
   animation: iris-chip-glow 3s ease-in-out infinite;
 }
 
-/* ── Badge ping ring ── */
 @keyframes iris-ping {
   0% {
     transform: scale(1);
@@ -109,7 +105,6 @@ body {
   animation: iris-ping 1.6s ease-out infinite;
 }
 
-/* ── Subtle hero text shimmer ── */
 @keyframes iris-shimmer {
   0% {
     background-position: -200% center;
@@ -136,7 +131,6 @@ body {
   animation: iris-shimmer 6s linear infinite;
 }
 
-/* ── Ambient grid lines ── */
 .iris-grid-bg {
   background-image:
     linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
@@ -144,7 +138,6 @@ body {
   background-size: 60px 60px;
 }
 
-/* ── Horizontal rule glow ── */
 .iris-rule {
   border: none;
   height: 1px;
@@ -157,4 +150,9 @@ body {
     transparent 100%
   );
   width: 280px;
+}
+
+.scrollbar-small {
+  scrollbar-color: #9b9b9b transparent;
+  scrollbar-width: auto;
 }
