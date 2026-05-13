@@ -21,7 +21,6 @@ import {
   Layers,
   Code2,
   Globe,
-  Badge,
 } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
@@ -289,12 +288,23 @@ const IRIS = () => {
         ref={contentRef}
         className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
       >
-        <section>
+        <section className="min-h-screen bg-black flex justify-center items-start">
           <MacbookScroll
             title={
-              <span>
-                This Macbook is built with Tailwindcss. <br /> No kidding.
-              </span>
+              <div className="text-center z-20 px-4 flex flex-col items-center">
+                <h1
+                  className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow-2xl"
+                  style={{
+                    filter:
+                      "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+                  }}
+                >
+                  Your AI. Your Rules.
+                </h1>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight">
+                  One Voice. Total Control Over Your Device.
+                </h2>
+              </div>
             }
             badge={
               <a href="https://www.instagram.com/irisx.ai/">
