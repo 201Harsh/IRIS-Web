@@ -441,10 +441,9 @@ export function Terminal({
               {username} — bash
             </span>
           </div>
-          <div className="w-[52px]" />
+          <div className="w-13" />
         </div>
 
-        {/* Terminal Content */}
         <div
           ref={contentRef}
           className="no-visible-scrollbar h-80 overflow-y-auto p-4 font-mono"
