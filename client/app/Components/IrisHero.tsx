@@ -51,7 +51,6 @@ export default function IrisHero({
         </div>
 
         <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl gap-0">
-          {/* Live badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-black/70 mb-8 backdrop-blur-md iris-chip-pulse">
             <span className="relative flex h-2 w-2">
               <span className="iris-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981]" />
