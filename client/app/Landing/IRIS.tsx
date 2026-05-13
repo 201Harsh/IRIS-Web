@@ -21,6 +21,7 @@ import {
   Layers,
   Code2,
   Globe,
+  Badge,
 } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
@@ -44,6 +45,7 @@ import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import IrisHero from "../Components/IrisHero";
+import { MacbookScroll } from "../constants/MacbookScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -287,6 +289,28 @@ const IRIS = () => {
         ref={contentRef}
         className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
       >
+        <section>
+          <MacbookScroll
+            title={
+              <span>
+                This Macbook is built with Tailwindcss. <br /> No kidding.
+              </span>
+            }
+            badge={
+              <a href="https://www.instagram.com/irisx.ai/">
+                <Image
+                  src="/img/logo.png"
+                  alt="Badge"
+                  width={100}
+                  height={100}
+                />
+              </a>
+            }
+            src={`/img/screen.png`}
+            showGradient={false}
+          />
+        </section>
+
         <section className="min-h-screen bg-black flex flex-col items-center pt-32 relative overflow-hidden font-sans">
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
