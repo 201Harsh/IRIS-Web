@@ -45,6 +45,7 @@ import { TbBrandSocketIo } from "react-icons/tb";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import IrisHero from "../Components/IrisHero";
 import { MacbookScroll } from "../constants/MacbookScroll";
+import { ContainerScroll } from "../constants/ContainerScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -324,8 +325,31 @@ const IRIS = () => {
           />
         </section>
 
-        <section className="min-h-screen">
-          
+        <section className="min-h-screen bg-black relative z-20">
+          <ContainerScroll
+            titleComponent={
+              <>
+                <h1 className="text-4xl font-semibold text-black dark:text-white">
+                  Run IRIS straight from your <br />
+                  <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                    Terminal
+                  </span>
+                </h1>
+                <p className="text-sm font-mono text-gray-500 mt-3">
+                  npm install -g iris-ai
+                </p>
+              </>
+            }
+          >
+            <img
+              src={`/img/cli.png`}
+              alt="hero"
+              height={720}
+              width={1400}
+              className="mx-auto rounded-2xl object-cover h-full object-left-top"
+              draggable={false}
+            />
+          </ContainerScroll>
         </section>
 
         <section className="min-h-screen bg-black flex flex-col items-center pt-32 relative overflow-hidden font-sans">
