@@ -468,7 +468,7 @@ const IRIS = () => {
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
                 <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
-                  &lt;3s
+                  &lt;1.5s
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
                   Latency
@@ -477,7 +477,7 @@ const IRIS = () => {
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
                 <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
-                  1M+
+                  128K+
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
                   Context Window
