@@ -40,7 +40,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       const W = mountRef.current.clientWidth || window.innerWidth;
       const H = mountRef.current.clientHeight || window.innerHeight;
 
-      // ── Renderer ────────────────────────────────────────────────────────────
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true,
@@ -60,12 +59,10 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       });
       mountRef.current.appendChild(renderer.domElement);
 
-      // ── Scene / Camera ───────────────────────────────────────────────────────
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, W / H, 0.1, 1000);
       camera.position.z = 20;
 
-      // ── Lights ───────────────────────────────────────────────────────────────
       scene.add(new THREE.AmbientLight(0x002211, 0.15));
       const rim1 = new THREE.DirectionalLight(0x10b981, 2.2);
       rim1.position.set(-8, 6, -4);
@@ -74,7 +71,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       rim2.position.set(8, -4, -6);
       scene.add(rim2);
 
-      // ── Ghost body ───────────────────────────────────────────────────────────
       const ghostGroup = new THREE.Group();
       scene.add(ghostGroup);
 
@@ -107,7 +103,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       const body = new THREE.Mesh(bodyGeo, bodyMat);
       ghostGroup.add(body);
 
-      // ── Eye sockets ──────────────────────────────────────────────────────────
       const socketGeo = new THREE.SphereGeometry(0.45, 16, 16);
       const socketMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
       const mkSocket = (x: number) => {
@@ -119,7 +114,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       mkSocket(-0.7);
       mkSocket(0.7);
 
-      // ── Glowing eyes ─────────────────────────────────────────────────────────
       const eyeGeo = new THREE.SphereGeometry(0.32, 12, 12);
       const outerGeo = new THREE.SphereGeometry(0.55, 12, 12);
       const eyeColor = new THREE.Color(0x34d399);
@@ -146,7 +140,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       const leftEye = mkEye(-0.7);
       const rightEye = mkEye(0.7);
 
-      // ── Fireflies ─────────────────────────────────────────────────────────────
       const ffGroup = new THREE.Group();
       scene.add(ffGroup);
 
@@ -175,7 +168,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
           (Math.random() - 0.5) * 32,
           (Math.random() - 0.5) * 22,
         );
-        // glow halo
         const glowMat = new THREE.MeshBasicMaterial({
           color: col,
           transparent: true,
@@ -200,7 +192,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         });
       }
 
-      // ── Particle pool ─────────────────────────────────────────────────────────
       type Particle = THREE.Mesh & {
         userData: {
           life: number;
@@ -265,8 +256,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         activeParticles.push(p);
       }
 
-      // ── Post-process: scanlines + vignette ────────────────────────────────────
-      // Lightweight canvas-2D overlay drawn after WebGL render
       const overlayCanvas = document.createElement("canvas");
       overlayCanvas.width = W;
       overlayCanvas.height = H;
@@ -289,7 +278,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
           octx.fillStyle = "rgba(0,0,0,0.6)";
           octx.fillRect(0, y, w, 1);
         }
-        // Vignette
         const vg = octx.createRadialGradient(
           w / 2,
           h / 2,
@@ -305,7 +293,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       }
       drawOverlay(W, H);
 
-      // ── Mouse tracking ───────────────────────────────────────────────────────
       const mouse = { x: 0, y: 0 };
       const prevGhostPos = new THREE.Vector3();
       const onMove = (e: MouseEvent) => {
@@ -314,7 +301,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       };
       window.addEventListener("mousemove", onMove);
 
-      // ── Resize ───────────────────────────────────────────────────────────────
       let resizeTo: ReturnType<typeof setTimeout>;
       const onResize = () => {
         clearTimeout(resizeTo);
@@ -332,7 +318,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       };
       window.addEventListener("resize", onResize);
 
-      // ── Animation loop ────────────────────────────────────────────────────────
       let t = 0;
       let eyeOpacity = 0;
       let currentMovement = 0;
@@ -345,25 +330,21 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         t += 0.008;
         frameCount++;
 
-        // Ghost follow mouse
         const tx = mouse.x * 11;
         const ty = mouse.y * 7;
         prevGhostPos.copy(ghostGroup.position);
         ghostGroup.position.x += (tx - ghostGroup.position.x) * 0.07;
         ghostGroup.position.y += (ty - ghostGroup.position.y) * 0.07;
 
-        // Float
         ghostGroup.position.y +=
           Math.sin(t * 2.4) * 0.03 +
           Math.cos(t * 1.05) * 0.018 +
           Math.sin(t * 3.45) * 0.008;
 
-        // Pulse
         const pulse = Math.sin(t * 2.4) * 0.6;
         const breathe = Math.sin(t * 0.9) * 0.12;
         bodyMat.emissiveIntensity = 6.0 + pulse + breathe;
 
-        // Body tilt
         const dx = tx - ghostGroup.position.x;
         const dy = ty - ghostGroup.position.y;
         const len = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -373,7 +354,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         const sv = 1 + Math.sin(t * 3.15) * 0.02 + pulse * 0.012;
         body.scale.setScalar(sv);
 
-        // Eye glow: light up when moving
         const mv = prevGhostPos.distanceTo(ghostGroup.position);
         currentMovement = currentMovement * 0.93 + mv * 0.07;
         const tgt = currentMovement > 0.06 ? 1.0 : 0.0;
@@ -383,13 +363,11 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         rightEye.inner.opacity = eyeOpacity;
         rightEye.outer.opacity = eyeOpacity * 0.3;
 
-        // Particles on movement
         if (currentMovement > 0.005 && ts - lastParticleTime > 90) {
           for (let i = 0; i < 3; i++) spawnParticle(ghostGroup.position);
           lastParticleTime = ts;
         }
 
-        // Update particles
         for (let i = activeParticles.length - 1; i >= 0; i--) {
           const p = activeParticles[i];
           p.userData.life -= p.userData.decay;
@@ -408,7 +386,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
           }
         }
 
-        // Fireflies
         fireflies.forEach((ff) => {
           const pulse2 = Math.sin(t * ff.pulseSpeed + ff.phase) * 0.4 + 0.6;
           ff.mat.opacity = 0.9 * pulse2;
@@ -426,7 +403,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
       }
       animate(0);
 
-      // Cleanup
       return () => {
         disposed = true;
         cancelAnimationFrame(rafId);
