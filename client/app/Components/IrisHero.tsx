@@ -131,13 +131,7 @@ export default function IrisHero({
         ref={heroTextRef}
         className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black iris-grid-bg"
       >
-        {/* ── GhostEther background layer ── */}
-        {/*
-          CRITICAL z-index stack:
-            z-0  → GhostEther (Three.js ghost)
-            z-10 → radial veil (dims edges, keeps ghost readable)
-            z-20 → all text / UI content
-        */}
+        
         <div
           className={`
             absolute inset-0 z-90 pointer-events-none hidden md:block
@@ -149,7 +143,6 @@ export default function IrisHero({
           <GhostEther className="block" />
         </div>
 
-        {/* ── Radial veil: punches through behind ghost, protects text legibility ── */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
@@ -158,7 +151,6 @@ export default function IrisHero({
           }}
         />
 
-        {/* ── Edge vignettte (top + bottom) ── */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
@@ -167,9 +159,6 @@ export default function IrisHero({
           }}
         />
 
-        {/* ═══════════════════════════════════════
-            HERO CONTENT  —  z-20
-        ═══════════════════════════════════════ */}
         <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl gap-0">
           {/* Live badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 mb-8 backdrop-blur-md iris-chip-pulse">
@@ -186,7 +175,7 @@ export default function IrisHero({
           {/* Main title */}
           <div className="relative w-full flex justify-center flex-col items-center mb-2">
             <h1 className="text-[28vw] sm:text-[20vw] md:text-[13vw] font-black tracking-tighter leading-none select-none iris-title-shimmer">
-              IRIS
+              IRIS AI
             </h1>
           </div>
 
