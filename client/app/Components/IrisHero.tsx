@@ -131,7 +131,6 @@ export default function IrisHero({
               />
             </Link>
 
-            {/* ← subtitle changed from "Source Code" to "Watch Tutorial" */}
             <MagneticButton
               onClick={() => {
                 window.open("https://github.com/201Harsh/IRIS-AI", "_blank");
@@ -146,11 +145,10 @@ export default function IrisHero({
             />
           </div>
 
-          {/* Floating stat chips */}
           <div className="flex items-center gap-3 mt-10 flex-wrap justify-center">
             {[
-              { label: "Latency", value: "<3s" },
-              { label: "Context", value: "1M+" },
+              { label: "Latency", value: "<1.5s" },
+              { label: "Context", value: "128k+" },
               { label: "Uptime", value: "24/7" },
               { label: "Local AI", value: "On-device" },
             ].map(({ label, value }) => (
@@ -169,7 +167,6 @@ export default function IrisHero({
           </div>
         </div>
 
-        {/* Scroll cue */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 pointer-events-none select-none">
           <span
             className="text-[10px] font-mono uppercase tracking-[0.35em] text-white/70"
