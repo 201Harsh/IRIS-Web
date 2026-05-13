@@ -57,7 +57,7 @@ export default function IrisHero({
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#10b981]" />
             </span>
             <span className="text-[10px] md:text-[11px] font-mono text-white tracking-[0.25em] uppercase font-bold">
-              Beta Release&nbsp;&nbsp;//&nbsp;&nbsp;v1&nbsp;
+              Release&nbsp;&nbsp;//&nbsp;&nbsp;v1&nbsp;
               {new Date().getFullYear()}
             </span>
           </div>
