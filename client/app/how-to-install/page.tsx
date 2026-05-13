@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import Terminal from "../Components/Terminal"; // Assuming your component is here
+import { Terminal } from "../constants/Terminal";
 
 export default function InstallGuide() {
   return (
