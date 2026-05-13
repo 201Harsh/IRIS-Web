@@ -40,6 +40,13 @@ export const TextHoverEffect = ({
       className="select-none"
     >
       <defs>
+        <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
         <linearGradient
           id="textGradient"
           gradientUnits="userSpaceOnUse"
@@ -49,11 +56,11 @@ export const TextHoverEffect = ({
         >
           {hovered && (
             <>
-              <stop offset="0%" stopColor="#eab308" />
-              <stop offset="25%" stopColor="#ef4444" />
-              <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="75%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="0%" stopColor="#059669" />
+              <stop offset="25%" stopColor="#10b981" />
+              <stop offset="50%" stopColor="#34d399" />
+              <stop offset="75%" stopColor="#6ee7b7" />
+              <stop offset="100%" stopColor="#39ff14" />
             </>
           )}
         </linearGradient>
@@ -123,9 +130,10 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         stroke="url(#textGradient)"
-        strokeWidth="0.3"
+        strokeWidth="0.6"
         mask="url(#textMask)"
         className="fill-transparent font-[helvetica] text-7xl font-bold"
+        filter="url(#neonGlow)"
       >
         {text}
       </text>
