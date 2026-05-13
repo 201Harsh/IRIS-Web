@@ -390,7 +390,6 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
         window.removeEventListener("mousemove", onMove);
         window.removeEventListener("resize", onResize);
         renderer.dispose();
-        renderer.forceContextLoss();
         if (mountRef.current) {
           if (renderer.domElement.parentNode === mountRef.current) {
             mountRef.current.removeChild(renderer.domElement);
@@ -404,11 +403,7 @@ export default function GhostEther({ className = "" }: GhostEtherProps) {
 
     let cleanupFn: (() => void) | undefined;
     boot().then((fn) => {
-      if (disposed && fn) {
-        fn();
-      } else {
-        cleanupFn = fn;
-      }
+      cleanupFn = fn;
     });
 
     return () => {
