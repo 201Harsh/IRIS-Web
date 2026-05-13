@@ -296,12 +296,15 @@ const IRIS = () => {
                   className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/img/neon-bg.png')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none"
                   style={{
                     filter:
-                      "drop-shadow(0px 0px 20px rgba(16, 185, 129, 0.9)) drop-shadow(0px 0px 60px rgba(16, 185, 129, 0.6))",
+                      "drop-shadow(0px 0px 15px rgba(52, 211, 153, 1)) drop-shadow(0px 0px 50px rgba(16, 185, 129, 1))",
                   }}
                 >
                   Your AI. Your Rules.
                 </h1>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight" style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}>
+                <h2
+                  className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight"
+                  style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}
+                >
                   One Voice. Total Control Over Your Device.
                 </h2>
               </div>
