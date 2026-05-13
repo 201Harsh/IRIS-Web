@@ -139,7 +139,7 @@ export default function InstallGuide() {
             </div>
 
             <a
-              href="https://instagram.com/your-reel-link" // <-- UPDATE WITH YOUR INSTA LINK
+              href="https://www.instagram.com/p/DWtGRIRgXFq/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 w-full bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-[#10b981]/50 text-white font-bold py-4 rounded-2xl transition-all overflow-hidden"
