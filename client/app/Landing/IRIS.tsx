@@ -382,7 +382,13 @@ const IRIS = () => {
               <>
                 <h1 className="text-4xl font-semibold text-black dark:text-white">
                   Run IRIS straight from your <br />
-                  <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                  <span
+                    className="text-4xl md:text-[6rem] font-bold mt-1 leading-none bg-[url('/img/bright-neon-bg.png')] bg-cover bg-center bg-clip-text text-transparent inline-block pb-2"
+                    style={{
+                      filter:
+                        "drop-shadow(0px 0px 15px rgba(57, 255, 20, 1)) drop-shadow(0px 0px 50px rgba(57, 255, 20, 0.8))",
+                    }}
+                  >
                     Terminal
                   </span>
                 </h1>
