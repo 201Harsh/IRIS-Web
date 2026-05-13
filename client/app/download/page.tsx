@@ -11,6 +11,11 @@ import {
   Cpu,
   AlertTriangle,
   Info,
+  Terminal,
+  Copy,
+  Check,
+  Smartphone,
+  Layers,
 } from "lucide-react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -19,6 +24,7 @@ import Lightning from "../utils/Lightning";
 export default function DownloadPage() {
   const [showWarning, setShowWarning] = useState(false);
   const [countdown, setCountdown] = useState(5);
+  const [copied, setCopied] = useState(false);
 
   const handleDownload = () => {
     setShowWarning(true);
@@ -35,6 +41,12 @@ export default function DownloadPage() {
         setTimeout(() => setShowWarning(false), 5000);
       }
     }, 1000);
+  };
+
+  const handleCopyCli = () => {
+    navigator.clipboard.writeText("npm install -g iris-mini");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -95,7 +107,7 @@ export default function DownloadPage() {
         <motion.section
           initial="hidden"
           animate="show"
-          className="relative py-20 flex flex-col justify-center items-center text-center min-h-[80vh]"
+          className="relative py-20 flex flex-col justify-center items-center text-center min-h-[85vh]"
         >
           <div
             className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -121,7 +133,7 @@ export default function DownloadPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10b981]"></span>
             </span>
-            PUBLIC BETA V1.0.0 LIVE
+            PUBLIC BETA V1.0.2 LIVE
           </motion.div>
 
           <motion.h1 className="relative z-10 text-6xl md:text-8xl font-black tracking-tight mb-6">
@@ -131,66 +143,73 @@ export default function DownloadPage() {
             </span>
           </motion.h1>
 
-          <motion.p className="relative z-10 max-w-2xl text-zinc-300 text-lg md:text-xl mb-8 leading-relaxed">
-            Download the IRIS desktop engine. Experience autonomous file
-            management, local deep research, and multimodal AI directly on your
-            operating system.
+          <motion.p className="relative z-10 max-w-2xl text-zinc-300 text-lg md:text-xl mb-12 leading-relaxed">
+            Experience autonomous file management, local deep research, and
+            multimodal AI. Install the native desktop UI or deploy the headless
+            CLI engine.
           </motion.p>
 
-          <motion.div className="relative z-10 flex flex-wrap justify-center gap-3 text-sm text-zinc-400 mb-8 max-w-3xl">
-            <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-lg border border-[#10b981]/20 backdrop-blur-md">
-              <Monitor className="w-4 h-4 text-[#10b981]" />
-              <span>Windows 10/11</span>
-            </div>
-            <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-lg border border-[#10b981]/20 backdrop-blur-md">
-              <Cpu className="w-4 h-4 text-[#10b981]" />
-              <span>Quad-Core CPU+</span>
-            </div>
-            <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-lg border border-[#10b981]/20 backdrop-blur-md">
-              <ShieldCheck className="w-4 h-4 text-[#10b981]" />
-              <span>4-8GB RAM Min</span>
-            </div>
-            <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-lg border border-[#10b981]/20 backdrop-blur-md">
-              <Monitor className="w-4 h-4 text-[#10b981]" />
-              <span>Decent GPU</span>
-            </div>
-          </motion.div>
-
-          <motion.div className="relative z-10 flex flex-col items-center gap-4">
+          <motion.div className="relative z-10 flex flex-col md:flex-row items-center gap-6 mb-12">
             <button
               onClick={handleDownload}
-              className="cursor-pointer group relative inline-flex items-center gap-4 px-8 py-4 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
+              className="cursor-pointer group relative flex items-center justify-center gap-3 w-full md:w-70 h-16 bg-[#10b981] hover:bg-[#059669] text-black font-bold text-lg rounded-2xl transition-all shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:-translate-y-1"
             >
               <Download className="w-6 h-6 group-hover:animate-bounce" />
-              Download for Windows
+              Desktop App
               <div className="absolute inset-0 rounded-2xl border border-white/20 pointer-events-none" />
             </button>
 
-            <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 text-zinc-500 font-mono text-xs tracking-widest mt-4 bg-black/50 px-4 py-2 rounded-full border border-white/5 backdrop-blur-md">
-              <span className="flex items-center gap-1.5">
-                <Monitor className="w-3 h-3" /> Native .exe
-              </span>
-              <span className="hidden md:inline">•</span>
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3 h-3" /> 100% BYOK
-              </span>
-              <span className="hidden md:inline">•</span>
-              <span>~300 MB</span>
+            <span className="text-zinc-500 font-mono text-sm hidden md:block">
+              OR
+            </span>
+
+            <div className="relative group flex items-center justify-between bg-[#0a0a0a] border border-white/10 hover:border-[#10b981]/50 w-full md:w-95 h-16 rounded-2xl p-2 pl-6 pr-2 shadow-2xl transition-all">
+              <div className="flex items-center gap-3">
+                <Terminal className="w-5 h-5 text-[#10b981]" />
+                <code className="text-sm md:text-base font-mono text-zinc-300">
+                  npm install -g iris-mini
+                </code>
+              </div>
+              <button
+                onClick={handleCopyCli}
+                className="cursor-pointer flex items-center justify-center w-12 h-12 bg-white/5 hover:bg-[#10b981]/20 rounded-xl text-zinc-400 hover:text-[#10b981] transition-colors"
+                title="Copy to clipboard"
+              >
+                {copied ? (
+                  <Check className="w-5 h-5 text-[#10b981]" />
+                ) : (
+                  <Copy className="w-5 h-5" />
+                )}
+              </button>
             </div>
+          </motion.div>
+
+          <motion.div className="relative z-10 flex flex-wrap justify-center items-center gap-3 md:gap-6 text-zinc-500 font-mono text-xs tracking-widest bg-black/50 px-6 py-3 rounded-full border border-white/5 backdrop-blur-md">
+            <span className="flex items-center gap-1.5">
+              <Monitor className="w-3 h-3" /> Win 10/11
+            </span>
+            <span className="hidden md:inline">•</span>
+            <span className="flex items-center gap-1.5">
+              <Terminal className="w-3 h-3" /> Node.js 24+
+            </span>
+            <span className="hidden md:inline">•</span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheck className="w-3 h-3" /> 100% BYOK
+            </span>
           </motion.div>
         </motion.section>
 
         <motion.section className="py-20 border-t border-white/5 relative z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-2xl font-bold tracking-widest text-white uppercase font-mono">
-              Platform Support
+              The Ecosystem
             </h2>
             <p className="text-zinc-500 mt-2">
-              Native desktop integration for your preferred ecosystem.
+              Native integrations designed for your preferred platform.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-[#0a0a0a] border border-[#10b981]/30 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10b981]/60 transition-colors">
               <div className="absolute top-0 right-0 p-6 opacity-10">
                 <Monitor className="w-32 h-32 text-[#10b981]" />
@@ -198,11 +217,26 @@ export default function DownloadPage() {
               <Monitor className="w-10 h-10 text-[#10b981] mb-6" />
               <h3 className="text-xl font-bold text-white mb-2">Windows</h3>
               <p className="text-zinc-400 text-sm mb-8">
-                Full support for Windows 10 and 11. Native DPAPI encryption for
-                vault keys.
+                Full OS integration. Deep Windows API hooks for file management
+                and system automation.
               </p>
               <span className="inline-block px-3 py-1 bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 rounded text-xs font-bold tracking-widest">
                 AVAILABLE NOW
+              </span>
+            </div>
+
+            <div className="bg-[#0a0a0a] border border-[#10b981]/30 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10b981]/60 transition-colors">
+              <div className="absolute top-0 right-0 p-6 opacity-10">
+                <Command className="w-32 h-32 text-[#10b981]" />
+              </div>
+              <Terminal className="w-10 h-10 text-[#10b981] mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2">CLI Core</h3>
+              <p className="text-zinc-400 text-sm mb-8">
+                Global NPM package. Blazing fast, headless terminal access
+                tailored for power users.
+              </p>
+              <span className="inline-block px-3 py-1 bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 rounded text-xs font-bold tracking-widest">
+                NPM REGISTRY
               </span>
             </div>
 
@@ -213,26 +247,28 @@ export default function DownloadPage() {
               <Apple className="w-10 h-10 text-zinc-400 mb-6" />
               <h3 className="text-xl font-bold text-white mb-2">macOS</h3>
               <p className="text-zinc-500 text-sm mb-8">
-                Apple Silicon (M1/M2/M3) and Intel support. Integration with
-                Apple Keychain.
+                Apple Silicon (M-Series) and Intel support. Deep integration
+                with Apple Keychain.
               </p>
               <span className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 text-zinc-400 border border-white/10 rounded text-xs font-bold tracking-widest">
                 <Cpu className="w-3 h-3" /> IN DEVELOPMENT
               </span>
             </div>
 
-            <div className="bg-[#050505] border border-white/5 rounded-3xl p-8 relative overflow-hidden opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              <div className="absolute top-0 right-0 p-6 opacity-5">
-                <Command className="w-32 h-32 text-white" />
+            <div className="bg-[#050505] border border-white/5 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10b981]/20 transition-colors duration-500">
+              <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Smartphone className="w-32 h-32 text-[#10b981]" />
               </div>
-              <Command className="w-10 h-10 text-zinc-400 mb-6" />
-              <h3 className="text-xl font-bold text-white mb-2">Linux</h3>
+              <Layers className="w-10 h-10 text-zinc-400 group-hover:text-[#10b981] transition-colors mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2">
+                IRIS-X Mobile
+              </h3>
               <p className="text-zinc-500 text-sm mb-8">
-                AppImage and Debian builds. Secret Service API integration for
-                vault security.
+                Agentic control for Android devices. Features background task
+                scheduling and native device automation.
               </p>
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 text-zinc-400 border border-white/10 rounded text-xs font-bold tracking-widest">
-                <Cpu className="w-3 h-3" /> COMING SOON
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-linear-to-r from-[#10b981]/20 to-emerald-900/40 text-emerald-400 border border-[#10b981]/30 rounded text-xs font-bold tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <Smartphone className="w-3 h-3" /> COMING SOON
               </span>
             </div>
           </div>
