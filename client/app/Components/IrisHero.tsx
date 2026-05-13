@@ -126,7 +126,7 @@ export default function IrisHero({
                 iconRight={
                   <Download className="w-5 h-5 text-current group-hover:text-[#10b981]" />
                 }
-                className="bg-emerald-500/20 border border-emerald-500/30 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:bg-emerald-500/30"
+                className="bg-emerald-500/25 border border-emerald-500/30 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] hover:bg-emerald-500/30"
               />
             </Link>
 
