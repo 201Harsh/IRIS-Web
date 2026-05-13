@@ -51,6 +51,8 @@ import { TbBrandSocketIo } from "react-icons/tb";
 import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import Link from "next/link";
+import RippleGrid from "../constants/RippleGrid";
+import IrisHero from "../Components/IrisHero";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -285,100 +287,11 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-      <div
-        ref={heroTextRef}
-        className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
-      >
-        <div
-          className={`absolute inset-0 z-0 mix-blend-screen pointer-events-none hidden md:block transition-opacity duration-700 ease-in-out ${isHeroVisible ? "opacity-100" : "opacity-0"}`}
-          style={{ display: isHeroActive ? "block" : "none" }}
-        >
-          <Suspense fallback={<LoadingCore />}>
-            <LiquidEther
-              colors={["#064e3b", "#10b981", "#34d399"]}
-              mouseForce={50}
-              cursorSize={50}
-              isViscous={false}
-              viscous={0}
-              iterationsViscous={0}
-              iterationsPoisson={10}
-              BFECC={false}
-              resolution={0.28}
-              isBounce={true}
-              autoSpeed={0.5}
-              autoIntensity={0.25}
-              takeoverDuration={0.25}
-              autoResumeDelay={3000}
-              autoRampDuration={0.6}
-              className="md:block hidden"
-            />
-          </Suspense>
-        </div>
-
-        <div className="absolute inset-0 z-5 opacity-70 pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping absolute"></span>
-            <span className="w-2 h-2 rounded-full bg-[#10b981] relative"></span>
-            <span className="text-[10px] md:text-xs font-mono text-[#ffffff] tracking-[0.2em] uppercase font-bold">
-              Beta Release // Q1 {new Date().getFullYear()}
-            </span>
-          </div>
-          <div className="animatedLetters relative z-100 w-full flex justify-center flex-col items-center">
-            <h1
-              className="text-[30vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
-              style={{
-                filter:
-                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
-              }}
-            >
-              IRIS AI
-            </h1>
-          </div>
-
-          <p className="mt-6 max-w-2xl text-xs md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
-            Beyond a standard language model. A deep-system neural extension
-            engineered by{" "}
-            <span className="text-white font-bold">Vital Studio's</span> for
-            kernel-level OS automation and zero-trust execution.
-          </p>
-
-          <div className="mt-12 flex md:flex-row flex-col justify-center items-center gap-6 w-full sm:w-auto relative z-20">
-            <Link href="/download">
-              <MagneticButton
-                title="Download IRIS"
-                subtitle="Get the App"
-                iconLeft={<Command className="w-6 h-6" />}
-                iconRight={
-                  <Download className="w-5 h-5 text-current group-hover:text-[#10b981]" />
-                }
-                className="bg-emerald-500/20 border border-emerald-500/20 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)]"
-              />
-            </Link>
-
-            <MagneticButton
-              onClick={() => {
-                window.open("https://github.com/201Harsh/IRIS-AI", "_blank");
-              }}
-              title="Github Repo"
-              subtitle="Source Code"
-              iconLeft={<FileCode2 className="w-6 h-6 text-[#10b981]" />}
-              iconRight={
-                <ArrowRight className="w-5 h-5 text-current group-hover:text-[#10b981]" />
-              }
-              className="bg-transparent border border-white/20 text-white hover:bg-white/5 backdrop-blur-sm shadow-none"
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60 pointer-events-none">
-          <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
-            Scroll to Explore
-          </span>
-          <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
-        </div>
-      </div>
+      <IrisHero
+        heroTextRef={heroTextRef}
+        isHeroVisible={isHeroVisible}
+        isHeroActive={isHeroActive}
+      />
 
       <div
         ref={contentRef}
