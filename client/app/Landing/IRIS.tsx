@@ -49,6 +49,57 @@ import { ContainerScroll } from "../constants/ContainerScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const CodeBlock = ({ code }: { code: string }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="mt-8 flex items-center justify-center">
+      <div className="relative flex items-center justify-between w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-lg p-3 shadow-xl">
+        <code className="text-sm font-mono text-[#10b981]">{code}</code>
+        <button
+          onClick={handleCopy}
+          className="ml-4 p-2 rounded-md hover:bg-zinc-800 text-gray-400 hover:text-white transition-colors"
+          title="Copy to clipboard"
+        >
+          {copied ? (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#10b981"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          ) : (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
@@ -335,9 +386,7 @@ const IRIS = () => {
                     Terminal
                   </span>
                 </h1>
-                <p className="text-sm font-mono text-gray-500 mt-3">
-                  npm install -g iris-ai
-                </p>
+                <CodeBlock code="npm install -g iris-ai" />
               </>
             }
           >
