@@ -413,10 +413,10 @@ const IRIS = () => {
 
           <div className="text-center z-20 px-4 flex flex-col items-center">
             <h1
-              className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/assets/Text/2.jpg')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow-2xl"
+              className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/img/meet-iris-bg.png')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow-2xl"
               style={{
                 filter:
-                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+                  "drop-shadow(0px 0px 15px rgba(57, 255, 20, 1)) drop-shadow(0px 0px 50px rgba(57, 255, 20, 0.8))",
               }}
             >
               Meet IRIS AI
