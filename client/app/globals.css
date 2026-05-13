@@ -18,3 +18,143 @@ body {
     transform: translateX(100%);
   }
 }
+
+/* ── Waveform bars ── */
+@keyframes iris-bar {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.iris-wave-bar {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  border-radius: 2px;
+  background: #10b981;
+  transform-origin: bottom;
+  animation: iris-bar 1.2s ease-in-out infinite;
+}
+.iris-wave-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+.iris-wave-bar:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.iris-wave-bar:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.iris-wave-bar:nth-child(4) {
+  animation-delay: 0.36s;
+}
+.iris-wave-bar:nth-child(5) {
+  animation-delay: 0.48s;
+}
+.iris-wave-bar:nth-child(6) {
+  animation-delay: 0.24s;
+}
+.iris-wave-bar:nth-child(7) {
+  animation-delay: 0.12s;
+}
+
+/* ── Scroll indicator ── */
+@keyframes iris-scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+.iris-scroll-dot {
+  animation: iris-scroll-dot 1.8s ease-in-out infinite;
+}
+
+/* ── Floating chip pulse ── */
+@keyframes iris-chip-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px 2px rgba(16, 185, 129, 0.25);
+  }
+}
+.iris-chip-pulse {
+  animation: iris-chip-glow 3s ease-in-out infinite;
+}
+
+/* ── Badge ping ring ── */
+@keyframes iris-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  80%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.iris-ping {
+  animation: iris-ping 1.6s ease-out infinite;
+}
+
+/* ── Subtle hero text shimmer ── */
+@keyframes iris-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.iris-title-shimmer {
+  background: linear-gradient(
+    105deg,
+    #10b981 0%,
+    #34d399 25%,
+    #6ee7b7 40%,
+    #ffffff 50%,
+    #6ee7b7 60%,
+    #34d399 75%,
+    #10b981 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: iris-shimmer 6s linear infinite;
+}
+
+/* ── Ambient grid lines ── */
+.iris-grid-bg {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Horizontal rule glow ── */
+.iris-rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(16, 185, 129, 0.5) 30%,
+    rgba(52, 211, 153, 0.8) 50%,
+    rgba(16, 185, 129, 0.5) 70%,
+    transparent 100%
+  );
+  width: 280px;
+}

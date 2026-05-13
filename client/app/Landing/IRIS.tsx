@@ -3,10 +3,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, useState, useEffect } from "react";
 import Footer from "../Components/Footer";
-import LoadingCore from "../lib/LoadingCore";
-import MagneticButton from "../utils/MagneticButton";
 import {
   User,
   Mic,
@@ -23,10 +21,6 @@ import {
   Layers,
   Code2,
   Globe,
-  Command,
-  Download,
-  FileCode2,
-  ArrowRight,
 } from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
@@ -48,11 +42,63 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
-import LiquidEther from "../utils/LiquidEther";
 import StoryChapter, { StoryContent } from "../lib/StoryChapter";
-import Link from "next/link";
+import IrisHero from "../Components/UI/IrisHero";
+import { MacbookScroll } from "../constants/MacbookScroll";
+import { ContainerScroll } from "../constants/ContainerScroll";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const CodeBlock = ({ code }: { code: string }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="mt-8 flex items-center justify-center">
+      <div className="relative flex items-center justify-between w-full max-w-sm bg-zinc-900 border border-zinc-800 rounded-lg p-3 shadow-xl">
+        <code className="text-sm font-mono text-[#10b981]">{code}</code>
+        <button
+          onClick={handleCopy}
+          className="ml-4 p-2 rounded-md hover:bg-zinc-800 text-gray-400 hover:text-white transition-colors"
+          title="Copy to clipboard"
+        >
+          {copied ? (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#10b981"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          ) : (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const IRIS = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,7 +108,6 @@ const IRIS = () => {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isHeroActive, setIsHeroActive] = useState(true);
 
-  // Desktop smooth fade-out timer
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (isHeroVisible) {
@@ -285,115 +330,93 @@ const IRIS = () => {
   return (
     <div ref={containerRef} className="bg-black text-white relative">
       <Header />
-      <div
-        ref={heroTextRef}
-        className="hero-section sticky top-0 h-screen w-full flex flex-col justify-center items-center z-0 overflow-hidden bg-black"
-      >
-        <div
-          className={`absolute inset-0 z-0 mix-blend-screen pointer-events-none hidden md:block transition-opacity duration-700 ease-in-out ${isHeroVisible ? "opacity-100" : "opacity-0"}`}
-          style={{ display: isHeroActive ? "block" : "none" }}
-        >
-          <Suspense fallback={<LoadingCore />}>
-            <LiquidEther
-              colors={["#064e3b", "#10b981", "#34d399"]}
-              mouseForce={50}
-              cursorSize={50}
-              isViscous={false}
-              viscous={0}
-              iterationsViscous={0}
-              iterationsPoisson={10}
-              BFECC={false}
-              resolution={0.28}
-              isBounce={true}
-              autoSpeed={0.5}
-              autoIntensity={0.25}
-              takeoverDuration={0.25}
-              autoResumeDelay={3000}
-              autoRampDuration={0.6}
-              className="md:block hidden"
-            />
-          </Suspense>
-        </div>
-
-        <div className="absolute inset-0 z-5 opacity-70 pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-[#10b981]/30 bg-[#10b981]/10 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping absolute"></span>
-            <span className="w-2 h-2 rounded-full bg-[#10b981] relative"></span>
-            <span className="text-[10px] md:text-xs font-mono text-[#ffffff] tracking-[0.2em] uppercase font-bold">
-              Beta Release // Q1 {new Date().getFullYear()}
-            </span>
-          </div>
-          <div className="animatedLetters relative z-100 w-full flex justify-center flex-col items-center">
-            <h1
-              className="text-[30vw] md:text-[12vw] font-black tracking-tighter leading-none select-none bg-[url('/assets/Text/1.jpg')] bg-cover bg-center bg-clip-text text-transparent"
-              style={{
-                filter:
-                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
-              }}
-            >
-              IRIS AI
-            </h1>
-          </div>
-
-          <p className="mt-6 max-w-2xl text-xs md:text-xl text-gray-300 font-mono leading-relaxed drop-shadow-lg">
-            Beyond a standard language model. A deep-system neural extension
-            engineered by{" "}
-            <span className="text-white font-bold">Vital Studio's</span> for
-            kernel-level OS automation and zero-trust execution.
-          </p>
-
-          <div className="mt-12 flex md:flex-row flex-col justify-center items-center gap-6 w-full sm:w-auto relative z-20">
-            <Link href="/download">
-              <MagneticButton
-                title="Download IRIS"
-                subtitle="Get the App"
-                iconLeft={<Command className="w-6 h-6" />}
-                iconRight={
-                  <Download className="w-5 h-5 text-current group-hover:text-[#10b981]" />
-                }
-                className="bg-emerald-500/20 border border-emerald-500/20 text-white shadow-[0_0_30px_rgba(16,185,129,0.2)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)]"
-              />
-            </Link>
-
-            <MagneticButton
-              onClick={() => {
-                window.open("https://github.com/201Harsh/IRIS-AI", "_blank");
-              }}
-              title="Github Repo"
-              subtitle="Source Code"
-              iconLeft={<FileCode2 className="w-6 h-6 text-[#10b981]" />}
-              iconRight={
-                <ArrowRight className="w-5 h-5 text-current group-hover:text-[#10b981]" />
-              }
-              className="bg-transparent border border-white/20 text-white hover:bg-white/5 backdrop-blur-sm shadow-none"
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60 pointer-events-none">
-          <span className="text-[13px] font-mono uppercase tracking-[0.3em] text-[#10b981]">
-            Scroll to Explore
-          </span>
-          <div className="w-px h-16 bg-linear-to-b from-[#10b981] to-transparent animate-pulse" />
-        </div>
-      </div>
+      <IrisHero
+        heroTextRef={heroTextRef}
+        isHeroVisible={isHeroVisible}
+        isHeroActive={isHeroActive}
+      />
 
       <div
         ref={contentRef}
         className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
       >
+        <section className="min-h-screen bg-black flex justify-center items-start">
+          <MacbookScroll
+            title={
+              <div className="text-center z-20 px-4 flex flex-col items-center">
+                <h1
+                  className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/img/bright-neon-bg.png')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none"
+                  style={{
+                    filter:
+                      "drop-shadow(0px 0px 15px rgba(57, 255, 20, 1)) drop-shadow(0px 0px 50px rgba(57, 255, 20, 0.8))",
+                  }}
+                >
+                  Your AI. Your Rules.
+                </h1>
+                <h2
+                  className="text-2xl md:text-4xl lg:text-5xl text-gray-100 font-normal tracking-tight"
+                  style={{ textShadow: "0 0 10px rgba(0,0,0,0.8)" }}
+                >
+                  One Voice. Total Control Over Your Device.
+                </h2>
+              </div>
+            }
+            badge={
+              <a href="https://www.instagram.com/irisx.ai/">
+                <Image
+                  src="/img/logo.png"
+                  alt="Badge"
+                  width={100}
+                  height={100}
+                />
+              </a>
+            }
+            src={`/img/screen.png`}
+            showGradient={false}
+          />
+        </section>
+
+        <section className="min-h-screen bg-black relative z-20">
+          <ContainerScroll
+            titleComponent={
+              <>
+                <h1 className="text-4xl font-semibold text-black dark:text-white">
+                  Run IRIS straight from your <br />
+                  <span
+                    className="text-4xl md:text-[6rem] font-bold mt-1 leading-none bg-[url('/img/bright-neon-bg.png')] bg-cover bg-center bg-clip-text text-transparent inline-block pb-2"
+                    style={{
+                      filter:
+                        "drop-shadow(0px 0px 15px rgba(57, 255, 20, 1)) drop-shadow(0px 0px 50px rgba(57, 255, 20, 0.8))",
+                    }}
+                  >
+                    Terminal
+                  </span>
+                </h1>
+                <CodeBlock code="npm install -g iris-ai" />
+              </>
+            }
+          >
+            <img
+              src={`/img/cli.png`}
+              alt="hero"
+              height={720}
+              width={1400}
+              className="mx-auto rounded-2xl object-cover h-full `object-top-left"
+              draggable={false}
+            />
+          </ContainerScroll>
+        </section>
+
         <section className="min-h-screen bg-black flex flex-col items-center pt-32 relative overflow-hidden font-sans">
           <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#10b981]/15 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
           <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-200 h-100 bg-[#16a34a]/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
 
           <div className="text-center z-20 px-4 flex flex-col items-center">
             <h1
-              className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/assets/Text/2.jpg')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow-2xl"
+              className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-[-0.03em] bg-[url('/img/bright-neon-bg.png')] bg-cover bg-center bg-clip-text text-transparent mb-4 pb-2 select-none shadow"
               style={{
                 filter:
-                  "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.8)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
+                  "drop-shadow(0px 0px 15px rgba(57, 255, 20, 1)) drop-shadow(0px 0px 50px rgba(57, 255, 20, 0.8))",
               }}
             >
               Meet IRIS AI
@@ -409,7 +432,7 @@ const IRIS = () => {
               width={300}
               height={300}
               priority
-              className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+              className="w-40 h-40 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
               style={{
                 filter:
                   "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
@@ -424,7 +447,7 @@ const IRIS = () => {
               width={1400}
               height={900}
               priority
-              className="w-full h-full object-contain mask-image-b relative z-20 transition-transform duration-1000 ease-out"
+              className="w-[85%] h-[85%] object-contain mask-image-b relative z-20 transition-transform duration-1000 ease-out"
               style={{
                 filter:
                   "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
@@ -445,7 +468,7 @@ const IRIS = () => {
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
                 <span className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
-                  &lt;3s
+                  &lt;1.5s
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
                   Latency
@@ -454,7 +477,7 @@ const IRIS = () => {
 
               <div className="flex flex-col items-center justify-center w-28 h-28 sm:w-46 sm:h-46 rounded-3xl sm:rounded-4xl border border-[#10b981] bg-black/60 shadow-[0_0_20px_rgba(16,185,129,0.2)] backdrop-blur-md">
                 <span className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4ADE80] to-[#14532D]">
-                  1M+
+                  128K+
                 </span>
                 <span className="text-[#10b981] text-sm sm:text-xl font-medium mt-1">
                   Context Window
@@ -468,7 +491,7 @@ const IRIS = () => {
                   width={300}
                   height={300}
                   priority
-                  className="w-52 h-52 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+                  className="w-40 h-40 object-contain drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]"
                   style={{
                     filter:
                       "drop-shadow(0px 0px 15px rgba(16, 185, 129, 0.6)) drop-shadow(0px 0px 45px rgba(16, 185, 129, 0.4))",
