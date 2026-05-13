@@ -340,7 +340,7 @@ const IRIS = () => {
         ref={contentRef}
         className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
       >
-        <section className="min-h-screen bg-black flex justify-center items-start">
+        <section className="md:flex hidden min-h-screen bg-black justify-center items-start">
           <MacbookScroll
             title={
               <div className="text-center z-20 px-4 flex flex-col items-center">
@@ -376,7 +376,7 @@ const IRIS = () => {
           />
         </section>
 
-        <section className="min-h-screen bg-black relative z-20">
+        <section className="hidden md:block min-h-screen bg-black relative z-20">
           <ContainerScroll
             titleComponent={
               <>
