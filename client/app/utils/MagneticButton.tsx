@@ -69,7 +69,7 @@ export default function MagneticButton({
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.95 }}
-      className={`group relative flex items-center justify-between px-8 py-5 rounded-2xl font-bold text-lg overflow-hidden transition-shadow cursor-pointer w-full sm:w-auto min-w-[320px] z-50 bg-white/6 ${className}`}
+      className={`group relative flex items-center justify-between px-8 py-5 rounded-2xl font-bold text-lg overflow-hidden transition-shadow cursor-pointer w-full sm:w-auto min-w-[320px] z-50 ${className}`}
       {...(props as any)}
     >
       <span className="relative z-10 flex items-center gap-3">
