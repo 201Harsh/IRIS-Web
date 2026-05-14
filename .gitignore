@@ -153,13 +153,11 @@ vite.config.ts.timestamp-*
 /.next/
 /out/
 
-# production
 /build
 
 .DS_Store
 *.pem
 
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -168,9 +166,7 @@ yarn-error.log*
 .env*
 !.env.example
 
-# vercel
 .vercel
 
-# typescript
 *.tsbuildinfo
 next-env.d.ts
