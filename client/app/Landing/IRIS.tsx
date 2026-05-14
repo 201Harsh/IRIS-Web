@@ -364,7 +364,7 @@ const IRIS = () => {
             badge={
               <a href="https://www.instagram.com/irisx.ai/">
                 <Image
-                  src="/img/logo.png"
+                  src="/img/Logo.png"
                   alt="Badge"
                   width={100}
                   height={100}
