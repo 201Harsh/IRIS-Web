@@ -5,23 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../Components/Header";
 import { useRef, useState, useEffect } from "react";
 import Footer from "../Components/Footer";
-import {
-  User,
-  Mic,
-  Zap,
-  MousePointer2,
-  Workflow,
-  Brain,
-  HardDrive,
-  Database,
-  Keyboard,
-  Smartphone,
-  ScanFace,
-  Bell,
-  Layers,
-  Code2,
-  Globe,
-} from "lucide-react";
 import MagicBento from "../utils/MagicBento";
 import Image from "next/image";
 import LogoLoop from "../utils/LogoLoop";
