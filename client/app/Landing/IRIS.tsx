@@ -570,8 +570,6 @@ const IRIS = () => {
           </div>
         </section>
 
-        <StoryChapter content={storyData} />
-
         <Footer />
       </div>
     </div>
