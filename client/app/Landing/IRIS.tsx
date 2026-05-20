@@ -25,7 +25,6 @@ import { PiOpenAiLogo } from "react-icons/pi";
 import { RiGeminiFill } from "react-icons/ri";
 import { BsAnthropic } from "react-icons/bs";
 import { TbBrandSocketIo } from "react-icons/tb";
-import StoryChapter, { StoryContent } from "../lib/StoryChapter";
 import IrisHero from "../Components/UI/IrisHero";
 import { MacbookScroll } from "../constants/MacbookScroll";
 import { ContainerScroll } from "../constants/ContainerScroll";
