@@ -164,7 +164,7 @@ export default function Footer() {
                 Parent Command
               </p>
               <p className="text-white font-bold tracking-wider">
-                Vital Studio's
+                IRIS AI v1.2.2 - Stable Release
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function Footer() {
       </motion.div>
 
       <div className="w-full max-w-7xl mx-auto mt-20 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 relative z-10 font-mono">
-        <p>© {new Date().getFullYear()} Vital Studio's. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} IRIS AI. All rights reserved.</p>
         <p className="tracking-widest uppercase">
           Made with ❤️ by{" "}
           <a
