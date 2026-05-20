@@ -15,9 +15,9 @@ export default function SmoothScroll({
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 0.6,
+      wheelMultiplier: 0.5,
       touchMultiplier: 0.8,
-      lerp: 0.02,
+      lerp: 0.03,
     });
 
     function raf(time: number) {
