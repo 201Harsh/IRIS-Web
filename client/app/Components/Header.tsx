@@ -148,7 +148,7 @@ const Header = () => {
               </Link>
 
               <nav className="flex flex-col gap-10 text-sm font-bold uppercase tracking-[0.2em]">
-                {["About", "Features", "Pricing", "Guide"].map((item) => (
+                {["About", "Features", "how-to-install", "Guide"].map((item) => (
                   <Link
                     key={item}
                     href={`/${item.toLowerCase()}`}
