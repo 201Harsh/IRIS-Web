@@ -339,7 +339,7 @@ export default function NotFound() {
 
         <div className="flex items-center gap-2 mb-10 text-sm text-[#00ff41]/50">
           <WifiOff className="w-4 h-4" />
-          <span className="tracking-widest uppercase">Neural Pathway Disconnected</span>
+          <span className="tracking-widest uppercase">Pathway Not Found</span>
         </div>
 
         <motion.div
@@ -439,7 +439,7 @@ export default function NotFound() {
         className="absolute bottom-6 right-6 z-20 flex items-center gap-2 text-[10px] md:text-xs text-[#00ff41]/30 tracking-wider"
       >
         <Cpu className="w-4 h-4 animate-pulse" />
-        <span>QUANTUM_LINK: SEVERED</span>
+        <span>IRIS_LINK: SEVERED</span>
       </motion.div>
 
       <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none overflow-hidden opacity-[0.03]">
