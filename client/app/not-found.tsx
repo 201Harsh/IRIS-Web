@@ -333,7 +333,7 @@ export default function NotFound() {
 
         <div className="sub-status text-center mb-2">
           <p className="text-lg md:text-2xl font-bold tracking-[0.2em] uppercase text-[#00ff41]/90">
-            SECTOR_NOT_FOUND
+            PAGE_NOT_FOUND
           </p>
         </div>
 
@@ -361,7 +361,7 @@ export default function NotFound() {
 
           <div className="p-4 space-y-2 text-xs md:text-sm font-mono">
             {[
-              { label: "ERROR_CODE", value: "0x404_SECTOR_NULL", icon: AlertTriangle },
+              { label: "ERROR_CODE", value: "0x404_PAGE_NULL", icon: AlertTriangle },
               { label: "AI_CORE", value: "IRIS_OFFLINE", icon: Activity },
               { label: "REALITY_ANCHOR", value: "UNSTABLE", icon: Zap },
               { label: "TIMESTAMP", value: new Date().toISOString(), icon: RiSignalTowerLine },
@@ -411,7 +411,7 @@ export default function NotFound() {
           >
             <span className="relative z-10 flex items-center justify-center gap-3">
               <ArrowLeft className="w-5 h-5" />
-              Previous Sector
+              Previous PAGE
             </span>
           </motion.button>
         </div>
@@ -429,7 +429,7 @@ export default function NotFound() {
         className="absolute bottom-6 left-6 z-20 flex items-center gap-2 text-[10px] md:text-xs text-[#00ff41]/30 tracking-wider"
       >
         <RiFingerprintLine className="w-4 h-4" />
-        <span>IRIS_v4.2.0 // VOID_SECTOR_9</span>
+        <span>IRIS_v1.2.4 // VOID_PAGE_SEVERED</span>
       </motion.div>
 
       <motion.div
