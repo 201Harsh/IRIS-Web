@@ -393,7 +393,7 @@ export default function NotFound() {
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.94 }}
-              className="group relative w-full sm:w-auto px-10 py-4 bg-transparent border border-[#00ff41] text-[#00ff41] font-bold tracking-[0.2em] uppercase overflow-hidden rounded-sm transition-colors duration-300 hover:text-black"
+              className="cursor-pointer group relative w-full sm:w-auto px-10 py-4 bg-transparent border border-[#00ff41] text-[#00ff41] font-bold tracking-[0.2em] uppercase overflow-hidden rounded-sm transition-colors duration-300 hover:text-black"
             >
               <span className="relative z-10 flex items-center justify-center gap-3">
                 <Home className="w-5 h-5" />
@@ -407,7 +407,7 @@ export default function NotFound() {
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => window.history.back()}
-            className="iris-btn group relative w-full sm:w-auto px-10 py-4 bg-[#00ff41]/5 border border-[#00ff41]/40 text-[#00ff41] font-bold tracking-[0.2em] uppercase overflow-hidden rounded-sm hover:border-[#00ff41] hover:bg-[#00ff41]/10 transition-all duration-300"
+            className="cursor-pointer iris-btn group relative w-full sm:w-auto px-10 py-4 bg-[#00ff41]/5 border border-[#00ff41]/40 text-[#00ff41] font-bold tracking-[0.2em] uppercase overflow-hidden rounded-sm hover:border-[#00ff41] hover:bg-[#00ff41]/10 transition-all duration-300"
           >
             <span className="relative z-10 flex items-center justify-center gap-3">
               <ArrowLeft className="w-5 h-5" />
