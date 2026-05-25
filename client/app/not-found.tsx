@@ -332,13 +332,13 @@ export default function NotFound() {
           {/* Ghost layers for glitch depth */}
           <span
             aria-hidden
-            className="absolute top-0 left-0 w-full text-center text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-[#00ff41]/10 -translate-x-[3px] mix-blend-screen"
+            className="absolute top-0 left-0 w-full text-center text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-[#00ff41]/10 -translate-x-0.75 mix-blend-screen"
           >
             404
           </span>
           <span
             aria-hidden
-            className="absolute top-0 left-0 w-full text-center text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-[#00ff41]/10 translate-x-[3px] mix-blend-screen"
+            className="absolute top-0 left-0 w-full text-center text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-[#00ff41]/10 translate-x-0.75 mix-blend-screen"
           >
             404
           </span>
