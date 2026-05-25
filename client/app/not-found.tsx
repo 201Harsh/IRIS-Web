@@ -23,12 +23,6 @@ import {
 } from "react-icons/ri";
 import Link from "next/link";
 
-/* ───────────────────────────────────────────────
-   IRIS 404 — Neural Void
-   Next.js App Router | "use client"
-   GSAP + Framer Motion + Tailwind + Canvas
-   ─────────────────────────────────────────────── */
-
 export default function NotFound() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,7 +32,6 @@ export default function NotFound() {
   const [glitchText, setGlitchText] = useState("404");
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
-  // ── Mouse Parallax ──
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springCfg = { damping: 30, stiffness: 100 };
@@ -60,7 +53,6 @@ export default function NotFound() {
     [mouseX, mouseY]
   );
 
-  // ── Glitch Loop ──
   useEffect(() => {
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
     const original = "404";
