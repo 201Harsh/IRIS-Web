@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ShieldAlert, ArrowLeft, Activity } from "lucide-react";
+import { ShieldAlert, ArrowLeft, Activity } from "lucide-react";
 import Link from "next/link";
 
 export default function NotFound() {
