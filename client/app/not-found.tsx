@@ -239,22 +239,22 @@ export default function NotFound() {
       <canvas ref={canvasRef} className="iris-canvas absolute inset-0 z-0 opacity-0" />
 
       {/* ── Scanlines & Vignette ── */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(rgba(0,255,65,0.04)_1px,transparent_1px)] bg-[size:100%_3px]" />
-      <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.8)_100%)]" />
+      <div className="absolute inset-0 z-10 pointer-events-none bg-[linear-linear(rgba(0,255,65,0.04)_1px,transparent_1px)] bg-size-[100%_3px]" />
+      <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-linear(circle_at_center,transparent_40%,rgba(0,0,0,0.8)_100%)]" />
 
       {/* ── Dynamic Grid ── */}
       <div className="absolute inset-0 z-10 pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <div
             key={`h-${i}`}
-            className="grid-h absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00ff41] to-transparent"
+            className="grid-h absolute left-0 right-0 h-px bg-linear-to-r from-transparent via-[#00ff41] to-transparent"
             style={{ top: `${15 + i * 14}%` }}
           />
         ))}
         {[...Array(6)].map((_, i) => (
           <div
             key={`v-${i}`}
-            className="grid-v absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#00ff41] to-transparent"
+            className="grid-v absolute top-0 bottom-0 w-px bg-linear-to-b from-transparent via-[#00ff41] to-transparent"
             style={{ left: `${15 + i * 14}%` }}
           />
         ))}
@@ -324,7 +324,7 @@ export default function NotFound() {
         >
           <h1
             ref={titleRef}
-            className="relative text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-[#00ff41] via-[#00cc33] to-[#006622] drop-shadow-[0_0_25px_rgba(0,255,65,0.4)] select-none"
+            className="relative text-[7rem] sm:text-[9rem] md:text-[13rem] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-[#00ff41] via-[#00cc33] to-[#006622] drop-shadow-[0_0_25px_rgba(0,255,65,0.4)] select-none"
           >
             {glitchText}
           </h1>
@@ -405,7 +405,7 @@ export default function NotFound() {
           {/* Progress bar */}
           <div className="h-1 w-full bg-[#00ff41]/10">
             <motion.div
-              className="h-full bg-gradient-to-r from-[#00ff41] to-[#008f11]"
+              className="h-full bg-linear-to-r from-[#00ff41] to-[#008f11]"
               animate={{ width: ["0%", "100%", "0%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             />
