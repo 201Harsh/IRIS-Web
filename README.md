@@ -359,7 +359,7 @@ Keep your commit messages clean, descriptive, and easy to understand. Clearly st
 
 ```bash
 ✅ git commit -m "feat: integrated new desktop widget (#45)"
-✅ git commit -m "fix: resolved IPC memory leak in Oracle module (#12)"
+✅ git commit -m "fix: resolved IPC memory leak in Oracle module (#134)"
 ```
 
 ---
