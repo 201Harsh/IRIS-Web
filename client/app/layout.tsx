@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "IRIS AI",
     images: [
       {
-        url: "/banner.jpeg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "IRIS AI Neural Engine",
